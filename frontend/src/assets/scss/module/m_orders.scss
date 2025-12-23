@@ -1,0 +1,165 @@
+// 移动端订单列表样式
+// 变量和mixins已在 vite.config.js 中全局导入
+@import "../base/function";
+
+.orders-container {
+  background-color: $bg-color;
+  min-height: 100vh;
+  padding: pxToVw(20);
+
+  .tabs {
+    background: white;
+    border-radius: pxToVw(12);
+    padding: pxToVw(16);
+    margin-bottom: pxToVw(16);
+    display: flex;
+    overflow-x: auto;
+
+    .tab {
+      flex-shrink: 0;
+      padding: pxToVw(12) pxToVw(24);
+      font-size: pxToVw(28);
+      color: $text-light;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &.active {
+        color: $primary-color;
+        font-weight: bold;
+        border-bottom: pxToVw(4) solid $primary-color;
+      }
+    }
+  }
+
+  .order-list {
+    .order-item {
+      background: white;
+      border-radius: pxToVw(12);
+      margin-bottom: pxToVw(16);
+      overflow: hidden;
+
+      .order-header {
+        padding: pxToVw(24) pxToVw(32);
+        border-bottom: 1px solid $bg-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .order-no {
+          font-size: pxToVw(24);
+          color: $text-light;
+        }
+
+        .status {
+          font-size: pxToVw(26);
+          color: $primary-color;
+          font-weight: 500;
+        }
+      }
+
+      .order-products {
+        padding: pxToVw(24) pxToVw(32);
+
+        .product-item {
+          display: flex;
+          margin-bottom: pxToVw(16);
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          .image {
+            width: pxToVw(120);
+            height: pxToVw(120);
+            border-radius: pxToVw(8);
+            margin-right: pxToVw(20);
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+
+          .info {
+            flex: 1;
+
+            .name {
+              font-size: pxToVw(28);
+              color: $text-color;
+              margin-bottom: pxToVw(8);
+            }
+
+            .spec {
+              font-size: pxToVw(24);
+              color: $text-light;
+              margin-bottom: pxToVw(8);
+            }
+
+            .price-qty {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .price {
+                font-size: pxToVw(28);
+                color: $primary-color;
+                font-weight: bold;
+              }
+
+              .quantity {
+                font-size: pxToVw(24);
+                color: $text-light;
+              }
+            }
+          }
+        }
+      }
+
+      .order-footer {
+        padding: pxToVw(24) pxToVw(32);
+        border-top: 1px solid $bg-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .total {
+          font-size: pxToVw(24);
+          color: $text-light;
+
+          .amount {
+            font-size: pxToVw(32);
+            color: $text-color;
+            font-weight: bold;
+            margin-left: pxToVw(8);
+          }
+        }
+
+        .actions {
+          display: flex;
+          gap: pxToVw(12);
+
+          button {
+            padding: pxToVw(12) pxToVw(24);
+            border: 1px solid $border-color;
+            background: white;
+            border-radius: pxToVw(8);
+            font-size: pxToVw(24);
+            cursor: pointer;
+
+            &.primary {
+
+              background: unset;
+              color: white;
+
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

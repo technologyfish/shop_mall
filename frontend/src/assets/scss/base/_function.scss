@@ -1,0 +1,29 @@
+$designVwSize: 7.5;
+@function pxToVw($pxz) {
+  @if $pxz == -2 {
+    @return -1px;
+  } @else if $pxz == -1 {
+    @return -1px;
+  } @else if $pxz == 1 {
+    @return 1px;
+  } @else if $pxz == 2 {
+    @return 1px;
+  } @else {
+    @return $pxz / 100 + rem;
+  }
+}
+
+$designVwSizePc: 19.2;
+@function pxToVwPc($pxz) {
+  @if $pxz == -2 {
+    @return -1px;
+  } @else if $pxz == -1 {
+    @return -1px;
+  } @else if $pxz == 1 {
+    @return 1px;
+  } @else if $pxz == 2 {
+    @return 1px;
+  } @else {
+    @return $pxz / $designVwSizePc * 1vw;
+  }
+}

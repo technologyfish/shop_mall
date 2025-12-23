@@ -1,0 +1,70 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.register-page {
+  min-height: 100vh;
+  @include flex-center;
+  background: $bg-page;
+
+  @include mobile {
+    padding: pxToVw(30);
+  }
+
+  @include pc {
+    padding: 20px;
+  }
+
+  .register-card {
+    background: $bg-white;
+    border-radius: $border-radius-large;
+    box-shadow: $box-shadow-base;
+
+    @include mobile {
+      width: 100%;
+      max-width: pxToVw(700);
+      padding: pxToVw(40);
+    }
+
+    @include pc {
+      width: 450px;
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: $text-primary;
+
+      @include mobile {
+        margin-bottom: pxToVw(30);
+        font-size: pxToVw(36);
+      }
+
+      @include pc {
+        margin-bottom: 30px;
+        font-size: 24px;
+      }
+    }
+
+    .links {
+      text-align: center;
+
+      @include mobile {
+        margin-top: pxToVw(20);
+      }
+
+      @include pc {
+        margin-top: 20px;
+      }
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,15 @@
+-- 创建公告表
+CREATE TABLE IF NOT EXISTS `announcements` (
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `content` VARCHAR(500) NOT NULL COMMENT '公告内容',
+  `link` VARCHAR(255) NULL COMMENT '链接地址',
+  `sort` INT NOT NULL DEFAULT 0 COMMENT '排序',
+  `status` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '状态：0-禁用，1-启用',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX `idx_status` (`status`),
+  INDEX `idx_sort` (`sort`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='公告表';
+
+
+

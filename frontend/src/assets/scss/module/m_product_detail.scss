@@ -1,0 +1,123 @@
+// 移动端商品详情页样式
+@import "../base/function";
+
+.product-detail-page {
+  padding-top: pxToVw(20);
+  padding-bottom: pxToVw(120);
+  
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .breadcrumb {
+    display: none; // 移动端隐藏面包屑
+  }
+  
+  .product-detail-wrapper {
+    display: block;
+  }
+  
+  .product-gallery {
+    margin-bottom: pxToVw(32);
+    
+    .main-image {
+      height: pxToVw(600);
+      border-radius: 0;
+      
+      img {
+        border-radius: 0;
+        max-height: none;
+      }
+    }
+    
+    .thumbnail-list {
+      padding: pxToVw(20) pxToVw(32);
+      gap: pxToVw(16);
+      
+      .thumbnail {
+        width: pxToVw(120);
+        height: pxToVw(120);
+        border-radius: pxToVw(12);
+        border-width: pxToVw(3);
+      }
+    }
+  }
+  
+  .product-info-col {
+    padding: 0 pxToVw(32);
+    
+    .product-title {
+      font-size: pxToVw(48);
+      margin-bottom: pxToVw(24);
+    }
+    
+    .product-price {
+      font-size: pxToVw(44);
+      margin-bottom: pxToVw(32);
+    }
+    
+    .product-description {
+      font-size: pxToVw(30);
+      line-height: 1.7;
+      margin-bottom: pxToVw(40);
+    }
+    
+    .product-meta {
+      margin-bottom: pxToVw(40);
+      
+      .meta-item {
+        margin-bottom: pxToVw(20);
+        font-size: pxToVw(30);
+        
+        .label {
+          font-size: pxToVw(30);
+        }
+        
+        .value {
+          font-size: pxToVw(28);
+        }
+      }
+    }
+    
+    .purchase-section {
+      .quantity-wrapper {
+        margin-bottom: pxToVw(32);
+        
+        label {
+          font-size: pxToVw(30);
+          margin-right: pxToVw(20);
+        }
+        
+        :deep(.el-input-number) {
+          .el-input__inner {
+            font-size: pxToVw(32);
+            height: pxToVw(80);
+          }
+          
+          .el-input-number__decrease,
+          .el-input-number__increase {
+            width: pxToVw(80);
+            font-size: pxToVw(32);
+          }
+        }
+      }
+      
+      .purchase-actions {
+        display: block;
+        
+        .action-btn {
+          width: 100%;
+          padding: pxToVw(28) 0;
+          font-size: pxToVw(36);
+          border-radius: pxToVw(12);
+          margin-bottom: pxToVw(20);
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+// PC端Footer样式
+// 变量已在 vite.config.js 中全局导入
+
+.site-footer {
+  background: #2C2C2C;
+  color: #E5E5E5;
+  padding: 40px 0 40px;
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .footer-section {
+    .footer-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+    }
+    
+    .footer-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #B8B8B8;
+      margin-bottom: 24px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 12px;
+      
+      .social-link {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+        
+        &:hover {
+          background: var(--primary-color);
+          transform: translateY(-3px);
+        }
+      }
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 12px;
+        
+        a {
+          color: #B8B8B8;
+          text-decoration: none;
+          font-size: 14px;
+          transition: color 0.3s;
+          
+          &:hover {
+            color: white;
+          }
+        }
+      }
+    }
+    
+    .contact-info {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 14px;
+        color: #B8B8B8;
+        
+        i {
+          margin-top: 2px;
+          color: var(--primary-color);
+        }
+        
+        a {
+          color: #B8B8B8;
+          text-decoration: none;
+          transition: color 0.3s;
+          
+          &:hover {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+    //border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .copyright {
+      text-align: center;
+      font-size: 14px;
+      color: #B8B8B8;
+      margin: 0;
+    }
+  }
+}
+

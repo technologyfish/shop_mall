@@ -1,0 +1,190 @@
+[2025-12-19 03:15:04] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-19 07:00:53] production.ERROR: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shop_mall.off_codes' doesn't exist (SQL: select * from `off_codes` where `email` = eileen_pang@sinobasedm.com limit 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shop_mall.off_codes' doesn't exist (SQL: select * from `off_codes` where `email` = eileen_pang@sinobasedm.com limit 1) at D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php:712)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(672): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(359): Illuminate\\Database\\Connection->run()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2413): Illuminate\\Database\\Connection->select()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2402): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2936): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2401): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(625): Illuminate\\Database\\Query\\Builder->get()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(609): Illuminate\\Database\\Eloquent\\Builder->getModels()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Concerns\\BuildsQueries.php(294): Illuminate\\Database\\Eloquent\\Builder->get()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Api\\OffCodeController.php(26): Illuminate\\Database\\Eloquent\\Builder->first()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Api\\OffCodeController->collect()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(267): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(169): Laravel\\Lumen\\Application->handleFoundRoute()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#28 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#29 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#30 {main}
+
+[previous exception] [object] (PDOException(code: 42S02): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'shop_mall.off_codes' doesn't exist at D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php:368)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(368): PDO->prepare()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(705): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(672): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(359): Illuminate\\Database\\Connection->run()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2413): Illuminate\\Database\\Connection->select()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2402): Illuminate\\Database\\Query\\Builder->runSelect()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2936): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2401): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(625): Illuminate\\Database\\Query\\Builder->get()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(609): Illuminate\\Database\\Eloquent\\Builder->getModels()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Concerns\\BuildsQueries.php(294): Illuminate\\Database\\Eloquent\\Builder->get()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Api\\OffCodeController.php(26): Illuminate\\Database\\Eloquent\\Builder->first()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Api\\OffCodeController->collect()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(267): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(169): Laravel\\Lumen\\Application->handleFoundRoute()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#28 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#29 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#30 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#31 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#32 {main}
+"} 
+[2025-12-19 08:09:21] production.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'off_code' in 'where clause' (SQL: select * from `mail_transfer_submissions` where `email` = eileen_pang@sinobasedm.com and `off_code` is not null limit 1) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'off_code' in 'where clause' (SQL: select * from `mail_transfer_submissions` where `email` = eileen_pang@sinobasedm.com and `off_code` is not null limit 1) at D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php:712)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(672): Illuminate\\Database\\Connection->runQueryCallback()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(359): Illuminate\\Database\\Connection->run()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2413): Illuminate\\Database\\Connection->select()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2402): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2936): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2401): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(625): Illuminate\\Database\\Query\\Builder->get()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(609): Illuminate\\Database\\Eloquent\\Builder->getModels()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Concerns\\BuildsQueries.php(294): Illuminate\\Database\\Eloquent\\Builder->get()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Api\\OffCodeController.php(48): Illuminate\\Database\\Eloquent\\Builder->first()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Api\\OffCodeController->collect()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(267): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(169): Laravel\\Lumen\\Application->handleFoundRoute()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#28 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#29 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#30 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'off_code' in 'where clause' at D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php:368)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(368): PDO->prepare()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(705): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(672): Illuminate\\Database\\Connection->runQueryCallback()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Connection.php(359): Illuminate\\Database\\Connection->run()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2413): Illuminate\\Database\\Connection->select()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2402): Illuminate\\Database\\Query\\Builder->runSelect()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2936): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Query\\Builder.php(2401): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(625): Illuminate\\Database\\Query\\Builder->get()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Eloquent\\Builder.php(609): Illuminate\\Database\\Eloquent\\Builder->getModels()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\database\\Concerns\\BuildsQueries.php(294): Illuminate\\Database\\Eloquent\\Builder->get()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Api\\OffCodeController.php(48): Illuminate\\Database\\Eloquent\\Builder->first()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Api\\OffCodeController->collect()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(267): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(169): Laravel\\Lumen\\Application->handleFoundRoute()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#28 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#29 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#30 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#31 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#32 {main}
+"} 
+[2025-12-19 08:23:46] production.INFO: Off code used for registration {"user_id":8,"off_code":"OFF10762097"} 
+[2025-12-19 08:26:04] production.INFO: First order check {"user_id":8,"is_first_order":true,"first_order_discount":1} 
+[2025-12-19 08:26:04] production.INFO: First order discount applied {"user_id":8,"discount_amount":0.9,"discount_percentage":"15.00","total_amount":5.99} 
+[2025-12-19 08:26:04] production.INFO: First order discount used and disabled {"user_id":8,"order_id":57} 
+[2025-12-19 09:01:38] production.INFO: First order discount restored for cancelled order {"user_id":8,"order_id":57} 
+[2025-12-19 09:03:40] production.INFO: First order check {"user_id":8,"is_first_order":true,"first_order_discount":1} 
+[2025-12-19 09:03:40] production.INFO: First order discount applied {"user_id":8,"discount_amount":1.65,"discount_percentage":"15.00","total_amount":10.99} 
+[2025-12-19 09:03:40] production.INFO: First order discount used and disabled {"user_id":8,"order_id":58} 
+[2025-12-19 09:21:23] production.INFO: First order discount restored for cancelled order {"user_id":8,"order_id":58} 
+[2025-12-19 09:22:10] production.INFO: First order check {"user_id":8,"is_first_order":true,"first_order_discount":1} 
+[2025-12-19 09:22:10] production.INFO: First order discount applied {"user_id":8,"discount_amount":1.65,"discount_percentage":"15.00","total_amount":10.99} 
+[2025-12-19 09:22:10] production.INFO: First order discount used and disabled {"user_id":8,"order_id":59} 
+[2025-12-19 09:22:20] production.INFO: Payment create request {"data":{"order_no":"20251219092210443963","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":8} 
+[2025-12-19 09:22:21] production.INFO: Stripe session created {"session_id":"cs_test_b18Eaf88wO1u9vgynQZYiGLDHOZaLW8RL3JiJ34FDIobueUUlKjN9qC1f2","order_no":"20251219092210443963","amount":"21.34"} 
+[2025-12-19 09:24:56] production.INFO: First order discount restored for cancelled order {"user_id":8,"order_id":59} 
+[2025-12-19 09:26:27] production.INFO: First order check {"user_id":8,"is_first_order":true,"first_order_discount":1} 
+[2025-12-19 09:26:27] production.INFO: First order discount applied {"user_id":8,"discount_amount":1.65,"discount_percentage":"15.00","total_amount":10.99} 
+[2025-12-19 09:26:27] production.INFO: First order discount used and disabled {"user_id":8,"order_id":60} 
+[2025-12-19 09:37:40] production.INFO: First order discount restored for cancelled order {"user_id":8,"order_id":60} 
+[2025-12-19 09:38:25] production.INFO: First order check {"user_id":8,"is_first_order":true,"first_order_discount":1} 
+[2025-12-19 09:38:25] production.INFO: First order discount applied {"user_id":8,"discount_amount":1.65,"discount_percentage":"15.00","total_amount":10.99} 
+[2025-12-19 09:38:25] production.INFO: First order discount used and disabled {"user_id":8,"order_id":61} 
+[2025-12-19 09:38:29] production.INFO: Payment create request {"data":{"order_no":"20251219093825313585","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":8} 
+[2025-12-19 09:38:29] production.INFO: Stripe payment amount {"order_no":"20251219093825313585","pay_amount":"21.34","total_amount_cents":2134,"discount_amount":"1.65"} 
+[2025-12-19 09:38:30] production.INFO: Stripe session created {"session_id":"cs_test_a1cKkcn9lfrHraDSMyAdv1za34GufaT60R2JlBMQgIbe9oI90CPkqxjhq6","order_no":"20251219093825313585","amount":"21.34"} 
+[2025-12-19 09:39:39] production.INFO: Attempting to verify payment via session_id {"order_no":"20251219093825313585","session_id":"cs_test_a1cKkcn9lfrHraDSMyAdv1za34GufaT60R2JlBMQgIbe9oI90CPkqxjhq6"} 
+[2025-12-19 09:39:40] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_a1cKkcn9lfrHraDSMyAdv1za34GufaT60R2JlBMQgIbe9oI90CPkqxjhq6"} 
+[2025-12-19 09:39:40] production.INFO: Order updated {"order_no":"20251219093825313585"} 
+[2025-12-19 09:39:40] production.INFO: Payment updated {"order_no":"20251219093825313585"} 
+[2025-12-19 09:39:40] production.INFO: Product sales updated {"order_no":"20251219093825313585"} 
+[2025-12-19 09:39:40] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20251219093825313585","session_id":"cs_test_a1cKkcn9lfrHraDSMyAdv1za34GufaT60R2JlBMQgIbe9oI90CPkqxjhq6"} 
+[2025-12-19 10:19:46] production.INFO: Off code used for registration {"user_id":9,"off_code":"OFF10762097"} 
+[2025-12-19 10:19:46] production.INFO: Attempting to send welcome email {"user_id":9,"email":"eileen_pang@sinobasedm.com"} 
+[2025-12-19 10:19:46] production.WARNING: Welcome email task not found or disabled. Please create a welcome email task (type=1) in admin panel.  
+[2025-12-19 10:21:05] production.INFO: First order check {"user_id":9,"is_first_order":true,"first_order_discount":1} 
+[2025-12-19 10:21:05] production.INFO: First order discount applied {"user_id":9,"discount_amount":1.65,"discount_percentage":"15.00","total_amount":10.99} 
+[2025-12-19 10:21:05] production.INFO: First order discount used and disabled {"user_id":9,"order_id":62} 
+[2025-12-19 10:21:15] production.INFO: Payment create request {"data":{"order_no":"20251219102105931971","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":9} 
+[2025-12-19 10:21:15] production.INFO: Stripe payment amount {"order_no":"20251219102105931971","pay_amount":"21.34","total_amount_cents":2134,"discount_amount":"1.65"} 
+[2025-12-19 10:21:16] production.INFO: Stripe session created {"session_id":"cs_test_a1vWx6qkGfMMKsLkn8atOlE9zaYhQsokHaaFYiAsleFPQ4AI3KdIKHtPEd","order_no":"20251219102105931971","amount":"21.34"} 
+[2025-12-19 10:21:53] production.INFO: Attempting to verify payment via session_id {"order_no":"20251219102105931971","session_id":"cs_test_a1vWx6qkGfMMKsLkn8atOlE9zaYhQsokHaaFYiAsleFPQ4AI3KdIKHtPEd"} 
+[2025-12-19 10:21:54] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_a1vWx6qkGfMMKsLkn8atOlE9zaYhQsokHaaFYiAsleFPQ4AI3KdIKHtPEd"} 
+[2025-12-19 10:21:54] production.INFO: Order updated {"order_no":"20251219102105931971"} 
+[2025-12-19 10:21:54] production.INFO: Payment updated {"order_no":"20251219102105931971"} 
+[2025-12-19 10:21:54] production.INFO: Product sales updated {"order_no":"20251219102105931971"} 
+[2025-12-19 10:21:54] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20251219102105931971","session_id":"cs_test_a1vWx6qkGfMMKsLkn8atOlE9zaYhQsokHaaFYiAsleFPQ4AI3KdIKHtPEd"} 
+[2025-12-19 10:22:42] production.INFO: Verifying subscription session {"session_id":"cs_test_a1jF6kMmn1ZG6iHc5XMIAHh3RE69Inn6DIMaTJIZHWF5sDCmuAqIdn1dVu","mode":"subscription","payment_status":"paid","subscription":"sub_1Sg0pIAyKaftIpeU3G4sOSdp"} 
+[2025-12-19 10:22:43] production.INFO: Subscription order created {"order_id":63,"order_no":"SUB202512191022423693","subscription_id":18} 
+[2025-12-19 10:22:43] production.INFO: Subscription created via verification {"subscription_id":18,"user_id":9} 

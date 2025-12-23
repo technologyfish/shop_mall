@@ -1,0 +1,43 @@
+[2025-12-18 15:24:33] production.INFO: Verifying subscription session {"session_id":"cs_test_a1FWRSVKpZZpvsKqvHxJ17XT3SYWdsfFjSqWb0HxpiD9NV4gxvqoRbmCsF","mode":"subscription","payment_status":"paid","subscription":"sub_1Sfj3qAyKaftIpeUDBEIBtaI"} 
+[2025-12-18 15:24:33] production.INFO: Subscription order created {"order_id":53,"order_no":"SUB202512181524339813","subscription_id":15} 
+[2025-12-18 15:24:33] production.INFO: Subscription created via verification {"subscription_id":15,"user_id":1} 
+[2025-12-18 15:25:55] production.ERROR: Non-static method Stripe\Subscription::cancel() cannot be called statically {"exception":"[object] (Error(code: 0): Non-static method Stripe\\Subscription::cancel() cannot be called statically at D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Api\\SubscriptionController.php:363)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Api\\SubscriptionController->cancel()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(262): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\Authenticate.php(45): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\Authenticate->handle()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(261): Laravel\\Lumen\\Application->sendThroughPipeline()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(237): Laravel\\Lumen\\Application->handleFoundRoute()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(172): Laravel\\Lumen\\Application->handleDispatcherResponse()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#28 {main}
+"} 
+[2025-12-18 15:42:58] production.INFO: Stripe subscription cancelled immediately {"subscription_id":"15","stripe_subscription_id":"sub_1Sfj3qAyKaftIpeUDBEIBtaI","stripe_status":"canceled"} 
+[2025-12-18 15:46:24] production.INFO: Verifying subscription session {"session_id":"cs_test_a1U4V9Nfc6ZQHlrMv0GsdObqVLx43CKIS1ZUttXGCRaMCYFqBH2P744QnI","mode":"subscription","payment_status":"paid","subscription":"sub_1SfjOuAyKaftIpeUFmPrVN9D"} 
+[2025-12-18 15:46:24] production.INFO: Subscription order created {"order_id":54,"order_no":"SUB202512181546247218","subscription_id":16} 
+[2025-12-18 15:46:24] production.INFO: Subscription created via verification {"subscription_id":16,"user_id":1} 
+[2025-12-18 15:55:46] production.INFO: Stripe subscription cancelled immediately {"subscription_id":"16","stripe_subscription_id":"sub_1SfjOuAyKaftIpeUFmPrVN9D","stripe_status":"canceled"} 
+[2025-12-18 15:57:08] production.INFO: Verifying subscription session {"session_id":"cs_test_a1WXGYy3Qmc9YU3lDsFDlFRjh8YTQ6QVZNxtKtOUGjmyl1yakG6CLO2lJp","mode":"subscription","payment_status":"paid","subscription":"sub_1SfjZOAyKaftIpeUKHPWWkLx"} 
+[2025-12-18 15:57:09] production.INFO: Subscription order created {"order_id":55,"order_no":"SUB202512181557092615","subscription_id":17} 
+[2025-12-18 15:57:09] production.INFO: Subscription created via verification {"subscription_id":17,"user_id":1} 

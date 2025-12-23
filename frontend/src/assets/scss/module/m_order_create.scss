@@ -1,0 +1,110 @@
+// 移动端订单创建页面样式
+@import "../base/function";
+
+.order-create-page {
+  //padding: pxToVw(40) pxToVw(32) pxToVw(120);
+  
+  .page-title {
+    font-size: pxToVw(52);
+    margin-bottom: pxToVw(40);
+  }
+  
+  .order-content {
+    gap: pxToVw(32);
+  }
+  
+  .main-col {
+    width: 100%;
+  }
+  
+  .section-card {
+    padding: pxToVw(32);
+    border-radius: pxToVw(16);
+    margin-bottom: pxToVw(32);
+    
+    h2 {
+      font-size: pxToVw(36);
+      margin-bottom: pxToVw(28);
+    }
+  }
+  
+  .cart-item {
+    padding-bottom: pxToVw(24);
+    margin-bottom: pxToVw(24);
+    
+    .item-image {
+      width: pxToVw(160);
+      height: pxToVw(160);
+      border-radius: pxToVw(12);
+    }
+    
+    .item-info {
+      flex: 1;
+      
+      .item-name {
+        font-size: pxToVw(32);
+        margin-bottom: pxToVw(12);
+      }
+      
+      .item-meta {
+        font-size: pxToVw(26);
+      }
+      
+      .item-price {
+        font-size: pxToVw(36);
+      }
+    }
+  }
+  
+  .address-display {
+    padding: pxToVw(28);
+    border-radius: pxToVw(12);
+    
+    .name-row {
+      margin-bottom: pxToVw(16);
+      
+      .name {
+        font-size: pxToVw(32);
+      }
+      
+      .phone {
+        font-size: pxToVw(28);
+      }
+    }
+    
+    .email,
+    .detail,
+    .city-postal {
+      font-size: pxToVw(28);
+      line-height: 1.6;
+      margin-bottom: pxToVw(12);
+    }
+  }
+  
+  .summary-card {
+    padding: pxToVw(32);
+    border-radius: pxToVw(16);
+    
+    h2 {
+      font-size: pxToVw(36);
+      margin-bottom: pxToVw(28);
+    }
+    
+    .summary-row {
+      font-size: pxToVw(30);
+      margin-bottom: pxToVw(20);
+      
+      &.total {
+        font-size: pxToVw(36);
+        padding-top: pxToVw(24);
+      }
+    }
+  }
+  
+  .btn-submit {
+    width: 100%;
+    padding: pxToVw(28) 0;
+    font-size: pxToVw(36);
+    border-radius: pxToVw(12);
+  }
+}

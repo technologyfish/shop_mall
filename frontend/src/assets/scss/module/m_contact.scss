@@ -1,0 +1,86 @@
+// 移动端联系页面样式
+@import "../base/function";
+
+.contact-page {
+  .contact-header {
+    padding: pxToVw(60) pxToVw(32);
+    
+    .title {
+      font-size: pxToVw(56);
+    }
+    
+    .subtitle {
+      font-size: pxToVw(30);
+      margin-top: pxToVw(20);
+    }
+  }
+  
+  .contact-info-section {
+    padding: pxToVw(60) pxToVw(32);
+    
+    .info-cards {
+      grid-template-columns: 1fr;
+      gap: pxToVw(32);
+    }
+    
+    .info-card {
+      padding: pxToVw(50) pxToVw(40);
+      border-radius: pxToVw(20);
+      
+      .icon {
+        font-size: pxToVw(64);
+        margin-bottom: pxToVw(24);
+      }
+      
+      .title {
+        font-size: pxToVw(36);
+        margin-bottom: pxToVw(16);
+      }
+      
+      .content {
+        font-size: pxToVw(28);
+        line-height: 1.6;
+      }
+    }
+  }
+  
+  .form-section {
+    padding: pxToVw(10) pxToVw(32)  pxToVw(80) ;
+    
+    .section-title {
+      font-size: pxToVw(48);
+      margin-bottom: pxToVw(48);
+    }
+    
+    .contact-form {
+      .form-group {
+        display: flex;
+        
+        label {
+          font-size: pxToVw(28);
+          margin-bottom: pxToVw(16);
+        }
+        
+        input,
+        textarea {
+          font-size: pxToVw(30);
+          padding: pxToVw(24) pxToVw(28);
+          border-radius: pxToVw(12);
+          border-width: pxToVw(2);
+        }
+        
+        textarea {
+          min-height: pxToVw(300);
+        }
+      }
+    }
+    
+    .btn-submit {
+      padding: pxToVw(28) pxToVw(60);
+      font-size: pxToVw(32);
+      border-radius: pxToVw(50);
+      margin-top: pxToVw(40);
+      width: 100%;
+    }
+  }
+}

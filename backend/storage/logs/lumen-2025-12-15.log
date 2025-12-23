@@ -1,0 +1,40 @@
+[2025-12-15 02:07:10] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 07:29:52] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 13:47:31] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 13:47:40] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 13:58:27] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 14:04:04] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 14:04:27] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 14:05:00] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 14:14:29] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 14:15:05] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 15:17:12] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 15:19:38] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 15:19:53] production.INFO: Payment create request {"data":{"order_no":"20251215151938181041","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2025-12-15 15:19:54] production.INFO: Stripe session created {"session_id":"cs_test_a1UZ2wFo21v9URaAUZHAJXcG2zHv66Knj2WsYOFxknjl4owwIz4s22MovL","order_no":"20251215151938181041","amount":"5.99"} 
+[2025-12-15 15:20:27] production.INFO: Attempting to verify payment via session_id {"order_no":"20251215151938181041","session_id":"cs_test_a1UZ2wFo21v9URaAUZHAJXcG2zHv66Knj2WsYOFxknjl4owwIz4s22MovL"} 
+[2025-12-15 15:20:28] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_a1UZ2wFo21v9URaAUZHAJXcG2zHv66Knj2WsYOFxknjl4owwIz4s22MovL"} 
+[2025-12-15 15:20:28] production.INFO: Order updated {"order_no":"20251215151938181041"} 
+[2025-12-15 15:20:28] production.INFO: Payment updated {"order_no":"20251215151938181041"} 
+[2025-12-15 15:20:28] production.INFO: Product sales updated {"order_no":"20251215151938181041"} 
+[2025-12-15 15:20:28] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20251215151938181041","session_id":"cs_test_a1UZ2wFo21v9URaAUZHAJXcG2zHv66Knj2WsYOFxknjl4owwIz4s22MovL"} 
+[2025-12-15 16:00:50] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 16:07:28] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 16:42:26] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 16:43:12] production.INFO: Payment create request {"data":{"order_no":"20251215164226310970","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2025-12-15 16:43:13] production.INFO: Stripe session created {"session_id":"cs_test_a1atkmYatxyWOZWS2dmpIAcglFL8Oi5TxZkwXVn3idscYcbH5LRyr54s0N","order_no":"20251215164226310970","amount":"10.99"} 
+[2025-12-15 16:58:08] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 16:58:24] production.INFO: Payment create request {"data":{"order_no":"20251215165808203454","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2025-12-15 16:58:25] production.INFO: Stripe session created {"session_id":"cs_test_a11wnnh7396wZULciey4cGQ8gp5Pm5LvIW4GfYk5jvEw0f1QksXMPVgyrl","order_no":"20251215165808203454","amount":"15.99"} 
+[2025-12-15 17:13:05] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 17:17:00] production.INFO: Payment create request {"data":{"order_no":"20251215171305786061","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2025-12-15 17:17:02] production.INFO: Stripe session created {"session_id":"cs_test_a1mlC7FE8ERreVQ9pcVMDrrPMt3aoZj938wK2aTkqYJncH9qrzVFh0Ldt4","order_no":"20251215171305786061","amount":"10.50"} 
+[2025-12-15 17:33:13] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-15 17:33:17] production.INFO: Payment create request {"data":{"order_no":"20251215173313332389","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2025-12-15 17:33:19] production.INFO: Stripe session created {"session_id":"cs_test_b1hUdb9m4PLhxBtMXUuTN53n4yeLspegS4i0h0zh904Xmnh6TNqWs5fu7x","order_no":"20251215173313332389","amount":"10.50"} 
+[2025-12-15 17:34:03] production.INFO: Attempting to verify payment via session_id {"order_no":"20251215173313332389","session_id":"cs_test_b1hUdb9m4PLhxBtMXUuTN53n4yeLspegS4i0h0zh904Xmnh6TNqWs5fu7x"} 
+[2025-12-15 17:34:04] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_b1hUdb9m4PLhxBtMXUuTN53n4yeLspegS4i0h0zh904Xmnh6TNqWs5fu7x"} 
+[2025-12-15 17:34:04] production.INFO: Order updated {"order_no":"20251215173313332389"} 
+[2025-12-15 17:34:04] production.INFO: Payment updated {"order_no":"20251215173313332389"} 
+[2025-12-15 17:34:04] production.INFO: Product sales updated {"order_no":"20251215173313332389"} 
+[2025-12-15 17:34:04] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20251215173313332389","session_id":"cs_test_b1hUdb9m4PLhxBtMXUuTN53n4yeLspegS4i0h0zh904Xmnh6TNqWs5fu7x"} 

@@ -1,0 +1,1 @@
+import{H as t}from"./index-dc0220d7.js";function i(){return t({url:"/api/recipe-categories",method:"get"})}function o(e){return t({url:"/api/recipes",method:"get",params:e})}function p(e){return t({url:`/api/recipes/${e}`,method:"get"})}export{i as a,p as b,o as g};

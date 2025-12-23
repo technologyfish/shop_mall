@@ -1,0 +1,225 @@
+@import '../base/variables';
+@import '../base/mixins';
+
+.home-page {
+  .banner {
+    background: $primary-color;
+    color: #fff;
+    text-align: center;
+    border-radius: $border-radius-large;
+
+    @include mobile {
+      padding: pxToVw(80) pxToVw(20);
+      margin-bottom: pxToVw(40);
+    }
+
+    @include pc {
+      padding: 80px 20px;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      @include mobile {
+        font-size: pxToVw(48);
+        margin-bottom: pxToVw(20);
+      }
+
+      @include pc {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+    }
+
+    p {
+      @include mobile {
+        font-size: pxToVw(20);
+      }
+
+      @include pc {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .categories {
+    @include mobile {
+      margin-bottom: pxToVw(40);
+    }
+
+    @include pc {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      @include mobile {
+        margin-bottom: pxToVw(20);
+        font-size: pxToVw(32);
+      }
+
+      @include pc {
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+    }
+
+    .category-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+      @include mobile {
+        gap: pxToVw(15);
+      }
+
+      @include pc {
+        gap: 15px;
+      }
+
+      .category-item {
+        background: $bg-white;
+        border-radius: $border-radius-large;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        @include mobile {
+          padding: pxToVw(20);
+        }
+
+        @include pc {
+          padding: 20px;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: $box-shadow-base;
+        }
+
+        .el-icon {
+          color: $primary-color;
+
+          @include mobile {
+            font-size: pxToVw(32);
+            margin-bottom: pxToVw(10);
+          }
+
+          @include pc {
+            font-size: 32px;
+            margin-bottom: 10px;
+          }
+        }
+
+        span {
+          display: block;
+
+          @include mobile {
+            font-size: pxToVw(16);
+          }
+
+          @include pc {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .products {
+    h2 {
+      @include mobile {
+        margin-bottom: pxToVw(20);
+        font-size: pxToVw(32);
+      }
+
+      @include pc {
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+      @include mobile {
+        grid-template-columns: repeat(2, 1fr);
+        gap: pxToVw(15);
+      }
+
+      @include pc {
+        gap: 20px;
+      }
+
+      .product-card {
+        background: $bg-white;
+        border-radius: $border-radius-large;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+          width: 100%;
+          overflow: hidden;
+
+          @include mobile {
+            height: pxToVw(200);
+          }
+
+          @include pc {
+            height: 200px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .product-info {
+          @include mobile {
+            padding: pxToVw(15);
+          }
+
+          @include pc {
+            padding: 15px;
+          }
+
+          h3 {
+            @include text-ellipsis;
+
+            @include mobile {
+              font-size: pxToVw(16);
+              margin-bottom: pxToVw(10);
+            }
+
+            @include pc {
+              font-size: 16px;
+              margin-bottom: 10px;
+            }
+          }
+
+          .price {
+            color: $danger-color;
+            font-weight: bold;
+
+            @include mobile {
+              font-size: pxToVw(20);
+              margin-bottom: pxToVw(10);
+            }
+
+            @include pc {
+              font-size: 20px;
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

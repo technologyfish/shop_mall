@@ -1,0 +1,1 @@
+import{H as e}from"./index-dc0220d7.js";function o(r){return e({url:"/api/orders",method:"get",params:r})}function n(r){return e({url:`/api/orders/${r}`,method:"get"})}function u(r){return e({url:"/api/orders",method:"post",data:r})}function a(r){return e({url:`/api/orders/${r}/cancel`,method:"put"})}export{o as a,a as b,u as c,n as g};

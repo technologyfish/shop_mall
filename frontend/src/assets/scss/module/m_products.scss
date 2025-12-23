@@ -1,0 +1,116 @@
+// 移动端商品列表样式
+// 变量已在 vite.config.js 中全局导入
+@import "../base/function";
+.container{
+  width: 100% !important;
+}
+.products-page {
+  min-height: 100vh;
+  padding-bottom: pxToVw(80);
+  
+  .page-header {
+    padding: pxToVw(60) pxToVw(32);
+    text-align: center;
+    
+    h1 {
+      font-size: pxToVw(56);
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+  
+  .products-container {
+    padding: 0 pxToVw(32);
+  }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr; // 移动端单列显示
+    gap: pxToVw(40);
+  }
+  
+  .product-card {
+    border-radius: pxToVw(20);
+    overflow: hidden;
+    box-shadow: 0 pxToVw(8) pxToVw(24) rgba(0,0,0,0.1);
+    
+    .card-top {
+      height: pxToVw(500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: pxToVw(32);
+      
+      .product-image {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: pxToVw(12);
+        }
+      }
+    }
+    
+    .card-bottom {
+      padding: pxToVw(40);
+      
+      h3 {
+        font-size: pxToVw(36);
+        margin-bottom: pxToVw(16);
+        line-height: 1.4;
+      }
+      
+      .price {
+        font-size: pxToVw(40);
+        font-weight: bold;
+        margin: pxToVw(16) 0;
+        
+        .period {
+          font-size: pxToVw(28);
+          font-weight: normal;
+        }
+      }
+      
+      .btn-add-cart {
+        width: 100%;
+        padding: pxToVw(24);
+        font-size: pxToVw(32);
+        border-radius: pxToVw(12);
+      }
+    }
+  }
+  
+  .pagination {
+    margin-top: pxToVw(80);
+    padding: 0 pxToVw(32);
+    
+    :deep(.my-pagination) {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: pxToVw(16);
+      
+      .el-pager {
+        li {
+          min-width: pxToVw(60);
+          height: pxToVw(60);
+          line-height: pxToVw(60);
+          font-size: pxToVw(28);
+        }
+      }
+      
+      .btn-prev,
+      .btn-next {
+        min-width: pxToVw(60);
+        height: pxToVw(60);
+        font-size: pxToVw(28);
+      }
+    }
+  }
+}

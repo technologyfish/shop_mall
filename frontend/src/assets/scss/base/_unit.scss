@@ -1,0 +1,81 @@
+@charset "UTF-8";
+// 循环生成0 ~ 50的padding margin
+$sname:(padding:p, margin:m);
+$cname:(t:top,b:bottom,l:left,r:right);
+$num: 20;
+@each $n,$m in $sname {
+  @each $key, $value in $cname {
+    @for $i from 0 through $num {
+      .u-#{$m}#{$key}#{$i}{
+        #{$n}-#{$value}:$i + px !important;
+      }
+    }
+  }
+}
+
+// 生成大于50的margin
+$arr_mt:55 60;
+@for $i from 1 through length($arr_mt) {
+  .u-mt#{nth($arr_mt,$i)}{
+    margin-top: nth($arr_mt,$i) + px !important;
+  }
+}
+$arr_mr:55 60;
+@for $i from 1 through length($arr_mr) {
+  .u-mr#{nth($arr_mr,$i)}{
+    margin-right: nth($arr_mr,$i) + px !important;
+  }
+}
+$arr_mb:55 60;
+@for $i from 1 through length($arr_mb) {
+  .u-mb#{nth($arr_mb,$i)}{
+    margin-bottom: nth($arr_mb,$i) + px !important;
+  }
+}
+$arr_ml:55 60;
+@for $i from 1 through length($arr_ml) {
+  .u-ml#{nth($arr_ml,$i)}{
+    margin-left: nth($arr_ml,$i) + px !important;
+  }
+}
+
+// 生成大于50的padding
+$arr_pt:55 60;
+@for $i from 1 through length($arr_pt){
+  .u-pt#{nth($arr_pt,$i)}{
+    padding-top: nth($arr_pt,$i) + px !important;
+  }
+}
+$arr_pr:55 60;
+@for $i from 1 through length($arr_pr){
+  .u-pr#{nth($arr_pr,$i)}{
+    padding-right: nth($arr_pr,$i) + px !important;
+  }
+}
+$arr_pb:55 60;
+@for $i from 1 through length($arr_pb){
+  .u-pb#{nth($arr_pb,$i)}{
+    padding-bottom: nth($arr_pb,$i) + px !important;
+  }
+}
+$arr_pl:55 60;
+@for $i from 1 through length($arr_pl){
+  .u-pl#{nth($arr_pl,$i)}{
+    padding-left: nth($arr_pl,$i) + px !important;
+  }
+}
+
+
+$arr_width:55 60;
+@for $i from 1 through length($arr_width) {
+  .u-w#{nth($arr_width,$i)}{
+    width: nth($arr_width,$i) + px !important;
+  }
+}
+
+$arr_height:55 60;
+@for $i from 1 through length($arr_height) {
+  .u-h#{nth($arr_height,$i)}{
+    height: nth($arr_height,$i) + px !important;
+  }
+}

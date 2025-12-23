@@ -1,0 +1,1 @@
+import{H as e}from"./index-dc0220d7.js";function n(t){return e({url:"/api/payments/create",method:"post",data:t})}function s(t,a={}){return e({url:`/api/payments/${t}/status`,method:"get",params:a})}export{n as c,s as g};

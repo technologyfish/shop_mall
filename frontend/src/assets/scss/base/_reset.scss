@@ -1,0 +1,24 @@
+h1,h2,h3,h4,h5,h6{
+  color: $fon01;
+}
+
+a{
+  &:hover{
+    color: #000000;
+  }
+  &.disabled{
+    &:hover{
+      cursor: not-allowed !important;
+      color:$disabled_color !important;
+    }
+  }
+}
+
+.disabled{
+  cursor: not-allowed !important;
+  color:$disabled_color !important;
+  a{
+    cursor: not-allowed !important;
+    color:$disabled_color !important;
+  }
+}

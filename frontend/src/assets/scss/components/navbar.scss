@@ -1,0 +1,228 @@
+// PC端导航栏样式
+// 变量已在 vite.config.js 中全局导入
+
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.announcement-bar {
+  background: #000000;
+  color: var(--secondary-color);
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  
+  .announcement-scroll {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .announcement-track {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    white-space: nowrap;
+    animation: scrollLeft 30s linear infinite;
+    
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  
+  .announcement-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+  
+  .announcement-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: opacity 0.3s;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .separator {
+    margin-left: 20px;
+    color: var(--secondary-color);
+    font-weight: bold;
+  }
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.main-nav {
+  background: var(--primary-color);
+  
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+  
+  .nav-overlay {
+    display: none;
+  }
+  
+  .nav-menu {
+    display: flex;
+    gap: 40px;
+    
+    .mobile-close-btn {
+      display: none;
+    }
+    
+    .nav-link {
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s;
+      position: relative;
+
+      &.router-link-active {
+        color: var(--secondary-color);
+        
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: var(--secondary-color);
+        }
+      }
+    }
+  }
+  
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    
+    .icon-btn {
+      position: relative;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      
+      .cart-icon {
+        font-size: 24px;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      
+      .avatar {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    
+    .user-menu {
+      position: relative;
+      
+      .dropdown {
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        min-width: 180px;
+        padding: 8px 0;
+        
+        .dropdown-item {
+          display: block;
+          padding: 12px 20px;
+          color: $text-color;
+          text-decoration: none;
+          font-size: 14px;
+          transition: background 0.3s;
+          
+          &:hover {
+            background: $bg-color;
+          }
+        }
+      }
+    }
+    
+    .btn-primary {
+      padding: 10px 24px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      
+      &:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+}
+

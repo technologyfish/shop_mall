@@ -1,0 +1,1 @@
+import{c as o,d as s,e as r,f as e,t as a}from"./index-dc0220d7.js";const _={class:"site-footer"},c={class:"footer-bottom"},l={class:"copyright"},u={__name:"Footer",setup(n){const t=o(()=>new Date().getFullYear());return(i,p)=>(s(),r("footer",_,[e("div",c,[e("p",l," © "+a(t.value)+" The Chilli Trail. All rights reserved. ",1)])]))}};export{u as _};

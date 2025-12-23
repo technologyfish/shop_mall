@@ -1,0 +1,64 @@
+// 移动端Footer样式
+// 变量已在 vite.config.js 中全局导入
+@import "../base/function";
+
+.site-footer {
+  padding: pxToVw(80) 0 pxToVw(40);
+  //margin-top: pxToVw(80);
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: pxToVw(60);
+    padding: 0 pxToVw(32);
+    margin-bottom: pxToVw(60);
+  }
+  
+  .footer-section {
+    .footer-logo {
+      font-size: pxToVw(40);
+      margin-bottom: pxToVw(24);
+    }
+    
+    .footer-title {
+      font-size: pxToVw(32);
+      margin-bottom: pxToVw(32);
+    }
+    
+    .footer-desc {
+      font-size: pxToVw(26);
+      margin-bottom: pxToVw(32);
+    }
+    
+    .social-links {
+      gap: pxToVw(20);
+      
+      .social-link {
+        width: pxToVw(80);
+        height: pxToVw(80);
+      }
+    }
+    
+    .footer-links li {
+      margin-bottom: pxToVw(24);
+      
+      a {
+        font-size: pxToVw(28);
+      }
+    }
+    
+    .contact-info li {
+      gap: pxToVw(20);
+      margin-bottom: pxToVw(24);
+      font-size: pxToVw(26);
+    }
+  }
+  
+  .footer-bottom {
+    padding: pxToVw(0) pxToVw(32) 0;
+    
+    .copyright {
+      font-size: pxToVw(24);
+    }
+  }
+}
+

@@ -1,0 +1,102 @@
+/* 用户前台主题定制 - 只应用于用户端页面 */
+
+// 用户前台使用红色主题
+.user-layout,
+.user-center-layout,
+.mobile-layout {
+  // Element Plus CSS变量覆盖
+  --el-color-primary: #B8162A;
+  --el-color-primary-light-3: #D8465A;
+  --el-color-primary-light-5: #E66B7A;
+  --el-color-primary-light-7: #F29099;
+  --el-color-primary-light-8: #F8B5B9;
+  --el-color-primary-light-9: #F8D7DA;
+  --el-color-primary-dark-2: #930F22;
+  
+  --el-color-success: #67c23a;
+  --el-color-warning: #FDD972;
+  --el-color-danger: #B8162A;
+  --el-color-info: #909399;
+  
+  // 按钮悬停和激活状态
+  --el-button-hover-bg-color: #8B1220;
+  --el-button-active-bg-color: #6E0E19;
+  
+  // 链接颜色
+  --el-link-color: #B8162A;
+  --el-link-hover-color: #8B1220;
+  
+  // 自定义Element Plus组件样式
+  .el-button--primary {
+    //background-color: var(--primary-color);
+    //border-color: var(--primary-color);
+    
+
+  }
+
+  .el-checkbox__input.is-checked .el-checkbox__inner {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  .el-radio__input.is-checked .el-radio__inner {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  .el-switch.is-checked .el-switch__core {
+    background-color: var(--primary-color);
+  }
+
+  .el-slider__button {
+    border-color: var(--primary-color);
+  }
+
+  .el-slider__bar {
+    background-color: var(--primary-color);
+  }
+
+  .el-pagination.is-background .el-pager li:not(.is-disabled).is-active {
+    background-color: var(--primary-color);
+  }
+
+  .el-link--primary {
+    color: var(--primary-color);
+    
+    &:hover {
+      color: var(--primary-dark);
+    }
+  }
+
+  .el-tag--primary {
+    //background-color: var(--primary-lighter);
+    //border-color: var(--primary-light);
+    color: var(--primary-color);
+  }
+
+  .el-message-box__headerbtn:hover .el-message-box__close {
+    color: var(--primary-color);
+  }
+
+  .el-tabs__item.is-active {
+    color: var(--primary-color);
+  }
+
+  .el-tabs__active-bar {
+    background-color: var(--primary-color);
+  }
+
+  .el-steps .el-step__head.is-process {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  .el-step.is-process .el-step__title {
+    color: var(--primary-color);
+  }
+}
+
+
+
+
+

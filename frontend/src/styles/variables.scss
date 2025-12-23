@@ -1,0 +1,77 @@
+// ==================== CSS变量系统（方便JS访问和主题切换） ====================
+:root {
+  // 主题色
+  --primary-color: #B8162A;      // 胭脂红
+  --primary-light: #D8465A;
+  --primary-lighter: #7B181B;
+  --primary-dark: #8B1220;
+  --primary-black: #000000;
+  
+  // 辅助色
+  --secondary-color: #FDD972;    // 流金黄
+  --accent-color: #0F4738;       // 翠微绿
+  
+  // 功能色
+  --success-color: #67c23a;
+  --warning-color: #FDD972;
+  --danger-color: #B8162A;
+  --info-color: #909399;
+  
+  // 文字颜色
+  --text-color: #333333;
+  --text-light: #666666;
+  --text-lighter: #999999;
+  --text-lightest: #cccccc;
+  --text-white: #ffffff;
+  --text-white: #FFFFFF;
+  
+  // 背景色
+  --bg-color: #FAF8F5;
+  --bg-white: #ffffff;
+  --bg-page: #f5f7fa;
+  --bg-gray-light: #fafafa;
+  --bg-gray: #f0f2f5;
+  
+  // 特殊颜色
+  --primary-black: #000000;
+
+  
+  // 边框色
+  --border-color: #E5E5E5;
+  --border-light: #e4e7ed;
+  --border-lighter: #ebeef5;
+  
+  // 阴影
+  --box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  --box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+  
+  // 圆角
+  --border-radius-base: 4px;
+  --border-radius-small: 2px;
+  --border-radius-large: 8px;
+  --border-radius-round: 20px;
+  
+  // 间距
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-base: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  
+  // 过渡动画
+  --transition-base: all 0.3s ease;
+  --transition-fast: all 0.2s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+// 暗色主题（可选）
+[data-theme="dark"] {
+  --primary-color: #D8465A;
+  --bg-color: #1a1a1a;
+  --bg-white: #2a2a2a;
+  --text-color: #e0e0e0;
+  --border-color: #404040;
+}
+

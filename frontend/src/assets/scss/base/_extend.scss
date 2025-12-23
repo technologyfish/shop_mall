@@ -1,0 +1,52 @@
+%clearfix {
+  &:after {
+    width: 100%;
+    height: 0;
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+%disflex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: -ms-flexbox;
+  -ms-flex-pack: center;
+}
+
+%disflexnotav{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+%nowrap{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+%auto{
+  width: 100%;height: auto;
+  @extend %clearfix;
+}
+
+%img{
+  img{
+    width: 100%;height: 100%;display: block;
+  }
+}
+
+%imgauto{
+  img{
+    width: 100%;height: auto;display: block;
+  }
+}
+
+%imgcover{
+  img{
+    width: 100%;height: 100%;display: block; object-fit: cover;
+  }
+}

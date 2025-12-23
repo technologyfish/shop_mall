@@ -1,0 +1,135 @@
+// 移动端商品详情样式
+// 变量和mixins已在 vite.config.js 中全局导入
+@import "../base/function";
+
+.product-detail {
+  background-color: $bg-color;
+  min-height: 100vh;
+  padding-bottom: pxToVw(120);
+
+  .product-images {
+    width: 100%;
+    height: pxToVw(750);
+    background: white;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .product-info {
+    background: white;
+    padding: pxToVw(32);
+    margin-bottom: pxToVw(16);
+
+    .price {
+      font-size: pxToVw(48);
+      color: $primary-color;
+      font-weight: bold;
+      margin-bottom: pxToVw(16);
+
+      .unit {
+        font-size: pxToVw(32);
+      }
+    }
+
+    .name {
+      font-size: pxToVw(32);
+      color: $text-color;
+      font-weight: 500;
+      margin-bottom: pxToVw(12);
+    }
+
+    .description {
+      font-size: pxToVw(24);
+      color: $text-light;
+      line-height: 1.6;
+    }
+  }
+
+  .product-specs {
+    background: white;
+    padding: pxToVw(32);
+    margin-bottom: pxToVw(16);
+
+    .spec-title {
+      font-size: pxToVw(28);
+      color: $text-color;
+      font-weight: 500;
+      margin-bottom: pxToVw(24);
+    }
+
+    .spec-item {
+      margin-bottom: pxToVw(24);
+
+      .label {
+        font-size: pxToVw(26);
+        color: $text-light;
+        margin-bottom: pxToVw(12);
+      }
+
+      .options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: pxToVw(16);
+
+        .option {
+          padding: pxToVw(12) pxToVw(24);
+          border: 1px solid $border-color;
+          border-radius: pxToVw(8);
+          font-size: pxToVw(24);
+          cursor: pointer;
+          transition: all 0.3s;
+
+          &.active {
+            border-color: $primary-color;
+            color: $primary-color;
+            background: rgba($primary-color, 0.05);
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: pxToVw(100);
+    background: white;
+    box-shadow: 0 pxToVw(-2) pxToVw(8) rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    padding: 0 pxToVw(32);
+    z-index: 100;
+
+    .cart-btn {
+      width: pxToVw(200);
+      height: pxToVw(72);
+      border: 1px solid $primary-color;
+      color: $primary-color;
+      background: white;
+      border-radius: pxToVw(36);
+      font-size: pxToVw(28);
+      margin-right: pxToVw(16);
+      cursor: pointer;
+    }
+
+    .buy-btn {
+      flex: 1;
+      height: pxToVw(72);
+      background: $primary-color;
+      color: white;
+      border: none;
+      border-radius: pxToVw(36);
+      font-size: pxToVw(28);
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+
+

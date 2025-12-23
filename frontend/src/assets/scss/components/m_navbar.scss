@@ -1,0 +1,184 @@
+// 移动端导航栏样式
+// 变量已在 vite.config.js 中全局导入
+@import "../base/function";
+
+.main-nav {
+  .nav-container {
+    height: pxToVw(120);
+    padding: 0 pxToVw(32);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; // 内容靠右对齐
+  }
+  
+  .logo {
+    img {
+      height: pxToVw(80);
+    }
+  }
+  
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 998;
+    
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    background: #000;
+    flex-direction: column;
+    gap: 0;
+    padding: pxToVw(130) pxToVw(60);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: 999;
+    
+    &.active {
+      transform: translateX(0);
+    }
+    
+    .mobile-close-btn {
+      display: block;
+      position: absolute;
+      top: pxToVw(40);
+      left: pxToVw(40);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      
+      .close-icon {
+        display: block;
+        width: pxToVw(60);
+        height: pxToVw(60);
+        font-size: pxToVw(64);
+        color: white;
+        font-weight: 300;
+        line-height: pxToVw(80);
+        text-align: center;
+      }
+    }
+    
+    .nav-link {
+      padding: pxToVw(40) 0;
+      font-size: pxToVw(48);
+      font-weight: 700;
+      color: white;
+      text-transform: uppercase;
+      border-bottom: none;
+      
+      &::after {
+        display: none;
+      }
+      
+      &.router-link-active {
+        color: var(--secondary-color);
+      }
+    }
+  }
+  
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: pxToVw(40);
+    width: 100%;
+    justify-content: space-between; // 菜单在左，其他在右
+    padding-right: pxToVw(16); // 增加右侧间距
+    
+    // 菜单按钮在最左侧
+    .mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: pxToVw(80);
+      height: pxToVw(80);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: pxToVw(16);
+      order: -1; // 确保菜单按钮在最左边
+      margin-right: auto; // 推到最左边
+      
+      span {
+        display: block;
+        width: 100%;
+        height: pxToVw(4);
+        background: var(--text-white);
+        margin: pxToVw(6) 0;
+        transition: all 0.3s;
+      }
+    }
+    
+    // 右侧容器：用户头像和购物车
+    .user-menu,
+    .cart-menu {
+      display: flex;
+      align-items: center;
+      order: 1; // 确保在右侧
+      flex-shrink: 0; // 防止收缩
+    }
+    
+    // 用户头像增加左边距
+    .user-menu {
+      margin-left: pxToVw(16);
+    }
+    
+    .icon-btn {
+      width: pxToVw(80);
+      height: pxToVw(80);
+      
+      .icon-cart {
+        font-size: pxToVw(48);
+      }
+      
+      .badge {
+        width: pxToVw(36);
+        height: pxToVw(36);
+        font-size: pxToVw(20);
+      }
+      
+      .avatar {
+        width: pxToVw(80);
+        height: pxToVw(80);
+      }
+    }
+    
+    .btn-primary {
+      display: none;
+    }
+  }
+}
+
+.announcement-bar {
+  height: pxToVw(80);
+  
+  .announcement-item {
+    padding: 0 pxToVw(40);
+  }
+  
+  .announcement-text {
+    font-size: pxToVw(28);
+  }
+  
+  .separator {
+    margin-left: pxToVw(40);
+  }
+}
+

@@ -1,0 +1,84 @@
+// 移动端个人中心样式
+// 变量已在 vite.config.js 中全局导入
+@import "../base/function";
+
+.profile-page {
+  padding: pxToVw(40) 0;
+}
+
+.profile-container {
+  padding: 0 pxToVw(32);
+  
+  .page-title {
+    font-size: pxToVw(48);
+    margin-bottom: pxToVw(40);
+  }
+}
+
+.profile-content {
+  gap: pxToVw(32);
+}
+
+.profile-card {
+  padding: pxToVw(40);
+  border-radius: pxToVw(16);
+  
+  .card-title {
+    font-size: pxToVw(32);
+    margin-bottom: pxToVw(32);
+    padding-bottom: pxToVw(24);
+  }
+  
+  .avatar-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: pxToVw(32);
+    margin-bottom: pxToVw(40);
+    padding-bottom: pxToVw(40);
+    
+    .avatar-preview {
+      width: pxToVw(160);
+      height: pxToVw(160);
+      border-width: pxToVw(4);
+    }
+    
+    .btn-upload {
+      padding: pxToVw(16) pxToVw(40);
+      font-size: pxToVw(26);
+      border-radius: pxToVw(10);
+    }
+  }
+  
+  .form-group {
+    margin-bottom: pxToVw(32);
+    
+    label {
+      font-size: pxToVw(26);
+      margin-bottom: pxToVw(12);
+    }
+    
+    input {
+      height: pxToVw(88);
+      padding: 0 pxToVw(24);
+      font-size: pxToVw(28);
+      border-width: pxToVw(3);
+      border-radius: pxToVw(12);
+    }
+    
+    small {
+      font-size: pxToVw(22);
+      margin-top: pxToVw(8);
+    }
+  }
+  
+  .btn-submit {
+    padding: pxToVw(16) pxToVw(48);
+    font-size: pxToVw(28);
+    border-radius: pxToVw(12);
+    
+    &.btn-secondary {
+      border-width: pxToVw(3);
+    }
+  }
+}

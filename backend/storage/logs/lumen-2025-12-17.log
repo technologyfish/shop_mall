@@ -1,0 +1,307 @@
+[2025-12-17 00:12:42] production.ERROR: Call to undefined function App\Http\Controllers\Admin\now() {"exception":"[object] (Error(code: 0): Call to undefined function App\\Http\\Controllers\\Admin\\now() at D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Admin\\OrderController.php:106)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Admin\\OrderController->ship()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(262): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\AdminAuthenticate.php(26): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\AdminAuthenticate->handle()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(261): Laravel\\Lumen\\Application->sendThroughPipeline()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(237): Laravel\\Lumen\\Application->handleFoundRoute()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(172): Laravel\\Lumen\\Application->handleDispatcherResponse()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#28 {main}
+"} 
+[2025-12-17 00:25:44] production.ERROR: Call to undefined function App\Http\Controllers\Api\now() {"exception":"[object] (Error(code: 0): Call to undefined function App\\Http\\Controllers\\Api\\now() at D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Api\\SubscriptionController.php:211)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Api\\SubscriptionController->cancel()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(262): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\Authenticate.php(45): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\Authenticate->handle()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(261): Laravel\\Lumen\\Application->sendThroughPipeline()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(237): Laravel\\Lumen\\Application->handleFoundRoute()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(172): Laravel\\Lumen\\Application->handleDispatcherResponse()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#28 {main}
+"} 
+[2025-12-17 00:28:29] production.ERROR: Call to undefined function App\Http\Controllers\Admin\now() {"exception":"[object] (Error(code: 0): Call to undefined function App\\Http\\Controllers\\Admin\\now() at D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Controllers\\Admin\\OrderController.php:106)
+[stacktrace]
+#0 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(36): App\\Http\\Controllers\\Admin\\OrderController->ship()
+#1 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
+#3 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod()
+#4 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\container\\Container.php(653): Illuminate\\Container\\BoundMethod::call()
+#5 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(389): Illuminate\\Container\\Container->call()
+#6 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(354): Laravel\\Lumen\\Application->callControllerCallable()
+#7 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(329): Laravel\\Lumen\\Application->callLumenController()
+#8 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(282): Laravel\\Lumen\\Application->callControllerAction()
+#9 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(262): Laravel\\Lumen\\Application->callActionOnArrayBasedRoute()
+#10 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#11 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\AdminAuthenticate.php(26): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#12 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\AdminAuthenticate->handle()
+#13 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#15 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#16 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(261): Laravel\\Lumen\\Application->sendThroughPipeline()
+#17 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(237): Laravel\\Lumen\\Application->handleFoundRoute()
+#18 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(172): Laravel\\Lumen\\Application->handleDispatcherResponse()
+#19 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(48): Laravel\\Lumen\\Application->Laravel\\Lumen\\Concerns\\{closure}()
+#20 D:\\my-code\\kehu-web\\shop\\backend\\app\\Http\\Middleware\\CorsMiddleware.php(30): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#21 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(167): App\\Http\\Middleware\\CorsMiddleware->handle()
+#22 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Routing\\Pipeline.php(30): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\illuminate\\pipeline\\Pipeline.php(103): Laravel\\Lumen\\Routing\\Pipeline->Laravel\\Lumen\\Routing\\{closure}()
+#24 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(426): Illuminate\\Pipeline\\Pipeline->then()
+#25 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(165): Laravel\\Lumen\\Application->sendThroughPipeline()
+#26 D:\\my-code\\kehu-web\\shop\\backend\\vendor\\laravel\\lumen-framework\\src\\Concerns\\RoutesRequests.php(112): Laravel\\Lumen\\Application->dispatch()
+#27 D:\\my-code\\kehu-web\\shop\\backend\\public\\index.php(17): Laravel\\Lumen\\Application->run()
+#28 {main}
+"} 
+[2025-12-17 02:03:21] production.INFO: Stripe webhook received {"type":"payment_method.attached","id":"evt_1SfA5FAyKaftIpeU1QHBxqOX"} 
+[2025-12-17 02:03:21] production.INFO: Unhandled webhook event type: payment_method.attached  
+[2025-12-17 02:03:21] production.INFO: Stripe webhook received {"type":"setup_intent.succeeded","id":"evt_1SfA5FAyKaftIpeUyrIcbPL2"} 
+[2025-12-17 02:03:21] production.INFO: Unhandled webhook event type: setup_intent.succeeded  
+[2025-12-17 02:03:21] production.INFO: Stripe webhook received {"type":"setup_intent.created","id":"evt_1SfA5FAyKaftIpeULHBHl1Ng"} 
+[2025-12-17 02:03:21] production.INFO: Unhandled webhook event type: setup_intent.created  
+[2025-12-17 02:03:24] production.INFO: Stripe webhook received {"type":"checkout.session.completed","id":"evt_1SfA5IAyKaftIpeUkQzfEIRB"} 
+[2025-12-17 02:03:24] production.INFO: Processing checkout.session.completed {"session_id":"cs_test_a1zRxoQxViENtpqjX3uM4oJzqqBh5eCB67t74C2Mos5coa435vemPwMMJY","customer":"cus_TahALKYaU7hkcl","subscription":"sub_1SfA5FAyKaftIpeUUe2ZTlD6"} 
+[2025-12-17 02:03:25] production.INFO: Subscription created {"subscription_id":8,"user_id":1,"plan_id":1} 
+[2025-12-17 02:03:25] production.INFO: Subscription order created {"order_id":42,"order_no":"SUB202512170203254304","subscription_id":8} 
+[2025-12-17 02:03:25] production.INFO: Checkout session processed successfully {"session_id":"cs_test_a1zRxoQxViENtpqjX3uM4oJzqqBh5eCB67t74C2Mos5coa435vemPwMMJY","subscription_id":8} 
+[2025-12-17 02:03:25] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfA5IAyKaftIpeUs1x9miRj"} 
+[2025-12-17 02:03:25] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 02:03:26] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfA5IAyKaftIpeUFXVZCbBe"} 
+[2025-12-17 02:03:26] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 02:03:26] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfA5IAyKaftIpeUWn9etnt7"} 
+[2025-12-17 02:03:26] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 02:03:26] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfA5JAyKaftIpeUyInp9kEU"} 
+[2025-12-17 02:03:26] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 02:03:26] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfA5JAyKaftIpeUx5lrZ4w6"} 
+[2025-12-17 02:03:28] production.INFO: Invoice payment succeeded processed {"subscription_id":8,"invoice_id":"in_1SfA5FAyKaftIpeUXOm7SOj4"} 
+[2025-12-17 02:03:28] production.INFO: Stripe webhook received {"type":"customer.subscription.created","id":"evt_1SfA5JAyKaftIpeUeT7jkIZ0"} 
+[2025-12-17 02:03:28] production.INFO: Subscription processed {"subscription_id":8,"stripe_subscription_id":"sub_1SfA5FAyKaftIpeUUe2ZTlD6"} 
+[2025-12-17 02:18:25] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-17 02:18:36] production.INFO: Payment create request {"data":{"order_no":"20251217021825667330","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2025-12-17 02:18:37] production.INFO: Stripe session created {"session_id":"cs_test_a1ajgY3bPmmxHGJseFll66qeCenhuIVZQAUiQfPKj3OyhKPIRkmGtUNuM2","order_no":"20251217021825667330","amount":"59.90"} 
+[2025-12-17 02:18:59] production.INFO: Stripe webhook received {"type":"charge.succeeded","id":"evt_3SfAKLAyKaftIpeU1lihV9Eh"} 
+[2025-12-17 02:18:59] production.INFO: Unhandled webhook event type: charge.succeeded  
+[2025-12-17 02:18:59] production.INFO: Stripe webhook received {"type":"payment_intent.succeeded","id":"evt_3SfAKLAyKaftIpeU1ERtlZUK"} 
+[2025-12-17 02:18:59] production.INFO: Unhandled webhook event type: payment_intent.succeeded  
+[2025-12-17 02:18:59] production.INFO: Stripe webhook received {"type":"checkout.session.completed","id":"evt_1SfAKNAyKaftIpeULEgDFJ4N"} 
+[2025-12-17 02:18:59] production.INFO: Processing checkout.session.completed {"session_id":"cs_test_a1ajgY3bPmmxHGJseFll66qeCenhuIVZQAUiQfPKj3OyhKPIRkmGtUNuM2","customer":null,"subscription":null} 
+[2025-12-17 02:18:59] production.ERROR: Missing metadata in checkout session {"session_id":"cs_test_a1ajgY3bPmmxHGJseFll66qeCenhuIVZQAUiQfPKj3OyhKPIRkmGtUNuM2","metadata":{"Stripe\\StripeObject":{"user_id":"1","order_id":"43","order_no":"20251217021825667330"}}} 
+[2025-12-17 02:18:59] production.INFO: Stripe webhook received {"type":"payment_intent.created","id":"evt_3SfAKLAyKaftIpeU1zxllAun"} 
+[2025-12-17 02:18:59] production.INFO: Unhandled webhook event type: payment_intent.created  
+[2025-12-17 02:19:13] production.INFO: Attempting to verify payment via session_id {"order_no":"20251217021825667330","session_id":"cs_test_a1ajgY3bPmmxHGJseFll66qeCenhuIVZQAUiQfPKj3OyhKPIRkmGtUNuM2"} 
+[2025-12-17 02:19:13] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_a1ajgY3bPmmxHGJseFll66qeCenhuIVZQAUiQfPKj3OyhKPIRkmGtUNuM2"} 
+[2025-12-17 02:19:13] production.INFO: Order updated {"order_no":"20251217021825667330"} 
+[2025-12-17 02:19:13] production.INFO: Payment updated {"order_no":"20251217021825667330"} 
+[2025-12-17 02:19:13] production.INFO: Product sales updated {"order_no":"20251217021825667330"} 
+[2025-12-17 02:19:13] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20251217021825667330","session_id":"cs_test_a1ajgY3bPmmxHGJseFll66qeCenhuIVZQAUiQfPKj3OyhKPIRkmGtUNuM2"} 
+[2025-12-17 09:17:11] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfGr3AyKaftIpeUujqNgslY"} 
+[2025-12-17 09:17:11] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 09:17:11] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfGr4AyKaftIpeUBjg5Iu8n"} 
+[2025-12-17 09:17:12] production.INFO: Subscription order created {"order_id":44,"order_no":"SUB202512170917127009","subscription_id":9} 
+[2025-12-17 09:17:12] production.INFO: Subscription processed {"subscription_id":9,"stripe_subscription_id":"sub_1Sd5zZAyKaftIpeUuNi4Zoij"} 
+[2025-12-17 10:20:45] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfHqQAyKaftIpeUgfkYKg6W"} 
+[2025-12-17 10:20:45] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 10:20:46] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfHqQAyKaftIpeU5d1fpMNd"} 
+[2025-12-17 10:20:46] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 10:20:46] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfHqQAyKaftIpeUE6AEo5qM"} 
+[2025-12-17 10:20:46] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 10:20:46] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfHqQAyKaftIpeURi72rRKF"} 
+[2025-12-17 10:20:46] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 10:20:46] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfHqQAyKaftIpeU6Gybruxu"} 
+[2025-12-17 10:20:49] production.INFO: Invoice payment succeeded processed {"subscription_id":9,"invoice_id":"in_1SfGr3AyKaftIpeUnxsV2xeg"} 
+[2025-12-17 10:37:52] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfI7AAyKaftIpeUp8ltYgEp"} 
+[2025-12-17 10:37:52] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 10:37:52] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfI7AAyKaftIpeUgAQvQBMs"} 
+[2025-12-17 10:37:53] production.INFO: Subscription order created {"order_id":45,"order_no":"SUB202512171037533168","subscription_id":10} 
+[2025-12-17 10:37:53] production.INFO: Subscription processed {"subscription_id":10,"stripe_subscription_id":"sub_1Sd7EuAyKaftIpeUECQNAaFD"} 
+[2025-12-17 12:29:45] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfJrRAyKaftIpeUVHF7Y01c"} 
+[2025-12-17 12:29:45] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 12:29:45] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfJrRAyKaftIpeUxKkgQVI6"} 
+[2025-12-17 12:29:45] production.INFO: Subscription order created {"order_id":46,"order_no":"SUB202512171229455858","subscription_id":11} 
+[2025-12-17 12:29:46] production.INFO: Subscription processed {"subscription_id":11,"stripe_subscription_id":"sub_1Sd8zUAyKaftIpeUVP8FEQ0S"} 
+[2025-12-17 12:41:47] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfK35AyKaftIpeU7wjg8pdN"} 
+[2025-12-17 12:41:47] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 12:41:48] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfK36AyKaftIpeUZviOy2SM"} 
+[2025-12-17 12:41:48] production.INFO: Subscription order created {"order_id":47,"order_no":"SUB202512171241483102","subscription_id":12} 
+[2025-12-17 12:41:48] production.INFO: Subscription processed {"subscription_id":12,"stripe_subscription_id":"sub_1Sd9BEAyKaftIpeUcMiqEwXW"} 
+[2025-12-17 12:49:57] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfKAzAyKaftIpeU7XUKO6Py"} 
+[2025-12-17 12:49:57] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 12:49:58] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfKB0AyKaftIpeUeOoyE7E4"} 
+[2025-12-17 12:49:58] production.INFO: Subscription order created {"order_id":48,"order_no":"SUB202512171249582123","subscription_id":13} 
+[2025-12-17 12:49:58] production.INFO: Subscription processed {"subscription_id":13,"stripe_subscription_id":"sub_1SdVn5AyKaftIpeUyyWsoEFr"} 
+[2025-12-17 13:30:26] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfKoBAyKaftIpeU71DI9Abo"} 
+[2025-12-17 13:30:26] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 13:30:27] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfKoBAyKaftIpeUerlKGYTI"} 
+[2025-12-17 13:30:27] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 13:30:27] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfKoBAyKaftIpeUBU1wLBcv"} 
+[2025-12-17 13:30:27] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 13:30:27] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfKoBAyKaftIpeUDTXsUD8r"} 
+[2025-12-17 13:30:27] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 13:30:27] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfKoBAyKaftIpeU5S6NzDgP"} 
+[2025-12-17 13:30:29] production.INFO: Invoice payment succeeded processed {"subscription_id":11,"invoice_id":"in_1SfJrQAyKaftIpeUEqSyAK1e"} 
+[2025-12-17 13:42:32] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfKzsAyKaftIpeUZBCKeFlC"} 
+[2025-12-17 13:42:32] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 13:42:32] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfKzsAyKaftIpeU01DECUtk"} 
+[2025-12-17 13:42:32] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 13:42:32] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfKzsAyKaftIpeU47jEmSzI"} 
+[2025-12-17 13:42:32] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 13:42:32] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfKzsAyKaftIpeUqg3nBob8"} 
+[2025-12-17 13:42:32] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 13:42:32] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfKzsAyKaftIpeUSQm3rGx5"} 
+[2025-12-17 13:42:34] production.INFO: Invoice payment succeeded processed {"subscription_id":12,"invoice_id":"in_1SfK34AyKaftIpeUF3J88WTv"} 
+[2025-12-17 13:48:49] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfL5xAyKaftIpeU1dLxCWVv"} 
+[2025-12-17 13:48:49] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 13:48:49] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfL5xAyKaftIpeUSRLAO53d"} 
+[2025-12-17 13:48:49] production.INFO: Subscription processed {"subscription_id":3,"stripe_subscription_id":"sub_1SdAETAyKaftIpeUJ6QdhVuh"} 
+[2025-12-17 13:52:01] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfL93AyKaftIpeU7bZreZeh"} 
+[2025-12-17 13:52:01] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 13:52:02] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfL93AyKaftIpeUdP2xvJ5q"} 
+[2025-12-17 13:52:02] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 13:52:02] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfL92AyKaftIpeU74ALOj0w"} 
+[2025-12-17 13:52:02] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 13:52:02] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfL93AyKaftIpeUE5PaRtXK"} 
+[2025-12-17 13:52:02] production.INFO: Subscription processed {"subscription_id":4,"stripe_subscription_id":"sub_1SdAH6AyKaftIpeUMLEGYP7p"} 
+[2025-12-17 13:52:03] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfL93AyKaftIpeUCVGJLwRd"} 
+[2025-12-17 13:52:03] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 13:52:03] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfL93AyKaftIpeUCBlRYURl"} 
+[2025-12-17 13:52:03] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 13:52:04] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfL93AyKaftIpeUbv9fIwq5"} 
+[2025-12-17 13:52:14] production.INFO: Invoice payment succeeded processed {"subscription_id":13,"invoice_id":"in_1SfKAvAyKaftIpeUi32zgVTn"} 
+[2025-12-17 13:59:59] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfLGhAyKaftIpeUb0q3sLn0"} 
+[2025-12-17 13:59:59] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 13:59:59] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfLGhAyKaftIpeUipu1coT0"} 
+[2025-12-17 13:59:59] production.INFO: Subscription processed {"subscription_id":5,"stripe_subscription_id":"sub_1SdAOxAyKaftIpeUNFa74rFH"} 
+[2025-12-17 14:01:33] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfLIHAyKaftIpeUGqyElYBC"} 
+[2025-12-17 14:01:33] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 14:01:33] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfLIHAyKaftIpeUzzIknJGI"} 
+[2025-12-17 14:01:33] production.INFO: Subscription processed {"subscription_id":6,"stripe_subscription_id":"sub_1SdAQSAyKaftIpeUN2nbK7Ya"} 
+[2025-12-17 14:49:33] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfM2jAyKaftIpeUZ0FEcYdv"} 
+[2025-12-17 14:49:33] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 14:49:33] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfM2jAyKaftIpeUMTkZzZ3M"} 
+[2025-12-17 14:49:33] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 14:49:33] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfM2jAyKaftIpeUaNtb0oIH"} 
+[2025-12-17 14:49:33] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 14:49:33] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfM2jAyKaftIpeUg8MNyQWy"} 
+[2025-12-17 14:49:33] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 14:49:33] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfM2kAyKaftIpeUc1wIPtZx"} 
+[2025-12-17 14:49:35] production.INFO: Invoice payment succeeded processed {"subscription_id":3,"invoice_id":"in_1SfL5wAyKaftIpeUMlpbs12f"} 
+[2025-12-17 14:53:01] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfM65AyKaftIpeUAgmIo7T6"} 
+[2025-12-17 14:53:01] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 14:53:01] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfM65AyKaftIpeU4o7dvvEL"} 
+[2025-12-17 14:53:01] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 14:53:01] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfM65AyKaftIpeU7cD9s8Ve"} 
+[2025-12-17 14:53:01] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 14:53:01] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfM66AyKaftIpeUN29aWVQq"} 
+[2025-12-17 14:53:01] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 14:53:02] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfM66AyKaftIpeUUg7G23zp"} 
+[2025-12-17 14:53:03] production.INFO: Invoice payment succeeded processed {"subscription_id":4,"invoice_id":"in_1SfL92AyKaftIpeUUDpZd6NH"} 
+[2025-12-17 15:01:43] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfMEVAyKaftIpeUFFS7v0hw"} 
+[2025-12-17 15:01:43] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 15:01:43] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfMEWAyKaftIpeU5cYuzlkd"} 
+[2025-12-17 15:01:43] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 15:01:44] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfMEWAyKaftIpeUQ5kLBmUR"} 
+[2025-12-17 15:01:44] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 15:01:44] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfMEWAyKaftIpeUg4EB38Zz"} 
+[2025-12-17 15:01:44] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 15:01:44] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfMEWAyKaftIpeUyV3UaKUB"} 
+[2025-12-17 15:01:45] production.INFO: Invoice payment succeeded processed {"subscription_id":5,"invoice_id":"in_1SfLGgAyKaftIpeUQqZdMLPW"} 
+[2025-12-17 15:03:05] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfMFpAyKaftIpeUJHw5meyz"} 
+[2025-12-17 15:03:05] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 15:03:05] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfMFpAyKaftIpeUs4qYu30b"} 
+[2025-12-17 15:03:05] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 15:03:05] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfMFpAyKaftIpeUL8lrwq4l"} 
+[2025-12-17 15:03:05] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 15:03:05] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfMFpAyKaftIpeUKI4M2Kmg"} 
+[2025-12-17 15:03:05] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 15:03:05] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfMFqAyKaftIpeUTG8Wvnuo"} 
+[2025-12-17 15:03:07] production.INFO: Invoice payment succeeded processed {"subscription_id":6,"invoice_id":"in_1SfLIGAyKaftIpeUxPv6ukFO"} 
+[2025-12-17 15:59:37] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-17 15:59:46] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-17 16:01:24] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2025-12-17 16:02:11] production.INFO: Payment create request {"data":{"order_no":"20251217160124999839","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2025-12-17 16:02:16] production.INFO: Stripe session created {"session_id":"cs_test_b1w0nkEWu4F3rqyS5eA96WNCkHCSWuhdBLrnv0kSMJGnOp14DAx420XKBi","order_no":"20251217160124999839","amount":"17.99"} 
+[2025-12-17 16:02:44] production.INFO: Stripe webhook received {"type":"charge.succeeded","id":"evt_3SfNBWAyKaftIpeU45g0gwQZ"} 
+[2025-12-17 16:02:44] production.INFO: Unhandled webhook event type: charge.succeeded  
+[2025-12-17 16:02:44] production.INFO: Stripe webhook received {"type":"payment_intent.succeeded","id":"evt_3SfNBWAyKaftIpeU4zvskrcH"} 
+[2025-12-17 16:02:44] production.INFO: Unhandled webhook event type: payment_intent.succeeded  
+[2025-12-17 16:02:44] production.INFO: Stripe webhook received {"type":"checkout.session.completed","id":"evt_1SfNBYAyKaftIpeULI3I07Oi"} 
+[2025-12-17 16:02:44] production.INFO: Processing checkout.session.completed {"session_id":"cs_test_b1w0nkEWu4F3rqyS5eA96WNCkHCSWuhdBLrnv0kSMJGnOp14DAx420XKBi","customer":null,"subscription":null} 
+[2025-12-17 16:02:44] production.ERROR: Missing metadata in checkout session {"session_id":"cs_test_b1w0nkEWu4F3rqyS5eA96WNCkHCSWuhdBLrnv0kSMJGnOp14DAx420XKBi","metadata":{"Stripe\\StripeObject":{"user_id":"1","order_id":"51","order_no":"20251217160124999839"}}} 
+[2025-12-17 16:02:44] production.INFO: Stripe webhook received {"type":"payment_intent.created","id":"evt_3SfNBWAyKaftIpeU45aOOx9i"} 
+[2025-12-17 16:02:44] production.INFO: Unhandled webhook event type: payment_intent.created  
+[2025-12-17 16:02:57] production.INFO: Attempting to verify payment via session_id {"order_no":"20251217160124999839","session_id":"cs_test_b1w0nkEWu4F3rqyS5eA96WNCkHCSWuhdBLrnv0kSMJGnOp14DAx420XKBi"} 
+[2025-12-17 16:02:58] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_b1w0nkEWu4F3rqyS5eA96WNCkHCSWuhdBLrnv0kSMJGnOp14DAx420XKBi"} 
+[2025-12-17 16:02:58] production.INFO: Order updated {"order_no":"20251217160124999839"} 
+[2025-12-17 16:02:58] production.INFO: Payment updated {"order_no":"20251217160124999839"} 
+[2025-12-17 16:02:58] production.INFO: Product sales updated {"order_no":"20251217160124999839"} 
+[2025-12-17 16:02:58] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20251217160124999839","session_id":"cs_test_b1w0nkEWu4F3rqyS5eA96WNCkHCSWuhdBLrnv0kSMJGnOp14DAx420XKBi"} 
+[2025-12-17 17:48:37] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfOq1AyKaftIpeUuW9ZhNAS"} 
+[2025-12-17 17:48:37] production.INFO: Subscription processed {"subscription_id":7,"stripe_subscription_id":"sub_1ScrUmAyKaftIpeUTy6fY3Za"} 
+[2025-12-17 17:48:37] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfOq1AyKaftIpeUfCmLVLwd"} 
+[2025-12-17 17:48:37] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 18:49:39] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfPn5AyKaftIpeUDs7XgvvJ"} 
+[2025-12-17 18:49:39] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 18:49:40] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfPn5AyKaftIpeUx8epKWQT"} 
+[2025-12-17 18:49:40] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 18:49:40] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfPn5AyKaftIpeUSsuYQoxV"} 
+[2025-12-17 18:49:40] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 18:49:41] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfPn6AyKaftIpeUrxwFXAyi"} 
+[2025-12-17 18:49:41] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 18:49:41] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfPn6AyKaftIpeUAElsJkwj"} 
+[2025-12-17 18:49:43] production.INFO: Invoice payment succeeded processed {"subscription_id":7,"invoice_id":"in_1SfOq0AyKaftIpeUYq1YxNGH"} 
+[2025-12-17 19:15:59] production.INFO: Stripe webhook received {"type":"invoice.created","id":"evt_1SfQCZAyKaftIpeU1Odf7dUA"} 
+[2025-12-17 19:15:59] production.INFO: Unhandled webhook event type: invoice.created  
+[2025-12-17 19:16:00] production.INFO: Stripe webhook received {"type":"customer.subscription.updated","id":"evt_1SfQCZAyKaftIpeUVsgjOGvv"} 
+[2025-12-17 19:16:00] production.INFO: Subscription order created {"order_id":52,"order_no":"SUB202512171916008503","subscription_id":14} 
+[2025-12-17 19:16:00] production.INFO: Subscription processed {"subscription_id":14,"stripe_subscription_id":"sub_1ScsrNAyKaftIpeUgR6QmIVt"} 
+[2025-12-17 20:18:20] production.INFO: Stripe webhook received {"type":"customer.updated","id":"evt_1SfRAuAyKaftIpeUTOQ8ET4x"} 
+[2025-12-17 20:18:20] production.INFO: Unhandled webhook event type: customer.updated  
+[2025-12-17 20:18:21] production.INFO: Stripe webhook received {"type":"invoice.updated","id":"evt_1SfRAvAyKaftIpeUhvXl3CZk"} 
+[2025-12-17 20:18:21] production.INFO: Unhandled webhook event type: invoice.updated  
+[2025-12-17 20:18:21] production.INFO: Stripe webhook received {"type":"invoice.finalized","id":"evt_1SfRAvAyKaftIpeUajwe5wxe"} 
+[2025-12-17 20:18:21] production.INFO: Unhandled webhook event type: invoice.finalized  
+[2025-12-17 20:18:21] production.INFO: Stripe webhook received {"type":"invoice.paid","id":"evt_1SfRAvAyKaftIpeULn3RhKvO"} 
+[2025-12-17 20:18:21] production.INFO: Unhandled webhook event type: invoice.paid  
+[2025-12-17 20:18:22] production.INFO: Stripe webhook received {"type":"invoice.payment_succeeded","id":"evt_1SfRAvAyKaftIpeUhJdgeh6z"} 
+[2025-12-17 20:18:24] production.INFO: Invoice payment succeeded processed {"subscription_id":14,"invoice_id":"in_1SfQCYAyKaftIpeUznpy6pnB"} 

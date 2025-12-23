@@ -1,0 +1,100 @@
+// 移动端食谱页面样式
+@import "../base/function";
+.container{
+  max-width: 100%;
+}
+.recipes-page {
+  .hero-section {
+    padding: pxToVw(80) pxToVw(32);
+    
+    h1 {
+      font-size: pxToVw(56);
+      margin-bottom: pxToVw(24);
+    }
+    
+    p {
+      font-size: pxToVw(30);
+    }
+  }
+  
+  .recipes-container {
+    padding: pxToVw(60) pxToVw(32);
+  }
+  
+  .category-tabs {
+    margin-bottom: pxToVw(60);
+    padding-bottom: pxToVw(32);
+    gap: pxToVw(20);
+    flex-wrap: wrap;
+    
+    .tab {
+      padding: pxToVw(20) pxToVw(32);
+      font-size: pxToVw(30);
+      border-radius: pxToVw(50);
+      white-space: nowrap;
+    }
+  }
+  
+  .recipes-grid {
+    grid-template-columns: 1fr;
+    gap: pxToVw(40);
+  }
+  
+  .recipe-card {
+    border-radius: pxToVw(20);
+    
+    .recipe-image {
+      height: pxToVw(400);
+    }
+    
+    .recipe-content {
+      padding: pxToVw(32);
+      
+      h3 {
+        font-size: pxToVw(36);
+        margin-bottom: pxToVw(16);
+      }
+      
+      p {
+        font-size: pxToVw(28);
+        line-height: 1.6;
+        margin-bottom: pxToVw(24);
+      }
+      
+      .recipe-meta {
+        flex-wrap: wrap;
+        gap: pxToVw(24);
+        margin-bottom: pxToVw(24);
+        
+        .meta-item {
+          font-size: pxToVw(26);
+          
+          .icon {
+            width: pxToVw(32);
+            height: pxToVw(32);
+          }
+        }
+      }
+      
+      .view-recipe {
+        font-size: pxToVw(30);
+      }
+    }
+  }
+  
+  .article-section {
+    padding: pxToVw(100) pxToVw(32);
+    
+    .section-content {
+      h2 {
+        font-size: pxToVw(48);
+        margin-bottom: pxToVw(32);
+      }
+      
+      p {
+        font-size: pxToVw(30);
+        line-height: 1.7;
+      }
+    }
+  }
+}

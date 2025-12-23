@@ -1,0 +1,58 @@
+// ==================== 主题颜色配置 ====================
+// 主色调：胭脂红（可修改此变量来更换整站主题色）
+$primary-color: #B8162A;      // 主色调（胭脂红 - 参考锦绣华章配色）
+$primary-light: #D8465A;      // 主色浅色
+$primary-lighter: #F8D7DA;    // 主色极浅
+$primary-dark: #8B1220;       // 主色深色
+
+// 辅助色系
+$secondary-color: #FDD972;    // 次要色（流金黄）
+$accent-color: #0F4738;       // 强调色（翠微绿）
+$journey-color: #FAF3E0;
+
+// 功能色
+$success-color: #67c23a;      // 成功色
+$warning-color: #FDD972;      // 警告色（使用流金黄）
+$danger-color: #B8162A;       // 危险色（使用主色）
+$info-color: #909399;         // 信息色
+
+// 文字颜色
+$text-color: #333333;         // 主文本
+$text-light: #666666;         // 次文本
+$text-lighter: #999999;       // 辅助文本
+$text-lightest: #cccccc;      // 禁用文本
+$text-primary: #303133;       // Element UI兼容
+$text-regular: #606266;       // Element UI兼容
+$text-secondary: #909399;     // Element UI兼容
+$text-placeholder: #c0c4cc;   // Element UI兼容
+
+// 背景颜色
+$bg-color: #FAF8F5;           // 页面背景（米色）
+$bg-white: #ffffff;           // 白色背景
+$bg-page: #f5f7fa;            // Element UI兼容
+$bg-gray-light: #fafafa;      // 浅灰背景
+$bg-gray: #f0f2f5;            // 灰色背景
+
+// 边框颜色
+$border-color: #E5E5E5;       // 边框色
+$border-base: #dcdfe6;        // Element UI兼容
+$border-light: #e4e7ed;       // Element UI兼容
+$border-lighter: #ebeef5;     // Element UI兼容
+
+// 阴影
+$box-shadow-base: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+
+// 圆角
+$border-radius-base: 4px;
+$border-radius-small: 2px;
+$border-radius-large: 8px;
+
+// 间距
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-base: 16px;
+$spacing-lg: 20px;
+$spacing-xl: 24px;
+$spacing-xxl: 32px;

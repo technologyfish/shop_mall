@@ -1,0 +1,300 @@
+// 移动端首页样式
+// 变量已在 vite.config.js 中全局导入
+@import "../base/function";
+
+.home-page {
+  min-height: 100vh;
+}
+
+// Hero Banner
+.hero-banner {
+  height: pxToVw(800);
+  
+  .banner-content {
+    padding: 0 pxToVw(40);
+    
+    .title {
+      font-size: pxToVw(64);
+      margin-bottom: pxToVw(24);
+    }
+    
+    .subtitle {
+      font-size: pxToVw(28);
+      margin-bottom: pxToVw(48);
+    }
+    
+    .btn-shop {
+      padding: pxToVw(24) pxToVw(60);
+      font-size: pxToVw(28);
+      border-radius: pxToVw(12);
+    }
+  }
+}
+
+// Featured Products
+.featured-products {
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: pxToVw(100); // 给pagination留空间
+  
+  .section-title {
+    font-size: pxToVw(56);
+    margin-bottom: 0;
+    padding: pxToVw(40) 0 pxToVw(40);
+  }
+  
+  .products-swiper-container {
+    padding: 0 pxToVw(32);
+  }
+  
+  .product-card {
+    border-radius: pxToVw(20);
+    width: 100%;
+    
+    .card-top {
+      height: pxToVw(500);
+      padding: pxToVw(32);
+    }
+    
+    .product-image {
+      height: pxToVw(400);
+    }
+    
+    .card-bottom {
+      padding: pxToVw(40);
+      
+      .product-name {
+        font-size: pxToVw(36);
+        margin-bottom: pxToVw(16);
+      }
+      
+      .product-desc {
+        font-size: pxToVw(28);
+        line-height: 1.5;
+      }
+    }
+  }
+  
+  // 移动端导航按钮
+  .swiper-controls {
+    margin-top: pxToVw(50);
+    
+    .nav-btn {
+      width: pxToVw(80);
+      height: pxToVw(80);
+      
+      .arrow-left,
+      .arrow-right {
+        width: pxToVw(20);
+        height: pxToVw(20);
+        border-width: pxToVw(4);
+      }
+    }
+  }
+  
+  // Pagination样式
+  :global(.products-pagination) {
+    gap: pxToVw(16);
+    
+    .swiper-pagination-bullet {
+      width: pxToVw(16);
+      height: pxToVw(16);
+    }
+  }
+}
+
+// Journey Section
+.journey-section {
+  padding: pxToVw(80) 0;
+  
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: pxToVw(40);
+    padding: 0 pxToVw(32);
+  }
+  
+  .journey-image {
+    border-radius: pxToVw(16);
+    height: pxToVw(400);
+  }
+  
+  .journey-content {
+    .journey-title {
+      font-size: pxToVw(48);
+      margin-bottom: pxToVw(24);
+    }
+    
+    .journey-subtitle {
+      font-size: pxToVw(28);
+      margin-bottom: pxToVw(40);
+    }
+    
+    .btn-secondary {
+      padding: pxToVw(20) pxToVw(48);
+      font-size: pxToVw(28);
+      border-radius: pxToVw(12);
+      border-width: pxToVw(3);
+    }
+  }
+}
+
+// Featured Recipes
+.featured-recipes {
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: pxToVw(100);
+  
+  .section-header {
+    margin-bottom: pxToVw(60);
+    padding: 0 pxToVw(32);
+    
+    .section-title {
+      font-size: pxToVw(56);
+      margin-bottom: pxToVw(16);
+    }
+    
+    .section-subtitle {
+      font-size: pxToVw(30);
+    }
+  }
+  
+  .recipes-swiper-container {
+    padding: 0 pxToVw(32);
+  }
+  
+  .recipe-card {
+    border-radius: pxToVw(20);
+    width: 100%;
+    
+    .recipe-image {
+      height: pxToVw(400);
+    }
+    
+    .recipe-info {
+      padding: pxToVw(40);
+      height:  pxToVw(380);
+      
+      .recipe-title {
+        font-size: pxToVw(36);
+        margin-bottom: pxToVw(16);
+      }
+      
+      .recipe-subtitle {
+        font-size: pxToVw(28);
+        margin-bottom: pxToVw(24);
+        line-height: 1.5;
+        height: auto;
+      }
+      
+      .btn-view-recipe {
+        font-size: pxToVw(30);
+      }
+    }
+  }
+  
+  // 移动端导航按钮
+  .swiper-controls {
+    display: flex !important;
+    margin-top: pxToVw(50);
+    
+    &.recipes-controls {
+      .nav-btn {
+        width: pxToVw(80);
+        height: pxToVw(80);
+        border: pxToVw(2) solid var(--primary-color);
+        background: transparent;
+        
+        .arrow-left,
+        .arrow-right {
+          width: pxToVw(20);
+          height: pxToVw(20);
+          border-width: pxToVw(4);
+          border-color: var(--text-white);
+        }
+        
+        &:active {
+          background: var(--primary-color);
+          
+          .arrow-left,
+          .arrow-right {
+            border-color: white;
+          }
+        }
+      }
+    }
+    
+    .nav-btn {
+      width: pxToVw(80);
+      height: pxToVw(80);
+      
+      .arrow-left,
+      .arrow-right {
+        width: pxToVw(20);
+        height: pxToVw(20);
+        border-width: pxToVw(4);
+      }
+    }
+  }
+  
+  .text-center {
+    margin-top: pxToVw(60);
+  }
+  
+  .btn-primary {
+    padding: pxToVw(24) pxToVw(60);
+    font-size: pxToVw(32);
+    border-radius: pxToVw(12);
+  }
+}
+
+// Articles Section
+.articles-section {
+  .article-block {
+    padding: pxToVw(100) 0;
+    
+    .container {
+      width: 100%;
+      grid-template-columns: 1fr;
+      gap: pxToVw(50);
+      padding: 0 pxToVw(32);
+    }
+    
+    &.reverse .container {
+      direction: ltr;
+    }
+    
+    .article-image {
+      border-radius: pxToVw(20);
+      height: auto; // 自适应高度
+      
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+    
+    .article-content {
+      .article-title {
+        font-size: pxToVw(52);
+        margin-bottom: pxToVw(30);
+        line-height: 1.3;
+      }
+      
+      .article-subtitle {
+        font-size: pxToVw(30);
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+// Swiper控制
+.swiper-controls {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: pxToVw(30);
+  margin-top: pxToVw(50);
+}

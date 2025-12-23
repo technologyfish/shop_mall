@@ -1,0 +1,1 @@
+import{H as e}from"./index-dc0220d7.js";function r(){return e({url:"/api/announcements",method:"get"})}function a(n="home"){return e({url:"/api/banners",method:"get",params:{position:n}})}export{a,r as g};

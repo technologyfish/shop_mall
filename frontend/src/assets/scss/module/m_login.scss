@@ -1,0 +1,128 @@
+// 移动端登录样式
+// 变量和mixins已在 vite.config.js 中全局导入
+@import "../base/function";
+
+.login-container {
+  min-height: 100vh;
+  background: var(--primary-lighter);
+  padding: pxToVw(40) pxToVw(32);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .login-card {
+    background: white;
+    border-radius: pxToVw(16);
+    padding: pxToVw(48) pxToVw(32);
+    box-shadow: 0 pxToVw(8) pxToVw(24) rgba(0, 0, 0, 0.08);
+
+    .logo {
+      text-align: center;
+      margin-bottom: pxToVw(48);
+
+      img {
+        width: pxToVw(120);
+        height: pxToVw(120);
+      }
+
+      .title {
+        font-size: pxToVw(36);
+        font-weight: bold;
+        color: $text-color;
+        margin-top: pxToVw(16);
+      }
+    }
+
+    .login-form {
+      .form-group{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: pxToVw(30);
+      }
+      .form-item {
+        margin-bottom: pxToVw(32);
+
+        label {
+          display: block;
+          font-size: pxToVw(28);
+          color: $text-light;
+          margin-bottom: pxToVw(12);
+        }
+
+        input {
+          width: 100%;
+          height: pxToVw(88);
+          padding: 0 pxToVw(20);
+          font-size: pxToVw(28);
+          border: 1px solid $border-color;
+          border-radius: pxToVw(8);
+          transition: all 0.3s;
+
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+          }
+
+          &::placeholder {
+            color: $text-lighter;
+          }
+        }
+      }
+
+      .forgot-password {
+        text-align: right;
+        margin-bottom: pxToVw(32);
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        span{
+          margin-left: pxToVw(20);
+          margin-right: pxToVw(20);
+        }
+
+        a {
+          font-size: pxToVw(24);
+          color: $primary-color;
+          text-decoration: none;
+        }
+      }
+
+      .submit-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: pxToVw(88);
+        background: $primary-color;
+        color: white;
+        font-size: pxToVw(32);
+        font-weight: bold;
+        border: none;
+        border-radius: pxToVw(8);
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:active {
+          opacity: 0.8;
+        }
+      }
+      .remember-me{
+        font-size: pxToVw(28);
+      }
+      .register-link {
+        text-align: center;
+        margin-top: pxToVw(32);
+        font-size: pxToVw(28);
+        color: $text-light;
+
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          margin-left: pxToVw(8);
+        }
+      }
+    }
+  }
+}
+
+
