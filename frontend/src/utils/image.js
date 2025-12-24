@@ -37,15 +37,15 @@ export const getProductImage = (item) => {
     imagePath = item.images[0]
   } 
   // 其次检查 image 字段（商品对象）
-  else if (item.image) {
+  else if (item.image && item.image.trim() !== '') {
     imagePath = item.image
   }
   // 订单项：检查 product 关联的图片
-  else if (item.product?.image) {
+  else if (item.product?.image && item.product.image.trim() !== '') {
     imagePath = item.product.image
   }
   // 订单项：检查 product_image 字段
-  else if (item.product_image) {
+  else if (item.product_image && item.product_image.trim() !== '') {
     imagePath = item.product_image
   }
   

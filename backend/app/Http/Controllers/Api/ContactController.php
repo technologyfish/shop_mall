@@ -36,10 +36,15 @@ class ContactController extends Controller
      */
     public function submitForm(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        // 获取所有输入数据（支持 JSON 和表单数据）
+        $data = $request->all();
+        
+        \Log::info('Contact form submission', ['data' => $data]);
+        
+        $validator = Validator::make($data, [
             'name' => 'required|string|max:100',
             'email' => 'required|email|max:100',
-            'phone' => 'nullable|string|max:20',
+            'phone' => 'nullable|string|max:50',
             'comment' => 'required|string|max:1000',
         ]);
 
@@ -49,15 +54,18 @@ class ContactController extends Controller
 
         try {
             $form = ContactSubmission::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone ?? '',
-                'message' => $request->comment,
+                'name' => $data['name'] ?? '',
+                'email' => $data['email'] ?? '',
+                'phone' => $data['phone'] ?? '',
+                'message' => $data['comment'] ?? '',
                 'status' => 0,
             ]);
 
+            \Log::info('Contact form saved', ['form' => $form->toArray()]);
+
             return $this->success($form, 'Form submitted successfully', 201);
         } catch (\Exception $e) {
+            \Log::error('Contact form error', ['error' => $e->getMessage()]);
             return $this->error($e->getMessage(), 400);
         }
     }
