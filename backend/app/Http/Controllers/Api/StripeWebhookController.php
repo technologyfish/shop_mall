@@ -367,7 +367,7 @@ class StripeWebhookController extends Controller
                 'order_id' => $order->id,
                 'product_id' => 0, // 订阅订单没有关联商品
                 'product_name' => $plan->name . ' - ' . $plan->description,
-                'product_image' => '', // 订阅计划没有图片
+                'product_image' => $plan->image ?? '', // 使用订阅计划的图片
                 'price' => $plan->price,
                 'quantity' => 1,
                 'total_amount' => $plan->price,

@@ -258,12 +258,12 @@ class SubscriptionController extends Controller
             'paid_at' => \Carbon\Carbon::now(),
         ]);
 
-        // 创建订单项
+        // 创建订单项（使用订阅计划的图片）
         \App\Models\OrderItem::create([
             'order_id' => $order->id,
             'product_id' => 0,
             'product_name' => $plan->name . ' - ' . $plan->description,
-            'product_image' => '',
+            'product_image' => $plan->image ?? '',
             'price' => $plan->price,
             'quantity' => 1,
             'total_amount' => $plan->price,
@@ -381,6 +381,15 @@ class SubscriptionController extends Controller
             // 更新本地订阅状态
             $subscription->status = Subscription::STATUS_CANCELLED;
             $subscription->save();
+
+            // 更新该订阅相关的订单状态为已取消
+            \App\Models\Order::where('subscription_id', $subscription->id)
+                ->where('status', '!=', \App\Models\Order::STATUS_CANCELLED)
+                ->update(['status' => \App\Models\Order::STATUS_CANCELLED]);
+
+            \Log::info('Subscription orders cancelled', [
+                'subscription_id' => $subscription->id,
+            ]);
 
             // 检查用户是否还有其他活跃订阅，如果没有则取消订阅用户标识
             $activeSubscriptions = Subscription::where('user_id', $user->id)
