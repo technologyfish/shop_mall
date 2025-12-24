@@ -63,7 +63,7 @@
 
 
           <router-link to="/login" class="btn-primary" v-else>
-            SIGN IN/SIGN UP
+            <img :src="defaultAvatar" class="avatar"/>
           </router-link>
 
           <div class="cart-menu">

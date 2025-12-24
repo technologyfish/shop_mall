@@ -151,40 +151,136 @@ class OffCodeController extends Controller
         $userId = Auth::id();
         $email = $request->get('email');
         
-        // 如果未登录，总是可以显示
+        // 获取促销信息
+        $promotion = Promotion::find(1);
+        $discountValue = $promotion ? $promotion->discount_value : 10;
+        $isActive = $promotion && $promotion->status == 1;
+        
+        // 如果促销未启用，不显示弹窗
+        if (!$isActive) {
+            return $this->success([
+                'show' => false, 
+                'reason' => 'promotion_inactive'
+            ]);
+        }
+        
+        // 如果未登录
         if (!$userId) {
             // 如果提供了邮箱，检查是否已提交过
             if ($email) {
                 $hasSubmitted = MailTransferSubmission::where('email', strtolower(trim($email)))
                     ->whereNotNull('off_code')
                     ->exists();
-                return $this->success(['show' => !$hasSubmitted]);
+                return $this->success([
+                    'show' => !$hasSubmitted,
+                    'is_logged_in' => false,
+                    'discount_value' => $discountValue
+                ]);
             }
-            return $this->success(['show' => true]);
+            return $this->success([
+                'show' => true,
+                'is_logged_in' => false,
+                'discount_value' => $discountValue
+            ]);
         }
         
-        // 登录用户：检查是否有已支付的订单
+        // 已登录用户
+        $user = Auth::user();
+        
+        // 检查是否有已支付的订单（已使用首单优惠）
         $hasOrder = Order::where('user_id', $userId)
             ->where('status', '!=', Order::STATUS_CANCELLED)
             ->where('pay_status', 1)
             ->exists();
         
         if ($hasOrder) {
-            return $this->success(['show' => false, 'reason' => 'has_order']);
+            return $this->success([
+                'show' => false, 
+                'reason' => 'has_order',
+                'is_logged_in' => true
+            ]);
         }
         
-        // 检查是否已提交过
+        // 检查是否已有首单优惠资格
+        if ($user->first_order_discount == 1) {
+            return $this->success([
+                'show' => false, 
+                'reason' => 'already_activated',
+                'is_logged_in' => true,
+                'has_discount' => true
+            ]);
+        }
+        
+        // 已登录但未激活首单优惠
+        return $this->success([
+            'show' => true,
+            'is_logged_in' => true,
+            'has_discount' => false,
+            'discount_value' => $discountValue,
+            'user_email' => $user->email,
+            'user_nickname' => $user->nickname ?? $user->username
+        ]);
+    }
+    
+    /**
+     * 已登录用户直接激活首单优惠
+     */
+    public function activateForLoggedInUser(Request $request)
+    {
         $user = Auth::user();
-        if ($user && $user->email) {
-            $hasSubmitted = MailTransferSubmission::where('email', strtolower($user->email))
-                ->whereNotNull('off_code')
-                ->exists();
-            if ($hasSubmitted) {
-                return $this->success(['show' => false, 'reason' => 'already_submitted']);
-            }
+        
+        if (!$user) {
+            return $this->error('Please login first', 401);
         }
         
-        return $this->success(['show' => true]);
+        // 检查是否已有订单
+        $hasOrder = Order::where('user_id', $user->id)
+            ->where('status', '!=', Order::STATUS_CANCELLED)
+            ->where('pay_status', 1)
+            ->exists();
+        
+        if ($hasOrder) {
+            return $this->error('You have already placed an order', 400);
+        }
+        
+        // 检查是否已激活
+        if ($user->first_order_discount == 1) {
+            return $this->success([
+                'already_activated' => true
+            ], 'First order discount already activated!');
+        }
+        
+        // 更新昵称（如果提供）
+        if ($request->nickname) {
+            $user->nickname = $request->nickname;
+        }
+        
+        // 激活首单优惠
+        $user->first_order_discount = 1;
+        $user->save();
+        
+        // 记录到 mail_transfer_submissions（用于邮件营销）
+        $existingSubmission = MailTransferSubmission::where('email', strtolower($user->email))->first();
+        if (!$existingSubmission) {
+            MailTransferSubmission::create([
+                'nickname' => $user->nickname ?? $user->username,
+                'email' => strtolower($user->email),
+                'user_id' => $user->id,
+                'promotion_id' => 1
+            ]);
+        } else if (!$existingSubmission->user_id) {
+            $existingSubmission->user_id = $user->id;
+            $existingSubmission->save();
+        }
+        
+        // 获取折扣值
+        $promotion = Promotion::find(1);
+        $discountValue = $promotion ? $promotion->discount_value : 10;
+        
+        return $this->success([
+            'activated' => true,
+            'discount_value' => $discountValue
+        ], 'First order discount activated successfully!');
     }
 }
 

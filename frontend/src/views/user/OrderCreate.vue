@@ -573,7 +573,7 @@ const handleSubmitOrder = async () => {
     
     const order = res.data.data
     
-    ElMessage.success('Order created successfully! Redirecting to payment...')
+    // ElMessage.success('Order created successfully! Redirecting to payment...')
     
     // 如果是购物车结算，刷新购物车（应该已清空）
     if (!isBuyNow.value) {

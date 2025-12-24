@@ -87,6 +87,9 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($ro
     $router->get('user/discount', 'Api\UserController@getDiscount');
     $router->post('auth/logout', 'Api\AuthController@logout');
     
+    // Off Code - 已登录用户激活首单优惠
+    $router->post('off-code/activate', 'Api\OffCodeController@activateForLoggedInUser');
+    
     // Cart
     $router->get('cart', 'Api\CartController@index');
     $router->post('cart', 'Api\CartController@add');

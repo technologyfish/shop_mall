@@ -57,10 +57,12 @@
           type="email" 
           placeholder="Email" 
           class="promo-input"
+          :readonly="isLoggedInUser"
+          :class="{ 'readonly': isLoggedInUser }"
           required
         />
         <button type="submit" class="btn-submit" :disabled="submitting">
-          {{ submitting ? 'SUBMITTING...' : 'SIGN ME UP!' }}
+          {{ submitting ? 'SUBMITTING...' : (isLoggedInUser ? 'ACTIVATE DISCOUNT!' : 'SIGN ME UP!') }}
         </button>
       </form>
       
@@ -90,21 +92,35 @@
         </svg>
       </div>
       
-      <p class="success-desc">Your 10% off code is:</p>
+      <!-- 已登录用户：优惠已激活 -->
+      <template v-if="isLoggedInUser">
+        <p class="success-desc">Your {{ discountValue }}% first order discount<br/>has been activated!</p>
+        <p class="success-hint">The discount will be automatically applied<br/>to your first order.</p>
+        <router-link to="/shop" class="btn-register" @click="closeSuccessModal">
+          START SHOPPING
+        </router-link>
+      </template>
       
-      <div class="code-box">
-        <span class="off-code">{{ offCode }}</span>
-        <button class="copy-btn" @click="copyCode" :title="copied ? 'Copied!' : 'Copy'">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-            <path v-if="!copied" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-            <path v-else d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-          </svg>
-        </button>
-      </div>
-      
-      <router-link to="/register" class="btn-register" @click="closeSuccessModal">
-        REGISTER NOW
-      </router-link>
+      <!-- 未登录用户：显示折扣码 -->
+      <template v-else>
+        <p class="success-desc">Your {{ discountValue }}% off code is:</p>
+        
+        <div class="code-box">
+          <span class="off-code">{{ offCode }}</span>
+          <button class="copy-btn" @click="copyCode" :title="copied ? 'Copied!' : 'Copy'">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path v-if="!copied" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+              <path v-else d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </button>
+        </div>
+        
+        <p class="success-hint">Use this code when you register<br/>to get your first order discount!</p>
+        
+        <router-link to="/register" class="btn-register" @click="closeSuccessModal">
+          REGISTER NOW
+        </router-link>
+      </template>
     </div>
   </div>
 </template>
@@ -112,7 +128,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useUserStore } from '@/store/user'
-import axios from 'axios'
+import request from '@/utils/request'
 
 const userStore = useUserStore()
 
@@ -124,6 +140,7 @@ const submitting = ref(false)
 const offCode = ref('')
 const copied = ref(false)
 const discountValue = ref(10) // 默认10%，从接口获取
+const isLoggedInUser = ref(false) // 是否是已登录用户
 
 const formData = ref({
   nickname: '',
@@ -134,28 +151,18 @@ const formData = ref({
 const isLoggedIn = computed(() => userStore.isLoggedIn)
 
 onMounted(async () => {
-  // 检查本次会话是否已关闭
-  const closedThisSession = sessionStorage.getItem('first_order_promo_closed')
-  
-  if (closedThisSession) {
-    return
-  }
-  
   try {
-    // 先获取促销活动折扣值
-    const promoRes = await axios.get('/api/off-code/promotion')
-    if (promoRes.data.data?.active) {
-      discountValue.value = promoRes.data.data.discount_value || 10
-    }
-    
-    // 调用后端检查是否应该显示弹窗
-    const res = await axios.get('/api/off-code/check-popup')
+    // 调用后端检查是否应该显示弹窗（同时返回促销信息）
+    const res = await request.get('/api/off-code/check-popup')
     
     if (res.data.data?.show) {
+      discountValue.value = res.data.data.discount_value || 10
+      isLoggedInUser.value = res.data.data.is_logged_in || false
+      
       // 如果已登录，预填用户信息
-      if (isLoggedIn.value && userStore.userInfo) {
-        formData.value.nickname = userStore.userInfo.nickname || userStore.userInfo.username || ''
-        formData.value.email = userStore.userInfo.email || ''
+      if (res.data.data.is_logged_in) {
+        formData.value.nickname = res.data.data.user_nickname || ''
+        formData.value.email = res.data.data.user_email || ''
       }
       
       // 延迟显示悬浮按钮
@@ -165,19 +172,12 @@ onMounted(async () => {
     }
   } catch (error) {
     console.error('Failed to check popup status:', error)
-    // 如果接口失败，对未登录用户默认显示
-    if (!isLoggedIn.value) {
-      setTimeout(() => {
-        showFloatButton.value = true
-      }, 2000)
-    }
   }
 })
 
 // 方法
 const closeFloatButton = () => {
   showFloatButton.value = false
-  sessionStorage.setItem('first_order_promo_closed', 'true')
 }
 
 const openFormModal = () => {
@@ -191,7 +191,6 @@ const closeFormModal = () => {
 const closeSuccessModal = () => {
   showSuccessModal.value = false
   showFloatButton.value = false
-  sessionStorage.setItem('first_order_promo_closed', 'true')
 }
 
 const handleSubmit = async () => {
@@ -201,16 +200,31 @@ const handleSubmit = async () => {
 
   submitting.value = true
   try {
-    const res = await axios.post('/api/off-code/collect', {
-      nickname: formData.value.nickname,
-      email: formData.value.email
-    })
+    if (isLoggedInUser.value) {
+      // 已登录用户：直接激活首单优惠
+      const res = await request.post('/api/off-code/activate', {
+        nickname: formData.value.nickname
+      })
+      
+      // 刷新用户信息
+      await userStore.fetchUserInfo()
+      
+      offCode.value = '' // 已登录用户不需要折扣码
+      showFormModal.value = false
+      showSuccessModal.value = true
+      showFloatButton.value = false
+    } else {
+      // 未登录用户：生成折扣码
+      const res = await request.post('/api/off-code/collect', {
+        nickname: formData.value.nickname,
+        email: formData.value.email
+      })
 
-    offCode.value = res.data.data.off_code
-    showFormModal.value = false
-    showSuccessModal.value = true
-    showFloatButton.value = false
-    
+      offCode.value = res.data.data.off_code
+      showFormModal.value = false
+      showSuccessModal.value = true
+      showFloatButton.value = false
+    }
   } catch (error) {
     console.error('Failed to submit:', error)
     alert(error.response?.data?.message || 'Failed to submit. Please try again.')
@@ -387,6 +401,12 @@ const copyCode = async () => {
       color: #999;
       font-style: italic;
     }
+    
+    &.readonly {
+      background: #f0f0f0;
+      color: #666;
+      cursor: not-allowed;
+    }
   }
   
   .btn-submit {
@@ -461,6 +481,14 @@ const copyCode = async () => {
     font-size: 16px;
     color: #000;
     margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .success-hint {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
   }
   
   .code-box {
