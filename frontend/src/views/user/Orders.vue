@@ -177,6 +177,7 @@ import { ElMessageBox } from 'element-plus'
 import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 import message from '@/utils/message'
 import { getOrders, getOrder, cancelOrder } from '@/api/order'
+import { getProductImage } from '@/utils/image'
 
 const router = useRouter()
 const activeTab = ref('all')
@@ -290,13 +291,7 @@ const gotoPayment = (id) => {
   router.push(`/payment/${id}`)
 }
 
-const getProductImage = (item) => {
-  // 优先使用product关联的图片，否则使用order_item的product_image字段
-  const imagePath = item.product?.image || item.product_image
-  if (!imagePath) return 'https://via.placeholder.com/80'
-  if (imagePath.startsWith('http')) return imagePath
-  return `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${imagePath}`
-}
+// getProductImage 已从 @/utils/image 导入
 
 const handleCancel = async (id) => {
   try {

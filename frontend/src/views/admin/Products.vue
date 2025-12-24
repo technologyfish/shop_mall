@@ -258,16 +258,10 @@ import { ElMessage, ElMessageBox } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 import axios from '@/utils/request'
 import ImageUpload from '@/components/ImageUpload.vue'
+import { getImageUrl } from '@/utils/image'
 
 // API 基础地址
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || ''
-
-// 获取完整图片 URL
-const getImageUrl = (path) => {
-  if (!path) return ''
-  if (path.startsWith('http')) return path
-  return `${apiBaseUrl}${path}`
-}
 
 const loading = ref(false)
 const submitting = ref(false)

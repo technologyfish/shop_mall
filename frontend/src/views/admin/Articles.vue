@@ -27,8 +27,8 @@
         <el-table-column prop="subtitle" label="副标题" min-width="250" show-overflow-tooltip />
         <el-table-column prop="status" label="状态" width="100">
           <template #default="{ row }">
-            <el-tag :type="row.status === 1 ? 'success' : 'info'">
-              {{ row.status === 1 ? '发布' : '草稿' }}
+            <el-tag :type="row.status == 1 || row.status === true ? 'success' : 'info'">
+              {{ row.status == 1 || row.status === true ? '发布' : '草稿' }}
             </el-tag>
           </template>
         </el-table-column>
@@ -42,10 +42,10 @@
             <el-button size="small" @click="handleEdit(row)">编辑</el-button>
             <el-button
               size="small"
-              :type="row.status === 1 ? 'warning' : 'success'"
+              :type="row.status == 1 || row.status === true ? 'warning' : 'success'"
               @click="handleToggleStatus(row)"
             >
-              {{ row.status === 1 ? '下架' : '发布' }}
+              {{ row.status == 1 || row.status === true ? '下架' : '发布' }}
             </el-button>
             <el-button size="small" type="danger" @click="handleDelete(row)">删除</el-button>
           </template>
@@ -224,7 +224,8 @@ const handleSubmit = async () => {
 }
 
 const handleToggleStatus = async (row) => {
-  const newStatus = Number(row.status) === 1 ? 0 : 1
+  const currentStatus = row.status === true || row.status == 1
+  const newStatus = currentStatus ? 0 : 1
   try {
     await axios.put(`/api/admin/articles/${row.id}`, { 
       title: row.title,

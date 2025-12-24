@@ -10,7 +10,7 @@
         <div v-for="photo in photos" :key="photo.id" class="photo-item">
           <div class="photo-card">
             <el-image 
-              :src="getImageUrl(photo.image)" 
+              :src="getImageUrl(photo.image, 'https://via.placeholder.com/400')" 
               :alt="photo.name"
               :preview-src-list="previewList"
               :initial-index="getPreviewIndex(photo)"
@@ -50,6 +50,7 @@ import { ref, computed, onMounted } from 'vue'
 import message from '@/utils/message'
 import { getPhotos } from '@/api/photo'
 import PageLoading from '@/components/PageLoading.vue'
+import { getImageUrl } from '@/utils/image'
 
 const photos = ref([])
 const currentPage = ref(1)
@@ -59,7 +60,7 @@ const loading = ref(true)
 
 // 预览图片列表
 const previewList = computed(() => {
-  return photos.value.map(p => getImageUrl(p.image))
+  return photos.value.map(p => getImageUrl(p.image, 'https://via.placeholder.com/400'))
 })
 
 // 获取预览索引
@@ -85,12 +86,6 @@ const fetchPhotos = async () => {
   } finally {
     loading.value = false
   }
-}
-
-const getImageUrl = (path) => {
-  if (!path) return 'https://via.placeholder.com/400'
-  if (path.startsWith('http')) return path
-  return `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${path}`
 }
 </script>
 

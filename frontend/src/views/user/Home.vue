@@ -174,22 +174,13 @@ import { getRecipes } from '@/api/recipe'
 import { getArticleDetail } from '@/api/article'
 import PageLoading from '@/components/PageLoading.vue'
 import FirstOrderPromotion from '@/components/FirstOrderPromotion.vue'
+import { getImageUrl, getProductImage } from '@/utils/image'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 const router = useRouter()
 const modules = [Autoplay, Navigation, Pagination]
-
-// API 基础地址
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || ''
-
-// 获取完整图片 URL
-const getImageUrl = (path) => {
-  if (!path) return ''
-  if (path.startsWith('http')) return path
-  return `${apiBaseUrl}${path}`
-}
 
 // 数据
 const loading = ref(true)
@@ -272,17 +263,6 @@ const fetchHomeData = async () => {
 // 跳转商品详情
 const goProduct = (id) => {
   router.push(`/product/${id}`)
-}
-
-// 获取商品图片（优先使用images数组的第一张）
-const getProductImage = (product) => {
-  let imagePath = ''
-  if (product.images && Array.isArray(product.images) && product.images.length > 0) {
-    imagePath = product.images[0]
-  } else {
-    imagePath = product.image
-  }
-  return imagePath ? getImageUrl(imagePath) : '/placeholder-product.jpg'
 }
 
 // 跳转食谱详情

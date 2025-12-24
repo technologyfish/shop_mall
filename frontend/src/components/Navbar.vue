@@ -57,13 +57,13 @@
 
           <div class="user-menu" v-if="isLoggedIn">
             <a @click="handleAvatarClick" class="icon-btn" style="cursor: pointer;">
-              <img :src="user?.avatar || defaultAvatar" class="avatar" />
+              <img :src="user?.avatar ? getImageUrl(user.avatar) :  defaultAvatar" class="avatar" />
             </a>
           </div>
 
 
           <router-link to="/login" class="btn-primary" v-else>
-            登录/注册
+            SIGN IN/SIGN UP
           </router-link>
 
           <div class="cart-menu">
@@ -86,6 +86,7 @@ import { useCartStore } from '@/store/cart'
 import { getAnnouncements } from '@/api/home'
 import iconCat from '@/assets/images/icon-cat.png'
 import defaultAvatar from '@/assets/images/avatar.png'
+import {getImageUrl} from "@/utils/image";
 
 const router = useRouter()
 const userStore = useUserStore()

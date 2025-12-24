@@ -49,6 +49,7 @@ import { ref, reactive, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { getProducts } from '@/api/product'
 import PageLoading from '@/components/PageLoading.vue'
+import { getProductImage } from '@/utils/image'
 
 const router = useRouter()
 const route = useRoute()
@@ -81,27 +82,6 @@ const fetchProducts = async () => {
 
 const gotoDetail = (id) => {
   router.push(`/product/${id}`)
-}
-
-// API 基础地址
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || ''
-
-// 获取完整图片 URL
-const getImageUrl = (path) => {
-  if (!path) return ''
-  if (path.startsWith('http')) return path
-  return `${apiBaseUrl}${path}`
-}
-
-// 获取商品图片（优先使用images数组的第一张）
-const getProductImage = (product) => {
-  let imagePath = ''
-  if (product.images && Array.isArray(product.images) && product.images.length > 0) {
-    imagePath = product.images[0]
-  } else {
-    imagePath = product.image
-  }
-  return imagePath ? getImageUrl(imagePath) : '/placeholder-product.jpg'
 }
 </script>
 

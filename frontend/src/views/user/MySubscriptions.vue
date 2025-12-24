@@ -38,9 +38,9 @@
           >
             Cancel
           </el-button>
-          <el-button @click="viewDetails(subscription.id)">
-            View Details
-          </el-button>
+<!--          <el-button @click="viewDetails(subscription.id)">-->
+<!--            View Details-->
+<!--          </el-button>-->
         </div>
       </div>
     </div>

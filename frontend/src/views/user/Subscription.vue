@@ -92,6 +92,7 @@ import { useRouter } from 'vue-router'
 import message from '@/utils/message'
 import { getSubscriptionPlans, createSubscription } from '@/api/subscription'
 import { useUserStore } from '@/store/user'
+import { getImageUrl } from '@/utils/image'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -163,12 +164,6 @@ const formatDeliveryDate = (date) => {
   const d = new Date(date)
   const day = d.getDate()
   return `${day}${getOrdinalSuffix(day)} of each month`
-}
-
-const getImageUrl = (path) => {
-  if (!path) return ''
-  if (path.startsWith('http')) return path
-  return `${import.meta.env.VITE_API_BASE_URL}${path}`
 }
 
 const scrollToPlans = () => {

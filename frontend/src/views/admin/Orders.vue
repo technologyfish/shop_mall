@@ -109,6 +109,7 @@ import { ref, reactive, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { getAdminOrders, shipOrder } from '@/api/admin'
+import { getProductImage } from '@/utils/image'
 
 const router = useRouter()
 const orders = ref([])
@@ -177,13 +178,7 @@ const formatDate = (dateString) => {
   })
 }
 
-const getProductImage = (item) => {
-  // 优先使用product关联的图片，否则使用order_item的product_image字段
-  const imagePath = item.product?.image || item.product_image
-  if (!imagePath) return 'https://via.placeholder.com/60'
-  if (imagePath.startsWith('http')) return imagePath
-  return `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${imagePath}`
-}
+// getProductImage 已从 @/utils/image 导入
 
 const handleView = (id) => {
   router.push({ name: 'AdminOrderDetail', params: { id } })

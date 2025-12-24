@@ -108,21 +108,12 @@ import { getProduct } from '@/api/product'
 import { getShippingSettings } from '@/api/shipping'
 import { useCartStore } from '@/store/cart'
 import { useUserStore } from '@/store/user'
+import { getImageUrl } from '@/utils/image'
 
 const route = useRoute()
 const router = useRouter()
 const cartStore = useCartStore()
 const userStore = useUserStore()
-
-// API 基础地址
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || ''
-
-// 获取完整图片 URL
-const getImageUrl = (path) => {
-  if (!path) return ''
-  if (path.startsWith('http')) return path
-  return `${apiBaseUrl}${path}`
-}
 
 const product = ref(null)
 const quantity = ref(1)

@@ -89,6 +89,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ArrowLeft } from '@element-plus/icons-vue'
 import { getAdminOrder, shipOrder } from '@/api/admin'
+import { getProductImage } from '@/utils/image'
 
 const route = useRoute()
 const router = useRouter()
@@ -140,13 +141,7 @@ const getOrderStatusText = (status) => {
   return texts[status] || '未知'
 }
 
-const getProductImage = (item) => {
-  // 优先使用product关联的图片，否则使用order_item的product_image字段
-  const imagePath = item.product?.image || item.product_image
-  if (!imagePath) return 'https://via.placeholder.com/80'
-  if (imagePath.startsWith('http')) return imagePath
-  return `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${imagePath}`
-}
+// getProductImage 已从 @/utils/image 导入
 </script>
 
 <style scoped lang="scss">

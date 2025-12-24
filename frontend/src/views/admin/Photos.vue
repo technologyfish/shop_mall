@@ -16,7 +16,7 @@
       <el-table :data="photos" style="width: 100%">
         <el-table-column label="图片" width="120">
           <template #default="{ row }">
-            <img :src="getImageUrl(row.image)" :alt="row.name" class="photo-thumb" />
+            <img :src="getImageUrl(row.image, 'https://via.placeholder.com/100')" :alt="row.name" class="photo-thumb" />
           </template>
         </el-table-column>
         <el-table-column prop="name" label="名称" width="200" />
@@ -104,6 +104,7 @@ import { ref, reactive, onMounted, computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { getPhotos, addPhoto, updatePhoto, deletePhoto } from '@/api/admin/photo'
 import { useAdminStore } from '@/store/admin'
+import { getImageUrl } from '@/utils/image'
 
 const adminStore = useAdminStore()
 const photos = ref([])
@@ -150,12 +151,6 @@ const fetchPhotos = async () => {
   } catch (error) {
     ElMessage.error('获取照片列表失败')
   }
-}
-
-const getImageUrl = (path) => {
-  if (!path) return 'https://via.placeholder.com/100'
-  if (path.startsWith('http')) return path
-  return `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${path}`
 }
 
 const formatDate = (dateString) => {

@@ -143,6 +143,7 @@ import { ElMessageBox } from 'element-plus'
 import { ArrowLeft, Timer } from '@element-plus/icons-vue'
 import message from '@/utils/message'
 import { getOrder, cancelOrder } from '@/api/order'
+import {getProductImage} from "@/utils/image";
 
 const route = useRoute()
 const router = useRouter()
@@ -225,12 +226,7 @@ const formatDate = (dateString) => {
   return `${year}/${month}/${day} ${hours}:${minutes}`
 }
 
-const getProductImage = (item) => {
-  const imagePath = item.product?.image || item.product_image
-  if (!imagePath) return 'https://via.placeholder.com/60'
-  if (imagePath.startsWith('http')) return imagePath
-  return `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${imagePath}`
-}
+
 
 const handleCancel = async () => {
   try {

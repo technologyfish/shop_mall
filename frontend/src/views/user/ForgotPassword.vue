@@ -213,8 +213,6 @@ const handleResetPassword = async () => {
   } catch (error) {
     if (error.response?.data?.message) {
       ElMessage.error(error.response.data.message)
-    } else {
-      ElMessage.error(error.message || 'Failed to reset password')
     }
   } finally {
     loading.value = false

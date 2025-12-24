@@ -11,7 +11,7 @@
             <div class="avatar-section">
               <div class="avatar-wrapper" @click="handleAvatarClick">
                 <div class="avatar">
-                  <img :src="user?.avatar || defaultAvatar" :alt="user?.username" />
+                  <img :src="user?.avatar ? getImageUrl(user.avatar ) :  defaultAvatar" :alt="user?.username" />
                 </div>
                 <div class="avatar-overlay">
                   <el-icon><Camera /></el-icon>
@@ -75,6 +75,7 @@ import { ShoppingBag, User, Location, SwitchButton, Camera, Promotion, Edit } fr
 import { useUserStore } from '@/store/user'
 import PageLoading from '@/components/PageLoading.vue'
 import message from '@/utils/message'
+import {getImageUrl} from "@/utils/image";
 
 const route = useRoute()
 const router = useRouter()

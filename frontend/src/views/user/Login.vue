@@ -77,23 +77,8 @@ const handleLogin = async () => {
     router.push('/')
   } catch (error) {
     const response = error.response
-    
-    // 用户未注册的情况
-    if (response?.status === 404 || response?.data?.error_type === 'user_not_found') {
-      ElMessageBox.confirm(
-        'This account does not exist. Would you like to create a new account?',
-        'Account Not Found',
-        {
-          confirmButtonText: 'Sign Up',
-          cancelButtonText: 'Cancel',
-          type: 'warning'
-        }
-      ).then(() => {
-        router.push('/register')
-      }).catch(() => {})
-    } else {
-      message.error(error.response?.data?.message || error.message || 'Login failed')
-    }
+    message.error(error.response?.data?.message || error.message || 'Login failed')
+
   } finally {
     loading.value = false
   }

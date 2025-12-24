@@ -130,9 +130,11 @@ import {
   updateSubscriptionPlan, 
   deleteSubscriptionPlan 
 } from '@/api/admin/subscription'
+import { getImageUrl } from '@/utils/image'
 
 const adminStore = useAdminStore()
-const uploadUrl = 'http://localhost:8000/api/admin/upload'
+const baseUrl = import.meta.env.VITE_BASE_URL || import.meta.env.VITE_API_BASE_URL || ''
+const uploadUrl = `${baseUrl}/api/admin/upload`
 
 const plans = ref([])
 const total = ref(0)
@@ -168,13 +170,6 @@ const handleImageSuccess = (response) => {
   } else {
     ElMessage.error(response.message || '图片上传失败')
   }
-}
-
-// 获取图片URL
-const getImageUrl = (path) => {
-  if (!path) return ''
-  if (path.startsWith('http')) return path
-  return `${import.meta.env.VITE_API_BASE_URL}${path}`
 }
 
 onMounted(() => {

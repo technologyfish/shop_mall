@@ -23,7 +23,7 @@
             <div class="order-items">
               <h3>Order Items</h3>
               <div v-for="item in order.items" :key="item.id" class="item-row">
-                <img :src="getImageUrl(item.product_image)" :alt="item.product_name" class="item-img" />
+                <img :src="getImageUrl(item.product_image, 'https://via.placeholder.com/80')" :alt="item.product_name" class="item-img" />
                 <div class="item-info">
                   <p class="item-name">{{ item.product_name }}</p>
                   <p class="item-meta">Qty: {{ item.quantity }} × £{{ parseFloat(item.price).toFixed(2) }}</p>
@@ -131,6 +131,7 @@ import message from '@/utils/message'
 import { CreditCard, InfoFilled, ArrowLeft } from '@element-plus/icons-vue'
 import { getOrder } from '@/api/order'
 import { createPayment } from '@/api/payment'
+import { getImageUrl } from '@/utils/image'
 
 const route = useRoute()
 const router = useRouter()
@@ -174,13 +175,6 @@ const formatDate = (dateString) => {
     hour: '2-digit',
     minute: '2-digit'
   })
-}
-
-// 获取图片URL
-const getImageUrl = (imagePath) => {
-  if (!imagePath) return 'https://via.placeholder.com/80'
-  if (imagePath.startsWith('http')) return imagePath
-  return `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}${imagePath}`
 }
 
 // 发起支付
