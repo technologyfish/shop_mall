@@ -51,10 +51,9 @@ class ContactController extends Controller
             $form = ContactSubmission::create([
                 'name' => $request->name,
                 'email' => $request->email,
-                'subject' => $request->phone ?? '',  // 使用phone作为subject
+                'phone' => $request->phone ?? '',
                 'message' => $request->comment,
                 'status' => 0,
-                'ip' => $request->ip()
             ]);
 
             return $this->success($form, 'Form submitted successfully', 201);

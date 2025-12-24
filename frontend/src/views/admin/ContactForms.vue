@@ -30,7 +30,7 @@
         <el-table-column prop="name" label="姓名" width="120" />
         <el-table-column prop="email" label="邮箱" width="200" />
         <el-table-column prop="phone" label="电话" width="150" />
-        <el-table-column prop="comment" label="留言内容" show-overflow-tooltip />
+        <el-table-column prop="message" label="留言内容" show-overflow-tooltip />
         <el-table-column prop="status" label="状态" width="100">
           <template #default="{ row }">
             <el-tag :type="row.status === 1 ? 'success' : 'info'">
@@ -84,7 +84,7 @@
         <el-descriptions-item label="邮箱">{{ currentForm.email }}</el-descriptions-item>
         <el-descriptions-item label="电话">{{ currentForm.phone || '-' }}</el-descriptions-item>
         <el-descriptions-item label="留言内容">
-          <div style="white-space: pre-wrap;">{{ currentForm.comment }}</div>
+          <div style="white-space: pre-wrap;">{{ currentForm.message }}</div>
         </el-descriptions-item>
         <el-descriptions-item label="IP地址">{{ currentForm.ip || '-' }}</el-descriptions-item>
         <el-descriptions-item label="状态">
