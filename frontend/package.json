@@ -16,6 +16,7 @@
     "pinia": "^2.1.6",
     "swiper": "^12.0.3",
     "vue": "^3.3.4",
+    "vue-easy-lightbox": "^1.19.0",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {

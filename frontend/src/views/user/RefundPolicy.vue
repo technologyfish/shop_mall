@@ -1,0 +1,156 @@
+<template>
+  <div class="policy-page">
+    <div class="policy-container">
+      <h1>Refund policy</h1>
+      
+      <div class="policy-content">
+        <p>We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.</p>
+
+        <p>To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You'll also need the receipt or proof of purchase.</p>
+
+        <p>To start a return, you can contact us at <a href="mailto:contact@thechillitrail.com">contact@thechillitrail.com</a>. Please note that returns will need to be sent to the following address: 10 Hillside Way, Withdean, BN1 5FE</p>
+
+        <p>If your return is accepted, we'll send you a return shipping label, as well as instructions on how and where to send your package. Items sent back to us without first requesting a return will not be accepted.</p>
+
+        <p>You can always contact us for any return question at <a href="mailto:contact@thechillitrail.com">contact@thechillitrail.com</a>.</p>
+
+        <h2>Damages and issues</h2>
+        <p>Please inspect your order upon reception and contact us immediately if the item is defective, damaged or if you receive the wrong item, so that we can evaluate the issue and make it right.</p>
+
+        <h2>Exceptions / non-returnable items</h2>
+        <p>Certain types of items cannot be returned, like perishable goods (such as food, flowers, or plants), custom products (such as special orders or personalized items), and personal care goods (such as beauty products). We also do not accept returns for hazardous materials, flammable liquids, or gases. Please get in touch if you have questions or concerns about your specific item.</p>
+
+        <p>Unfortunately, we cannot accept returns on sale items or gift cards.</p>
+
+        <h2>Exchanges</h2>
+        <p>The fastest way to ensure you get what you want is to return the item you have, and once the return is accepted, make a separate purchase for the new item.</p>
+
+        <h2>European Union 14 day cooling off period</h2>
+        <p>Notwithstanding the above, if the merchandise is being shipped into the European Union, you have the right to cancel or return your order within 14 days, for any reason and without a justification. As above, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You'll also need the receipt or proof of purchase.</p>
+
+        <h2>Refunds</h2>
+        <p>We will notify you once we've received and inspected your return, and let you know if the refund was approved or not. If approved, you'll be automatically refunded on your original payment method within 10 business days. Please remember it can take some time for your bank or credit card company to process and post the refund too.</p>
+        
+        <p>If more than 15 business days have passed since we've approved your return, please contact us at <a href="mailto:contact@thechillitrail.com">contact@thechillitrail.com</a>.</p>
+
+        <h2>Returns & Refunds</h2>
+        <p>We want you to love your purchase. If you're not completely satisfied, you can return unopened items within 14 days of receipt for a full refund. Please note:</p>
+        <ul>
+          <li><strong>Unopened products only:</strong> For health and safety reasons, we cannot accept returns on opened items.</li>
+          <li><strong>Return shipping:</strong> Customers are responsible for the cost of return shipping unless the item is faulty or incorrect.</li>
+        </ul>
+
+        <h2>How to Return</h2>
+        <ol>
+          <li>Contact us at <a href="mailto:contact@thechillitrail.com">contact@thechillitrail.com</a> with your order number and reason for return.</li>
+          <li>Return your item to:<br>
+            The Chilli Trail<br>
+            Returns Department<br>
+            10 Hillside Way<br>
+            Brighton & Hove<br>
+            BN1 5FE
+          </li>
+          <li>Include a note with your order number and reason for return.</li>
+        </ol>
+
+        <p>Once received, we'll process your refund within 14 days.</p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+</script>
+
+<style scoped lang="scss">
+.policy-page {
+  min-height: 100vh;
+  background: #fafafa;
+  padding: 60px 20px;
+}
+
+.policy-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 60px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 36px;
+    color: #2c2c2c;
+    margin-bottom: 40px;
+    font-weight: 700;
+  }
+
+  .policy-content {
+    line-height: 1.8;
+    color: #444;
+
+    h2 {
+      font-size: 24px;
+      color: #2c2c2c;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    ul, ol {
+      margin: 20px 0;
+      padding-left: 30px;
+
+      li {
+        margin-bottom: 12px;
+        font-size: 15px;
+
+        strong {
+          color: #2c2c2c;
+        }
+      }
+    }
+
+    a {
+      color: #c94a3c;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .policy-page {
+    padding: 40px 15px;
+  }
+
+  .policy-container {
+    padding: 30px 20px;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    .policy-content {
+      h2 {
+        font-size: 20px;
+      }
+
+      p, ul li, ol li {
+        font-size: 14px;
+      }
+    }
+  }
+}
+</style>
+
+
+
+

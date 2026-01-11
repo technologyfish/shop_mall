@@ -2,6 +2,22 @@
   <div class="my-subscriptions-page">
     <h2 class="page-title">My Subscriptions</h2>
 
+    <!-- 管理订阅按钮 - 跳转到 Stripe Customer Portal -->
+<!--    <div class="portal-section" v-if="subscriptions.length">-->
+<!--      <div class="portal-info">-->
+<!--        <p>Update payment method, view invoices and more in the secure Stripe portal.</p>-->
+<!--      </div>-->
+<!--      <el-button -->
+<!--        type="primary" -->
+<!--        size="large"-->
+<!--        :loading="portalLoading"-->
+<!--        @click="openCustomerPortal"-->
+<!--        class="portal-btn"-->
+<!--      >-->
+<!--        <span>🔗 Manage Payment & Invoices</span>-->
+<!--      </el-button>-->
+<!--    </div>-->
+
     <div class="subscriptions-list" v-if="subscriptions.length">
       <div v-for="subscription in subscriptions" :key="subscription.id" class="subscription-card">
         <div class="card-header">
@@ -36,11 +52,8 @@
             type="danger" 
             @click="handleCancel(subscription.id)"
           >
-            Cancel
+            Cancel Subscription
           </el-button>
-<!--          <el-button @click="viewDetails(subscription.id)">-->
-<!--            View Details-->
-<!--          </el-button>-->
         </div>
       </div>
     </div>
@@ -55,15 +68,16 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { ElMessageBox } from 'element-plus'
-import { ArrowLeft } from '@element-plus/icons-vue'
 import message from '@/utils/message'
 import { 
   getUserSubscriptions, 
-  cancelSubscription
+  cancelSubscription,
+  getCustomerPortalUrl
 } from '@/api/subscription'
 
 const router = useRouter()
 const subscriptions = ref([])
+const portalLoading = ref(false)
 
 onMounted(() => {
   fetchSubscriptions()
@@ -75,6 +89,42 @@ const fetchSubscriptions = async () => {
     subscriptions.value = res.data.data || []
   } catch (error) {
     message.error('Failed to load subscriptions')
+  }
+}
+
+// 打开 Stripe Customer Portal（用于更换信用卡、查看发票等）
+const openCustomerPortal = async () => {
+  portalLoading.value = true
+  try {
+    const res = await getCustomerPortalUrl()
+    const portalUrl = res.data?.data?.portal_url
+    if (portalUrl) {
+      window.location.href = portalUrl
+    } else {
+      message.error('Failed to get portal URL')
+    }
+  } catch (error) {
+    message.error(error.response?.data?.message || 'Failed to open subscription portal')
+  } finally {
+    portalLoading.value = false
+  }
+}
+
+// 取消订阅（通过后端 API 调用 Stripe）
+const handleCancel = async (id) => {
+  try {
+    await ElMessageBox.confirm(
+      'Are you sure you want to cancel this subscription? This action cannot be undone.',
+      'Confirm Cancellation',
+      { type: 'warning', confirmButtonText: 'Yes, Cancel It' }
+    )
+    await cancelSubscription(id)
+    message.success('Subscription cancelled successfully')
+    fetchSubscriptions()
+  } catch (error) {
+    if (error !== 'cancel') {
+      message.error(error.response?.data?.message || 'Failed to cancel subscription')
+    }
   }
 }
 
@@ -116,27 +166,6 @@ const formatDate = (date) => {
   })
 }
 
-const handleCancel = async (id) => {
-  try {
-    await ElMessageBox.confirm(
-      'Are you sure you want to cancel this subscription? This action cannot be undone.',
-      'Confirm Cancellation',
-      { type: 'warning', confirmButtonText: 'Yes, Cancel It' }
-    )
-    await cancelSubscription(id)
-    // message.success('Subscription cancelled successfully')
-    fetchSubscriptions()
-  } catch (error) {
-    if (error !== 'cancel') {
-      message.error(error.response?.data?.message || 'Failed to cancel subscription')
-    }
-  }
-}
-
-const viewDetails = (id) => {
-  router.push(`/user-center/subscriptions/${id}`)
-}
-
 const goToSubscribe = () => {
   router.push('/subscription')
 }
@@ -149,6 +178,49 @@ const goToSubscribe = () => {
     font-weight: bold;
     margin-bottom: 30px;
     color: #333;
+  }
+
+  .portal-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+
+    .portal-info {
+      margin-bottom: 20px;
+
+      p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+
+    .portal-btn {
+      padding: 16px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 50px;
+      background: white;
+      color: #667eea;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
   }
 
   .subscriptions-list {
@@ -234,6 +306,21 @@ const goToSubscribe = () => {
     .page-title {
       font-size: 20px;
       margin-bottom: 20px;
+    }
+
+    .portal-section {
+      padding: 25px 20px;
+      margin-bottom: 20px;
+
+      .portal-info p {
+        font-size: 14px;
+      }
+
+      .portal-btn {
+        width: 100%;
+        padding: 14px 30px;
+        font-size: 15px;
+      }
     }
 
     .subscriptions-list {

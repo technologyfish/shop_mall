@@ -4,7 +4,7 @@
     <PageLoading :visible="loading" text="Loading products..." />
 
     <div class="header-section">
-      <h1>Shop All Products</h1>
+      <h1>Sauces</h1>
     </div>
 
     <div class="container">
@@ -132,7 +132,7 @@ const gotoDetail = (id) => {
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.3s;
-    background: #fff;
+    //background: #fff;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 
     &:hover {
@@ -183,7 +183,7 @@ const gotoDetail = (id) => {
 
     .card-bottom {
       padding: 20px;
-      background: var(--primary-black);
+      background: $accent-color;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -225,9 +225,9 @@ const gotoDetail = (id) => {
         transition: background 0.3s;
         margin-top: 10px;
 
-        &:hover {
-          background-color: var(--primary-dark);
-        }
+        //&:hover {
+        //  background-color: var(--primary-dark);
+        //}
       }
     }
   }

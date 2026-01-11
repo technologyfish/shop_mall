@@ -72,16 +72,45 @@
       </div>
     </section>
 
-    <!-- Journey Section -->
-    <section class="journey-section" v-if="journey">
-      <div class="container">
-        <div class="journey-image">
-          <img :src="journey.image ? getImageUrl(journey.image) : '/placeholder-journey.jpg'" :alt="journey.title" />
+    <!-- Join The Club Section -->
+    <section class="join-club-section">
+      <div class="club-container">
+        <h2 class="club-title">HOW THE SAUCE CLUB SUBSCRIPTION WORKS</h2>
+        
+        <div class="club-steps">
+          <!-- Step 1 -->
+          <div class="club-step">
+            <div class="step-number">1</div>
+            <div class="step-icon">
+              <img src="@/assets/images/sub-1.png" alt="Join the Club" />
+            </div>
+            <h3 class="step-title">JOIN THE CLUB</h3>
+            <p class="step-desc">Sign up to join the sauciest club in the UK. Pause, skip or cancel anytime.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="club-step">
+            <div class="step-number">2</div>
+            <div class="step-icon">
+              <img src="@/assets/images/sub-2.png" alt="Unbox Your Sauce" />
+            </div>
+            <h3 class="step-title">UNBOX YOUR SAUCE</h3>
+            <p class="step-desc">Every other month you'll receive a flavour packed delivery.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="club-step">
+            <div class="step-number">3</div>
+            <div class="step-icon">
+              <img src="@/assets/images/sub-3.png" alt="Savour the Flavour" />
+            </div>
+            <h3 class="step-title">SAVOUR THE FLAVOUR</h3>
+            <p class="step-desc">Dip, drizzle and dunk like never before. Be sure to tag @thechillitrail when you've cracked open your new sauce.</p>
+          </div>
         </div>
-        <div class="journey-content">
-          <h2 class="journey-title">{{ journey.title }}</h2>
-          <p class="journey-subtitle">{{ journey.subtitle }}</p>
-          <router-link to="/our-journey" class="btn-secondary">Our Story</router-link>
+
+        <div class="club-cta">
+          <router-link to="/subscription" class="btn-join-club">JOIN THE CLUB</router-link>
         </div>
       </div>
     </section>
@@ -138,27 +167,40 @@
       </div>
     </section>
 
-    <!-- Additional Articles -->
-    <section class="articles-section" v-if="articles && articles.length">
-      <article 
-        v-for="(article, index) in articles" 
-        :key="article.id"
-        class="article-block"
-        :class="{ 'reverse': index % 2 === 1 }"
-        @click="goToArticle(article.id)"
-      >
-        <div class="container">
-          <div class="article-image">
-            <img :src="article.image ? getImageUrl(article.image) : '/placeholder-article.jpg'" :alt="article.title" />
-          </div>
-          <div class="article-content">
-            <h2 class="article-title">{{ article.title }}</h2>
-            <p class="article-subtitle" v-html="truncateContent(article.content, 200)"></p>
-            <span class="read-more">Read More →</span>
-          </div>
+    <!-- Photos Gallery Section -->
+    <section class="photos-gallery-section" v-if="homePhotos && homePhotos.length">
+
+      <h2 class="section-title">Events</h2>
+
+
+      <div class="photos-grid">
+        <div 
+          v-for="photo in homePhotos" 
+          :key="photo.id" 
+          class="photo-item"
+          @click="goToPhotos"
+        >
+          <img :src="getImageUrl(photo.image)" :alt="photo.title || 'Gallery'" />
         </div>
-      </article>
+      </div>
     </section>
+
+
+    <!-- Journey Section -->
+    <section class="journey-section" v-if="journey">
+      <div class="container">
+        <div class="journey-image">
+          <img :src="journey.image ? getImageUrl(journey.image) : '/placeholder-journey.jpg'" :alt="journey.title" />
+        </div>
+        <div class="journey-content">
+          <h2 class="journey-title">{{ journey.title }}</h2>
+          <p class="journey-subtitle">{{ journey.subtitle }}</p>
+<!--          <router-link to="/our-journey" class="btn-secondary">Our Story</router-link>-->
+        </div>
+      </div>
+    </section>
+
+
     </div><!-- end content -->
   </div>
 </template>
@@ -171,6 +213,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { getBanners } from '@/api/home'
 import { getProducts } from '@/api/product'
 import { getRecipes } from '@/api/recipe'
+import { getPhotos } from '@/api/photo'
 import { getArticleDetail } from '@/api/article'
 import PageLoading from '@/components/PageLoading.vue'
 import FirstOrderPromotion from '@/components/FirstOrderPromotion.vue'
@@ -186,37 +229,20 @@ const modules = [Autoplay, Navigation, Pagination]
 const loading = ref(true)
 const banner = ref(null)
 const featuredProducts = ref([])
-const journey = ref(null)
 const featuredRecipes = ref([])
-const articles = ref([])
-
-// 安全获取文章（失败时返回null）
-const safeGetArticle = async (id) => {
-  try {
-    const res = await getArticleDetail(id)
-    return res.data?.data || null
-  } catch (error) {
-    console.warn(`Failed to load article ${id}:`, error)
-    return null
-  }
-}
-
+const homePhotos = ref([])
+const journey = ref(null)
 // 获取首页数据
 const fetchHomeData = async () => {
   try {
     loading.value = true
     
-    // 基础数据请求（Banner、商品、食谱）
-    const [bannerRes, productsRes, recipesRes] = await Promise.all([
+    // 基础数据请求（Banner、商品、食谱、照片）
+    const [bannerRes, productsRes, recipesRes, photosRes,article5] = await Promise.all([
       getBanners('home'),
       getProducts({ is_featured: 1, limit: 10 }),
-      getRecipes({ is_featured: 1, limit: 10 })
-    ])
-    
-    // 文章请求单独处理，避免一个失败导致全部失败
-    const [article4, article3, article5] = await Promise.all([
-      safeGetArticle(4),
-      safeGetArticle(3),
+      getRecipes({ is_featured: 1, limit: 10 }),
+      getPhotos({ limit: 3 }),
       safeGetArticle(5)
     ])
     
@@ -235,23 +261,13 @@ const fetchHomeData = async () => {
       featuredRecipes.value = recipesRes.data.data.data
     }
 
-    // 处理文章（只添加成功获取的文章）
-    const articleList = []
-    if (article4) articleList.push(article4)
-    if (article3) articleList.push(article3)
-    articles.value = articleList
-
-    // 处理 Journey (获取ID为5的文章)
-    if (article5) {
-      journey.value = article5
-    } else {
-      // 默认 Journey 数据（如果后台未配置）
-      journey.value = {
-        title: 'The Chilli Trail Journey',
-        subtitle: 'Born from our love of food and travel...',
-        image: '/placeholder-journey.jpg'
-      }
+    // 处理照片（只取前3张）
+    if (photosRes.data && photosRes.data.data) {
+      const photosData = photosRes.data.data.data || photosRes.data.data
+      homePhotos.value = Array.isArray(photosData) ? photosData.slice(0, 3) : []
     }
+
+    journey.value = article5
 
   } catch (error) {
     console.error('获取首页数据失败:', error)
@@ -259,6 +275,17 @@ const fetchHomeData = async () => {
     loading.value = false
   }
 }
+// 安全获取文章（失败时返回null）
+const safeGetArticle = async (id) => {
+  try {
+    const res = await getArticleDetail(id)
+    return res.data?.data || null
+  } catch (error) {
+    console.warn(`Failed to load article ${id}:`, error)
+    return null
+  }
+}
+
 
 // 跳转商品详情
 const goProduct = (id) => {
@@ -270,18 +297,9 @@ const goRecipe = (id) => {
   router.push(`/recipe/${id}`)
 }
 
-// 跳转文章详情
-const goToArticle = (id) => {
-  router.push(`/article/${id}`)
-}
-
-// 截断内容
-const truncateContent = (content, maxLength) => {
-  if (!content) return ''
-  // 去除HTML标签
-  const plainText = content.replace(/<[^>]+>/g, '')
-  if (plainText.length <= maxLength) return plainText
-  return plainText.substring(0, maxLength) + '...'
+// 跳转照片页面
+const goToPhotos = () => {
+  router.push('/photos')
 }
 
 onMounted(() => {

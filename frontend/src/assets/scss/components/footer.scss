@@ -2,128 +2,110 @@
 // 变量已在 vite.config.js 中全局导入
 
 .site-footer {
-  background: #2C2C2C;
-  color: #E5E5E5;
-  padding: 40px 0 40px;
+  background: #000;
+  color: #fff;
+  padding: 20px 0;
   
   .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    margin-bottom: 40px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  
-  .footer-section {
-    .footer-logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-      margin-bottom: 16px;
-    }
-    
-    .footer-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 20px;
-    }
-    
-    .footer-desc {
-      font-size: 14px;
-      line-height: 1.8;
-      color: #B8B8B8;
-      margin-bottom: 24px;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 12px;
-      
-      .social-link {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s;
-        
-        &:hover {
-          background: var(--primary-color);
-          transform: translateY(-3px);
-        }
-      }
-    }
-    
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      
-      li {
-        margin-bottom: 12px;
-        
-        a {
-          color: #B8B8B8;
-          text-decoration: none;
-          font-size: 14px;
-          transition: color 0.3s;
-          
-          &:hover {
-            color: white;
-          }
-        }
-      }
-    }
-    
-    .contact-info {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      
-      li {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 16px;
-        font-size: 14px;
-        color: #B8B8B8;
-        
-        i {
-          margin-top: 2px;
-          color: var(--primary-color);
-        }
-        
-        a {
-          color: #B8B8B8;
-          text-decoration: none;
-          transition: color 0.3s;
-          
-          &:hover {
-            color: white;
-          }
-        }
-      }
-    }
-  }
-  
-  .footer-bottom {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 20px 0;
-    //border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
     
     .copyright {
-      text-align: center;
-      font-size: 14px;
-      color: #B8B8B8;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.6);
       margin: 0;
+      white-space: nowrap;
+    }
+
+    .terms-dropdown {
+      position: relative;
+      
+      .terms-link {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+        white-space: nowrap;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        margin-bottom: 10px;
+        background: var(--primary-lighter);
+        border-radius: 8px;
+        padding: 15px 0;
+        min-width: 200px;
+        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+        
+        .dropdown-item {
+          display: block;
+          padding: 10px 20px;
+          color: white;
+          text-decoration: none;
+          font-size: 14px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 25px;
+          }
+        }
+      }
+
+      &:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      img {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+      }
     }
   }
 }

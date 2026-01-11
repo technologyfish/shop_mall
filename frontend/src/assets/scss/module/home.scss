@@ -219,7 +219,8 @@
     .card-bottom {
       padding: 24px;
       text-align: left;
-      background: var(--primary-black);
+      background: $accent-color;
+      height: 130px;
 
       .product-name {
         font-size: 16px;
@@ -241,62 +242,108 @@
   }
 }
 
-// Journey Section
-.journey-section {
-  background: var(--secondary-color);
-  padding: 80px 0;
+// Join The Club Section
+.join-club-section {
+  background: $secondary-color;
+  padding: 65px 0;
   
-  .container {
+  .club-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  }
+  
+  .club-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+  }
+  
+  .club-steps {
+    display: flex;
+    justify-content: space-around;
     gap: 60px;
-    align-items: center;
-  }
-  
-  .journey-image {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    margin-bottom: 60px;
     
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  
-  .journey-content {
-    .journey-title {
-      font-size: 36px;
-      font-weight: bold;
-      color: $text-color;
-      margin-bottom: 20px;
-    }
-    
-    .journey-subtitle {
-      font-size: 16px;
-      color:  $text-color;;
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-    
-    .btn-secondary {
-      display: inline-block;
-      padding: 14px 40px;
-      background: var(--accent-color);
-      color: var(--text-white);
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: 8px;
-      transition: all 0.3s;
+    .club-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
       
-      &:hover {
-        transform: translateY(-2px);
+      .step-number {
+        position: absolute;
+        top: 3px;
+        left: 31%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 30px;
+        background: var(--primary-color);
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
+      
+      .step-icon {
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        padding: 20px;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      
+      .step-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      
+      .step-desc {
+        font-size: 15px;
+        color: #000;
+        line-height: 1.6;
+        padding: 0 10px;
+      }
+    }
+  }
+  
+  .club-cta {
+    text-align: center;
+    
+    .btn-join-club {
+      display: inline-block;
+      padding: 18px 60px;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(217, 118, 82, 0.4);
+      text-transform: uppercase;
     }
   }
 }
@@ -395,93 +442,58 @@
   }
 }
 
-// Articles Section
-.articles-section {
-  .article-block {
-    padding: 80px 0;
-    background: var(--secondary-color);
-    cursor: pointer;
-    transition: opacity 0.3s;
-    
-    &:hover {
-      opacity: 0.95;
-      
-      .read-more {
-        text-decoration: underline;
-      }
-    }
-    
-    &:nth-child(even) {
-      background: var(--primary-lighter);
-      .article-content {
-        .article-title {
-          color: var(--text-white);
-        }
-        .article-subtitle {
-          color: var(--text-white);
-        }
-        .read-more {
-          color: var(--text-white);
-        }
-      }
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-    
-    &.reverse .container {
-      direction: rtl;
-      
-      > * {
-        direction: ltr;
-      }
-    }
-    
-    .article-image {
-      border-radius: 16px;
+// Photos Gallery Section
+.photos-gallery-section {
+  background: var(--secondary-color);
+  padding: 0;
+  .section-title{
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50px;
+    //margin-bottom: 50px;
+    color: #000;
+  }
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0 70px 0;
+
+    .photo-item {
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
       
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.3s;
-      }
-    }
-    
-    &:hover .article-image img {
-      transform: scale(1.02);
-    }
-    
-    .article-content {
-      .article-title {
-        font-size: 32px;
-        font-weight: bold;
-        color: $text-color;
-        margin-bottom: 20px;
+        transition: transform 0.5s ease;
       }
       
-      .article-subtitle {
-        font-size: 16px;
-        color: $text-color;
-        line-height: 1.8;
-        margin-bottom: 20px;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0);
+        transition: background 0.3s ease;
       }
       
-      .read-more {
-        display: inline-block;
-        font-size: 14px;
-        font-weight: 600;
-        color: var(--primary-color);
-        transition: all 0.3s;
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+        
+        &::after {
+          background: rgba(0, 0, 0, 0.2);
+        }
       }
     }
   }
@@ -603,5 +615,66 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+
+// Journey Section
+.journey-section {
+  background: var(--primary-lighter);
+  padding: 80px 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .journey-image {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .journey-content {
+    .journey-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .journey-subtitle {
+      font-size: 16px;
+      color:  #fff;;
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 14px 40px;
+      background: var(--accent-color);
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
   }
 }

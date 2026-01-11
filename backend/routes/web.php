@@ -120,6 +120,7 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth'], function () use ($ro
     // Subscriptions
     $router->post('subscriptions/create', 'Api\SubscriptionController@create');
     $router->post('subscriptions/verify', 'Api\SubscriptionController@verify');
+    $router->post('subscriptions/portal', 'Api\SubscriptionController@createPortalSession');
     $router->get('subscriptions', 'Api\SubscriptionController@index');
     $router->get('subscriptions/{id}', 'Api\SubscriptionController@show');
     $router->post('subscriptions/{id}/cancel', 'Api\SubscriptionController@cancel');

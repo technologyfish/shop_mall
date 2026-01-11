@@ -66,35 +66,35 @@
         <!-- Right: Payment Method -->
         <div class="payment-section">
           <div class="section-card">
-            <h2>Payment Method</h2>
+            <h2>Payment</h2>
             
-            <el-radio-group v-model="paymentMethod" class="payment-methods">
-              <el-radio label="bank_card" border>
-                <div class="payment-option">
-                  <el-icon size="24"><CreditCard /></el-icon>
-                  <div class="option-info">
-                    <h4>Bank Card Payment</h4>
-                    <p>Secure payment via third-party gateway</p>
-                  </div>
-                </div>
-              </el-radio>
-              
-              <!-- 可以添加更多支付方式 -->
-              <!-- <el-radio label="alipay" border>
-                <div class="payment-option">
-                  <el-icon size="24"><Wallet /></el-icon>
-                  <div class="option-info">
-                    <h4>Alipay</h4>
-                    <p>Pay with Alipay</p>
-                  </div>
-                </div>
-              </el-radio> -->
-            </el-radio-group>
+<!--            <el-radio-group v-model="paymentMethod" class="payment-methods">-->
+<!--              <el-radio label="bank_card" border>-->
+<!--                <div class="payment-option">-->
+<!--                  <el-icon size="24"><CreditCard /></el-icon>-->
+<!--                  <div class="option-info">-->
+<!--                    <h4>Bank Card Payment</h4>-->
+<!--                    <p>Secure payment via third-party gateway</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </el-radio>-->
+<!--              -->
+<!--              &lt;!&ndash; 可以添加更多支付方式 &ndash;&gt;-->
+<!--              &lt;!&ndash; <el-radio label="alipay" border>-->
+<!--                <div class="payment-option">-->
+<!--                  <el-icon size="24"><Wallet /></el-icon>-->
+<!--                  <div class="option-info">-->
+<!--                    <h4>Alipay</h4>-->
+<!--                    <p>Pay with Alipay</p>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </el-radio> &ndash;&gt;-->
+<!--            </el-radio-group>-->
 
-            <div class="payment-notice">
-              <el-icon><InfoFilled /></el-icon>
-              <p>You will be redirected to a secure payment page to complete your transaction.</p>
-            </div>
+<!--            <div class="payment-notice">-->
+<!--              <el-icon><InfoFilled /></el-icon>-->
+<!--              <p>You will be redirected to a secure payment page to complete your transaction.</p>-->
+<!--            </div>-->
 
             <el-button 
               type="primary" 
@@ -108,7 +108,7 @@
             </el-button>
 
             <div class="back-link">
-              <el-button link @click="$router.push('/orders')">
+              <el-button link @click="$router.push('/user-center/orders')">
                 <el-icon><ArrowLeft /></el-icon>
                 Back to Orders
               </el-button>

@@ -39,10 +39,11 @@
           
           <router-link to="/home" class="nav-link" exact @click="closeMobileMenu">Home</router-link>
           <router-link to="/shop" class="nav-link" @click="closeMobileMenu">Shop</router-link>
-          <router-link to="/our-journey" class="nav-link" @click="closeMobileMenu">Our Journey</router-link>
-          <router-link to="/recipes" class="nav-link" @click="closeMobileMenu">Recipes</router-link>
-          <router-link to="/photos" class="nav-link" @click="closeMobileMenu">Photos</router-link>
           <router-link to="/subscription" class="nav-link" @click="closeMobileMenu">Join the Club</router-link>
+<!--          <router-link to="/our-journey" class="nav-link" @click="closeMobileMenu">Our Journey</router-link>-->
+          <router-link to="/recipes" class="nav-link" @click="closeMobileMenu">Recipes</router-link>
+          <router-link to="/photos" class="nav-link" @click="closeMobileMenu">Events</router-link>
+
           <router-link to="/contact" class="nav-link" @click="closeMobileMenu">Contact</router-link>
         </div>
 

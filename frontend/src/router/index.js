@@ -79,6 +79,26 @@ const routes = [
         component: () => import('@/views/user/SubscriptionCancelled.vue')
       },
       {
+        path: 'privacy-policy',
+        name: 'PrivacyPolicy',
+        component: () => import('@/views/user/PrivacyPolicy.vue')
+      },
+      {
+        path: 'refund-policy',
+        name: 'RefundPolicy',
+        component: () => import('@/views/user/RefundPolicy.vue')
+      },
+      {
+        path: 'terms-of-service',
+        name: 'TermsOfService',
+        component: () => import('@/views/user/TermsOfService.vue')
+      },
+      {
+        path: 'shipping-policy',
+        name: 'ShippingPolicy',
+        component: () => import('@/views/user/ShippingPolicy.vue')
+      },
+      {
         path: 'cart',
         name: 'Cart',
         component: () => import('@/views/user/Cart.vue'),

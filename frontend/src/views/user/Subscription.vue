@@ -12,8 +12,7 @@
         <div class="step-item">
           <div class="step-number">1</div>
           <div class="step-icon">
-<!--            <img src="@/assets/images/step-1-join.svg" alt="Join" v-if="false" />-->
-            <div class="icon-placeholder">📱</div>
+            <img src="@/assets/images/sub-1.png" alt="Join the Club" />
           </div>
           <h2 class="step-title">JOIN THE CLUB</h2>
           <p class="step-desc">Sign up to join the sauciest club in the UK. Pause, skip or cancel anytime.</p>
@@ -23,7 +22,7 @@
         <div class="step-item">
           <div class="step-number">2</div>
           <div class="step-icon">
-            <div class="icon-placeholder">📦</div>
+            <img src="@/assets/images/sub-2.png" alt="Unbox Your Sauce" />
           </div>
           <h2 class="step-title">UNBOX YOUR SAUCE</h2>
           <p class="step-desc">Every other month you'll receive a flavour packed delivery.</p>
@@ -33,7 +32,7 @@
         <div class="step-item">
           <div class="step-number">3</div>
           <div class="step-icon">
-            <div class="icon-placeholder">😋</div>
+            <img src="@/assets/images/sub-3.png" alt="Savour the Flavour" />
           </div>
           <h2 class="step-title">SAVOUR THE FLAVOUR</h2>
           <p class="step-desc">Dip, drizzle and dunk like never before. Be sure to tag @thesauceclubco when you've cracked open your new sauce.</p>
@@ -52,7 +51,7 @@
             <div class="plan-header">
               <h3>{{ plan.name }}</h3>
               <div class="plan-price">
-                <span class="currency">$</span>
+                <span class="currency"> £ </span>
                 <span class="amount">{{ plan.price }}</span>
                 <span class="period">/{{ getPeriodText(plan.plan_type) }}</span>
               </div>
@@ -60,9 +59,11 @@
             <div class="plan-body">
               <p class="plan-desc">{{ plan.description }}</p>
               <ul class="plan-features">
-                <li>{{ plan.bottles_per_delivery }} bottles per delivery</li>
-                <li>Free shipping</li>
-                <li>Cancel anytime</li>
+                <li>{{ plan.bottles_per_delivery }} Jars delivered every 3 months </li>
+                <li>Free Tracked Shipping (Save £3.99) </li>
+                <li>15% + OFF Standard Price</li>
+                <li>Cancel Anytime</li>
+                <li>The Eco-Saver Bundle(Fewer deliveries, more flavour. Receive 3 jars every 3 months and reduce your carbon footprint.)</li>
               </ul>
             </div>
             <div class="plan-footer">
@@ -73,7 +74,7 @@
                 :loading="subscribing && selectedPlanId === plan.id"
                 class="subscribe-btn"
               >
-                Subscribe Now
+                Subscribe & Save
               </el-button>
             </div>
           </div>
@@ -187,13 +188,13 @@ const scrollToPlans = () => {
     margin-bottom: 80px;
 
     .main-title {
-      font-size: 48px;
+      font-size: 36px;
       font-weight: bold;
       color: #fff;
       letter-spacing: 2px;
 
       @media (max-width: 768px) {
-        font-size: 32px;
+        font-size: pxToVw(48)
       }
     }
   }
@@ -206,7 +207,7 @@ const scrollToPlans = () => {
 
     @media (max-width: 968px) {
       flex-direction: column;
-      gap: 60px;
+      gap: pxToVw(100)
     }
 
     .step-item {
@@ -216,29 +217,44 @@ const scrollToPlans = () => {
 
       .step-number {
         position: absolute;
-        top: -20px;
-        left: 50%;
+        top: 0px;
+        left: 26%;
         transform: translateX(-50%);
-        width: 60px;
-        height: 60px;
+        width: 30px;
+        height: 30px;
         background: var(--secondary-color);
         color: #000;
-        font-size: 32px;
+        font-size: 18px;
         font-weight: bold;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 2;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .step-number {
+          width: pxToVw(45);
+          height: pxToVw(45);
+          font-size: pxToVw(28);
+        }
       }
 
       .step-icon {
-        margin: 60px auto 30px;
+        margin: 0 auto;
         width: 200px;
         height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
 
         .icon-placeholder {
           font-size: 100px;
@@ -253,10 +269,24 @@ const scrollToPlans = () => {
         text-transform: uppercase;
       }
 
+      @media (max-width: 768px) {
+        .step-title {
+          margin-top: pxToVw(20);
+          font-size: pxToVw(36);
+          margin-bottom: pxToVw(20);
+        }
+      }
+
       .step-desc {
         font-size: 16px;
         color: var(--text-white);
         line-height: 1.6;
+      }
+
+      @media (max-width: 768px) {
+        .step-desc {
+          font-size: pxToVw(28);
+        }
       }
     }
   }

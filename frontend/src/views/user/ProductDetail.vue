@@ -60,28 +60,28 @@
               <el-input-number v-model="quantity" :min="1" :max="product.stock || 100" />
             </div>
 
-            <div class="order-summary">
-              <div class="summary-row">
-                <span>Subtotal:</span>
-                <span>£{{ (product.price * quantity).toFixed(2) }}</span>
-              </div>
-              <div class="summary-row" v-if="shippingSettings && shippingSettings.shipping_fee > 0 && (product.price * quantity) < (shippingSettings.free_shipping_threshold || 0)">
-                <span>Shipping:</span>
-                <span>£{{ shippingSettings.shipping_fee }}</span>
-              </div>
-              <div class="summary-row" v-else-if="shippingSettings && shippingSettings.shipping_fee > 0 && shippingSettings.free_shipping_threshold && (product.price * quantity) >= shippingSettings.free_shipping_threshold">
-                <span>Shipping:</span>
-                <span style="color: #67c23a;">Free</span>
-              </div>
-              <div class="summary-row discount" v-if="hasFirstOrderDiscount && discountPercent > 0">
-                <span>First Order Discount ({{ discountPercent }}%):</span>
-                <span style="color: #67c23a;">-£{{ calculateDiscount() }}</span>
-              </div>
-              <div class="summary-row total">
-                <span>Total:</span>
-                <span>£{{ calculateTotal() }}</span>
-              </div>
-            </div>
+<!--            <div class="order-summary">-->
+<!--              <div class="summary-row">-->
+<!--                <span>Subtotal:</span>-->
+<!--                <span>£{{ (product.price * quantity).toFixed(2) }}</span>-->
+<!--              </div>-->
+<!--              <div class="summary-row" v-if="shippingSettings && shippingSettings.shipping_fee > 0 && (product.price * quantity) < (shippingSettings.free_shipping_threshold || 0)">-->
+<!--                <span>Shipping:</span>-->
+<!--                <span>£{{ shippingSettings.shipping_fee }}</span>-->
+<!--              </div>-->
+<!--              <div class="summary-row" v-else-if="shippingSettings && shippingSettings.shipping_fee > 0 && shippingSettings.free_shipping_threshold && (product.price * quantity) >= shippingSettings.free_shipping_threshold">-->
+<!--                <span>Shipping:</span>-->
+<!--                <span style="color: #67c23a;">Free</span>-->
+<!--              </div>-->
+<!--              <div class="summary-row discount" v-if="hasFirstOrderDiscount && discountPercent > 0">-->
+<!--                <span>First Order Discount ({{ discountPercent }}%):</span>-->
+<!--                <span style="color: #67c23a;">-£{{ calculateDiscount() }}</span>-->
+<!--              </div>-->
+<!--              <div class="summary-row total">-->
+<!--                <span>Total:</span>-->
+<!--                <span>£{{ calculateTotal() }}</span>-->
+<!--              </div>-->
+<!--            </div>-->
 
             <div class="btn-group">
               <button class="btn-add-cart" @click="handleAddToCart" :disabled="loading">

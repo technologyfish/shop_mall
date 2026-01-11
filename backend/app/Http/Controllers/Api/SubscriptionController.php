@@ -489,5 +489,46 @@ class SubscriptionController extends Controller
             return $this->error('Failed to resume subscription: ' . $e->getMessage(), 500);
         }
     }
+
+    /**
+     * 创建 Stripe Customer Portal Session
+     * 用户可以在 Portal 中管理订阅、更换信用卡、查看账单等
+     */
+    public function createPortalSession()
+    {
+        $user = auth()->user();
+
+        // 检查用户是否有 Stripe Customer ID
+        if (!$user->stripe_customer_id) {
+            return $this->error('No Stripe customer found. Please subscribe first.', 400);
+        }
+
+        try {
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+            // 创建 Customer Portal Session
+            $session = \Stripe\BillingPortal\Session::create([
+                'customer' => $user->stripe_customer_id,
+                'return_url' => env('APP_FRONTEND_URL', 'http://localhost:5173') . '/user-center/subscriptions',
+            ]);
+
+            \Log::info('Customer Portal session created', [
+                'user_id' => $user->id,
+                'customer_id' => $user->stripe_customer_id,
+                'portal_url' => $session->url,
+            ]);
+
+            return $this->success([
+                'portal_url' => $session->url,
+            ]);
+
+        } catch (\Exception $e) {
+            \Log::error('Failed to create Customer Portal session', [
+                'error' => $e->getMessage(),
+                'user_id' => $user->id,
+            ]);
+            return $this->error('Failed to create portal session: ' . $e->getMessage(), 500);
+        }
+    }
 }
 

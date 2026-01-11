@@ -66,6 +66,15 @@ export function resumeSubscription(id) {
   })
 }
 
+// 获取 Stripe Customer Portal URL
+// 用户可以在 Portal 中管理订阅、更换信用卡、查看账单等
+export function getCustomerPortalUrl() {
+  return request({
+    url: '/api/subscriptions/portal',
+    method: 'post'
+  })
+}
+
 
 
 

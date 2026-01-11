@@ -27,13 +27,13 @@
         <div v-else-if="status === 'failed'" class="result-content failed">
           <el-icon class="result-icon" :size="80"><CircleClose /></el-icon>
           <h1>Payment Failed</h1>
-          <p class="desc">{{ errorMessage || 'Your payment could not be processed. Please try again.' }}</p>
+          <p class="desc">{{ errorMessage || 'Payment was cancelled or failed' }}</p>
           
           <div class="actions">
             <el-button type="primary" size="large" @click="retryPayment">
               Try Again
             </el-button>
-            <el-button size="large" @click="$router.push('/orders')">
+            <el-button size="large" @click="goToOrders">
               Back to Orders
             </el-button>
           </div>
@@ -133,8 +133,13 @@ const retryPayment = () => {
   if (orderId.value) {
     router.push(`/payment/${orderId.value}`)
   } else {
-    router.push('/orders')
+    router.push('/user-center/orders')
   }
+}
+
+// 返回订单列表
+const goToOrders = () => {
+  router.push('/user-center/orders')
 }
 
 onMounted(() => {

@@ -38,13 +38,13 @@
             <h2>Order Items</h2>
             <div class="order-items">
               <div v-for="item in cartItems" :key="item.id" class="item-row">
-                <img :src="item.product?.image || item.product?.main_image || '/placeholder-product.jpg'" class="item-img" />
+                <img :src="getProductImage(item.product)" class="item-img" />
                 <div class="item-info">
                   <h3>{{ item.product?.name }}</h3>
                   <p class="sku">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="item-price">
-                  ¥{{ (item.product?.price * item.quantity).toFixed(2) }}
+                  £{{ (item.product?.price * item.quantity).toFixed(2) }}
                 </div>
               </div>
             </div>
@@ -95,7 +95,7 @@
     <!-- Address Selection Dialog -->
     <el-dialog 
       v-model="addressDialogVisible" 
-      title="常用地址" 
+      title="Commonly Used Address"
       width="480px"
       :close-on-click-modal="false"
       class="address-select-dialog"
@@ -127,10 +127,10 @@
               </div>
               <div class="address-actions">
                 <el-button link type="primary" size="small" @click.stop="editAddress(addr)">
-                  编辑
+                  Edit
                 </el-button>
                 <el-button link type="danger" size="small" @click.stop="deleteAddress(addr.id)">
-                  删除
+                  Delete
                 </el-button>
               </div>
             </div>
@@ -142,7 +142,7 @@
             @click="showAddAddressForm"
             :icon="Plus"
           >
-            添加新地址
+            Add new address
           </el-button>
         </template>
         
@@ -156,22 +156,22 @@
                 <circle cx="50" cy="70" r="3" fill="#dcdfe6"/>
               </svg>
             </div>
-            <p class="empty-text">暂无收货地址</p>
-            <el-button 
+            <p class="empty-text">No shipping address available</p>
+            <el-button
               type="primary" 
               @click="showAddAddressForm"
               :icon="Plus"
             >
-              添加新地址
+              Add new address
             </el-button>
           </div>
         </template>
       </div>
       
       <template #footer>
-        <el-button @click="addressDialogVisible = false">取消</el-button>
+        <el-button @click="addressDialogVisible = false">Cancel</el-button>
         <el-button type="primary" @click="confirmAddress" :disabled="!selectedAddressId">
-          确定
+          Confirm
         </el-button>
       </template>
     </el-dialog>
@@ -244,6 +244,7 @@ import { getAddresses, addAddress, updateAddress, deleteAddress as deleteAddress
 import { createOrder } from '@/api/order'
 import { getProduct } from '@/api/product'
 import { getShippingSettings } from '@/api/shipping'
+import { getImageUrl, getProductImage } from '@/utils/image'
 import axios from 'axios'
 
 const router = useRouter()
@@ -901,6 +902,16 @@ const handleSubmitOrder = async () => {
 
 @media (max-width: 768px) {
   @import "@/assets/scss/module/m_order_create.scss";
+}
+</style>
+<style>
+@media (max-width: 768px) {
+  .el-dialog__header {
+    display: flex;
+  }
+  .address-select-dialog {
+    width: 90% !important;
+  }
 }
 </style>
 
