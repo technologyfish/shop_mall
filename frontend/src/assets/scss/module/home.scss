@@ -99,10 +99,10 @@
   }
   
   .product-card {
-    background: var(--primary-black);
+    //background: var(--primary-black);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    //box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     cursor: pointer;
     transition: transform 0.3s ease;
     height: 100%;
@@ -403,7 +403,7 @@
     .recipe-info {
       padding: 24px;
       text-align: left;
-      background: var(--primary-black);
+      background: $accent-color;
       height: 150px;
 
       .recipe-title {

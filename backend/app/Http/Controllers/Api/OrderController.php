@@ -63,12 +63,13 @@ class OrderController extends Controller
             'items' => 'required|array',
             'items.*.product_id' => 'required|exists:products,id',
             'items.*.quantity' => 'required|integer|min:1',
-            'ship_name' => 'required|string|max:100',
+            'ship_first_name' => 'required|string|max:100',
+            'ship_last_name' => 'required|string|max:100',
             'ship_email' => 'nullable|email|max:255',
-            'ship_phone' => 'required|string|max:20',
-            'ship_address' => 'required|string|max:500',
-            'ship_city' => 'nullable|string|max:100',
-            'ship_postal_code' => 'nullable|string|max:20',
+            'ship_phone' => 'nullable|string|max:20',
+            'ship_address' => 'required|string|max:255',
+            'ship_city' => 'required|string|max:100',
+            'ship_postcode' => 'required|string|max:20',
             'remark' => 'nullable|string|max:500',
         ]);
 
@@ -222,12 +223,14 @@ class OrderController extends Controller
                 'pay_amount' => $finalAmount,
                 'status' => Order::STATUS_PENDING,
                 'pay_status' => 0,
-                'shipping_name' => $request->ship_name,
+                'shipping_first_name' => $request->ship_first_name,
+                'shipping_last_name' => $request->ship_last_name,
+                'shipping_name' => $request->ship_first_name . ' ' . $request->ship_last_name,
                 'shipping_email' => $request->ship_email,
                 'shipping_phone' => $request->ship_phone,
                 'shipping_address' => $request->ship_address,
                 'shipping_city' => $request->ship_city,
-                'shipping_postal_code' => $request->ship_postal_code,
+                'shipping_postcode' => $request->ship_postcode,
                 'remark' => $request->remark
             ]);
 

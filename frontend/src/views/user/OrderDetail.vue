@@ -36,11 +36,15 @@
         <h3 class="page-title">Shipping Information</h3>
         <div class="info-row">
           <span class="label">Recipient:</span>
-          <span>{{ order.shipping_name }}</span>
+          <span>{{ order.shipping_first_name }} {{ order.shipping_last_name }}</span>
         </div>
-        <div class="info-row">
+        <div class="info-row" v-if="order.shipping_phone">
           <span class="label">Phone:</span>
           <span>{{ order.shipping_phone }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">City/Post:</span>
+          <span>{{ order.shipping_city }}, {{ order.shipping_postcode }}</span>
         </div>
         <div class="info-row">
           <span class="label">Address:</span>

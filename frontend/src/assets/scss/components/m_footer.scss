@@ -11,7 +11,7 @@
     padding: 0 pxToVw(32);
     align-items: center;
   }
-
+  
   .footer-left {
     flex-direction: column;
     gap: pxToVw(20);
@@ -25,14 +25,14 @@
     .terms-dropdown {
       .terms-link {
         font-size: pxToVw(22);
-      }
-
+    }
+    
       .dropdown-menu {
         left: 50%;
         transform: translateX(-50%) translateY(10px);
         min-width: pxToVw(300);
         padding: pxToVw(20) 0;
-        
+      
         .dropdown-item {
           font-size: pxToVw(26);
           padding: pxToVw(20) pxToVw(30);
@@ -46,9 +46,9 @@
       &:hover .dropdown-menu {
         transform: translateX(-50%) translateY(0);
       }
+      }
     }
-  }
-
+    
   .footer-right {
     gap: pxToVw(32);
     

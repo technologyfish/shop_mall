@@ -265,6 +265,7 @@ const scrollToPlans = () => {
         font-size: 24px;
         font-weight: bold;
         color: var(--text-white);
+        margin-top: 15px;
         margin-bottom: 15px;
         text-transform: uppercase;
       }

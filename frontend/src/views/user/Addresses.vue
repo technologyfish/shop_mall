@@ -11,7 +11,7 @@
         <div v-for="address in addresses" :key="address.id" class="address-card">
           <div class="card-header">
             <div class="name-section">
-              <h3>{{ address.name }}</h3>
+              <h3>{{ address.first_name }} {{ address.last_name }}</h3>
               <el-tag v-if="address.is_default" type="success" size="small">Default</el-tag>
             </div>
             <div class="actions">
@@ -26,23 +26,20 @@
           
           <div class="card-body">
             <div class="info-row">
+              <span class="label">City/Post:</span>
+              <span class="value">{{ address.city }}, {{ address.postcode }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Address:</span>
+              <span class="value">{{ address.address }}</span>
+            </div>
+            <div class="info-row" v-if="address.phone">
               <span class="label">Phone:</span>
               <span class="value">{{ address.phone }}</span>
             </div>
             <div class="info-row" v-if="address.email">
               <span class="label">Email:</span>
               <span class="value">{{ address.email }}</span>
-            </div>
-            <div class="info-row">
-              <span class="label">Address:</span>
-              <span class="value">{{ address.address }}</span>
-            </div>
-            <div class="info-row" v-if="address.city || address.postal_code">
-              <span class="label">City/Postal:</span>
-              <span class="value">
-                <span v-if="address.city">{{ address.city }}</span>
-                <span v-if="address.postal_code"> {{ address.postal_code }}</span>
-              </span>
             </div>
           </div>
           
@@ -57,33 +54,59 @@
       <el-empty v-if="!addresses.length" description="No addresses yet. Add one to get started!" />
 
       <!-- 添加/编辑地址对话框 -->
-      <el-dialog v-model="dialogVisible" :title="isEdit ? 'Edit Address' : 'Add New Address'" width="500px">
-        <el-form :model="form" :rules="rules" ref="formRef" label-width="140px">
-          <el-form-item label="Full Name" prop="name">
-            <el-input v-model="form.name" placeholder="Full Name" />
+      <el-dialog 
+        v-model="dialogVisible" 
+        :title="isEdit ? 'Edit Address' : 'Add New Address'" 
+        width="600px"
+        class="address-dialog"
+      >
+        <el-form :model="form" :rules="rules" ref="formRef" label-position="top" class="custom-form">
+          <!-- First Name / Last Name -->
+          <div class="form-row">
+            <el-form-item label="First name" prop="first_name">
+              <el-input v-model="form.first_name" placeholder="First name" />
+            </el-form-item>
+            <el-form-item label="Last name" prop="last_name">
+              <el-input v-model="form.last_name" placeholder="Last name" />
+            </el-form-item>
+          </div>
+
+          <!-- Email & Phone (可选) -->
+          <div class="form-row">
+            <el-form-item label="Email" prop="email">
+              <el-input v-model="form.email" placeholder="Email" type="email" />
+            </el-form-item>
+            <el-form-item label="Phone (optional)" prop="phone">
+              <el-input v-model="form.phone" placeholder="Phone (optional)" />
+            </el-form-item>
+          </div>
+
+          <!-- City / Postcode (移到上方) -->
+          <div class="form-row">
+            <el-form-item label="City" prop="city">
+              <el-input v-model="form.city" placeholder="City" />
+            </el-form-item>
+            <el-form-item label="Postcode" prop="postcode">
+              <el-input v-model="form.postcode" placeholder="Postcode" />
+            </el-form-item>
+          </div>
+
+          <!-- Address (移到下方) -->
+          <el-form-item label="Address" prop="address">
+            <el-input v-model="form.address" placeholder="Address" />
           </el-form-item>
-          <el-form-item label="Email" prop="email">
-            <el-input v-model="form.email" placeholder="Email" type="email" />
-          </el-form-item>
-          <el-form-item label="Phone" prop="phone">
-            <el-input v-model="form.phone" placeholder="Phone" />
-          </el-form-item>
-          <el-form-item label="Shipping Address" prop="address">
-            <el-input v-model="form.address" type="textarea" :rows="3" placeholder="Shipping Address" />
-          </el-form-item>
-          <el-form-item label="City" prop="city">
-            <el-input v-model="form.city" placeholder="City" />
-          </el-form-item>
-          <el-form-item label="Postal Code" prop="postal_code">
-            <el-input v-model="form.postal_code" placeholder="Postal Code" />
-          </el-form-item>
-          <el-form-item label="Set as Default">
-            <el-switch v-model="form.is_default" />
+
+          <el-form-item>
+            <el-checkbox v-model="form.is_default" label="Set as default address" />
           </el-form-item>
         </el-form>
         <template #footer>
-          <el-button @click="dialogVisible = false">Cancel</el-button>
-          <el-button type="primary" @click="handleSubmit" :loading="loading">Save</el-button>
+          <div class="dialog-footer">
+            <el-button @click="dialogVisible = false">Cancel</el-button>
+            <el-button type="primary" @click="handleSubmit" :loading="loading" class="btn-save">
+              {{ isEdit ? 'Update Address' : 'Add Address' }}
+            </el-button>
+          </div>
         </template>
       </el-dialog>
   </div>
@@ -104,25 +127,26 @@ const formRef = ref()
 
 const form = reactive({
   id: null,
-  name: '',
+  first_name: '',
+  last_name: '',
   email: '',
   phone: '',
-  address: '',
   city: '',
-  postal_code: '',
+  postcode: '',
+  address: '',
   is_default: false
 })
 
 const rules = {
-  name: [{ required: true, message: 'Please enter Full Name', trigger: 'blur' }],
+  first_name: [{ required: true, message: 'Please enter First Name', trigger: 'blur' }],
+  last_name: [{ required: true, message: 'Please enter Last Name', trigger: 'blur' }],
   email: [
     { required: true, message: 'Please enter Email', trigger: 'blur' },
     { type: 'email', message: 'Invalid email format', trigger: 'blur' }
   ],
-  phone: [{ required: true, message: 'Please enter Phone', trigger: 'blur' }],
-  address: [{ required: true, message: 'Please enter Shipping Address', trigger: 'blur' }],
   city: [{ required: true, message: 'Please enter City', trigger: 'blur' }],
-  postal_code: [{ required: true, message: 'Please enter Postal Code', trigger: 'blur' }]
+  postcode: [{ required: true, message: 'Please enter Postcode', trigger: 'blur' }],
+  address: [{ required: true, message: 'Please enter Address', trigger: 'blur' }]
 }
 
 onMounted(() => {
@@ -203,12 +227,13 @@ const handleDelete = async (id) => {
 const resetForm = () => {
   Object.assign(form, {
     id: null,
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
-    address: '',
     city: '',
-    postal_code: '',
+    postcode: '',
+    address: '',
     is_default: false
   })
 }
@@ -221,12 +246,6 @@ const resetForm = () => {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    
-    .page-title {
-      margin: 0;
-      font-size: 24px;
-      font-weight: bold;
-    }
     
     .btn-add {
       background-color: var(--primary-color);
@@ -295,7 +314,7 @@ const resetForm = () => {
         .label {
           font-weight: 500;
           color: #666;
-          min-width: 70px;
+          min-width: 80px;
           flex-shrink: 0;
         }
 
@@ -312,6 +331,46 @@ const resetForm = () => {
     }
   }
 
+  /* 弹窗样式调整 */
+  .address-dialog {
+    :deep(.el-dialog__body) {
+      padding-top: 10px;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    gap: 20px;
+    
+    .el-form-item {
+      flex: 1;
+    }
+  }
+
+  .custom-form {
+    :deep(.el-form-item__label) {
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    :deep(.el-input__wrapper) {
+      padding: 8px 15px;
+      border-radius: 8px;
+    }
+  }
+
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    
+    .btn-save {
+      padding: 10px 25px;
+      height: auto;
+    }
+  }
+
   @media (max-width: 768px) {
     padding: 20px;
 
@@ -320,46 +379,19 @@ const resetForm = () => {
       gap: 15px;
     }
     
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+
     .page-header-row {
       flex-direction: column;
       align-items: stretch;
       gap: 15px;
       margin-bottom: 20px;
       
-      h2 {
-        font-size: 20px;
-      }
-      
       .btn-add {
         width: 100%;
-      }
-    }
-
-    .address-card {
-      padding: 15px;
-
-      .card-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-
-        .address-name {
-          font-size: 16px;
-        }
-      }
-
-      .card-body {
-        font-size: 14px;
-        line-height: 1.8;
-      }
-
-      .card-actions {
-        flex-wrap: wrap;
-
-        .el-button {
-          flex: 1;
-          min-width: 100px;
-        }
       }
     }
   }

@@ -133,7 +133,7 @@ const gotoDetail = (id) => {
     cursor: pointer;
     transition: transform 0.3s;
     //background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    //box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 
     &:hover {
       transform: translateY(-5px);

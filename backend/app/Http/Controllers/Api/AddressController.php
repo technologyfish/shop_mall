@@ -26,12 +26,13 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:50',
+            'first_name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
             'email' => 'nullable|email|max:255',
-            'phone' => 'required|string|max:20',
+            'phone' => 'nullable|string|max:20',
             'address' => 'required|string|max:255',
-            'city' => 'nullable|string|max:100',
-            'postal_code' => 'nullable|string|max:20',
+            'city' => 'required|string|max:100',
+            'postcode' => 'required|string|max:20',
             'is_default' => 'boolean',
         ]);
 
@@ -48,25 +49,15 @@ class AddressController extends Controller
                     ->update(['is_default' => 0]);
             }
 
-            // 构建地址数据，只包含非空字段
-            $addressData = [
-                'user_id' => $user->id,
-                'name' => $request->name,
-                'phone' => $request->phone,
-                'address' => $request->address,
-                'is_default' => $request->is_default ? 1 : 0
-            ];
-
-            // 添加可选字段（如果存在）
-            if ($request->has('email')) {
-                $addressData['email'] = $request->email;
-            }
-            if ($request->has('city')) {
-                $addressData['city'] = $request->city;
-            }
-            if ($request->has('postal_code')) {
-                $addressData['postal_code'] = $request->postal_code;
-            }
+            // 构建地址数据
+            $addressData = $request->only([
+                'first_name', 'last_name', 'email', 'phone', 
+                'address', 'city', 'postcode'
+            ]);
+            $addressData['user_id'] = $user->id;
+            $addressData['is_default'] = $request->is_default ? 1 : 0;
+            // 保持 name 字段兼容性（可选，建议合并）
+            $addressData['name'] = $request->first_name . ' ' . $request->last_name;
 
             $address = Address::create($addressData);
 
@@ -83,12 +74,13 @@ class AddressController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'sometimes|string|max:50',
+            'first_name' => 'sometimes|string|max:100',
+            'last_name' => 'sometimes|string|max:100',
             'email' => 'nullable|email|max:255',
-            'phone' => 'sometimes|string|max:20',
+            'phone' => 'nullable|string|max:20',
             'address' => 'sometimes|string|max:255',
-            'city' => 'nullable|string|max:100',
-            'postal_code' => 'nullable|string|max:20',
+            'city' => 'sometimes|string|max:100',
+            'postcode' => 'sometimes|string|max:20',
             'is_default' => 'boolean',
         ]);
 
@@ -114,17 +106,20 @@ class AddressController extends Controller
                     ->update(['is_default' => 0]);
             }
 
-            // 只更新存在的字段，并转换布尔值为整数
-            $updateData = [];
-            $fields = ['name', 'email', 'phone', 'address', 'city', 'postal_code'];
-            foreach ($fields as $field) {
-                if ($request->has($field)) {
-                    $updateData[$field] = $request->input($field);
-                }
-            }
-            // is_default 需要转换为整数
+            // 更新字段
+            $updateData = $request->only([
+                'first_name', 'last_name', 'email', 'phone', 
+                'address', 'city', 'postcode'
+            ]);
+            
             if ($request->has('is_default')) {
                 $updateData['is_default'] = $isDefault ? 1 : 0;
+            }
+
+            if ($request->has('first_name') || $request->has('last_name')) {
+                $f = $request->input('first_name', $address->first_name);
+                $l = $request->input('last_name', $address->last_name);
+                $updateData['name'] = trim($f . ' ' . $l);
             }
             
             $address->fill($updateData);

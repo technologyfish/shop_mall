@@ -18,15 +18,15 @@
             <div v-if="selectedAddress" class="address-display">
               <div class="addr-info">
                 <div class="name-row">
-                  <span class="name">{{ selectedAddress.name }}</span>
+                  <span class="name">{{ selectedAddress.first_name }} {{ selectedAddress.last_name }}</span>
                   <span class="phone">{{ selectedAddress.phone }}</span>
                 </div>
                 <div class="email" v-if="selectedAddress.email">{{ selectedAddress.email }}</div>
-                <div class="detail">{{ selectedAddress.address }}</div>
-                <div class="city-postal" v-if="selectedAddress.city || selectedAddress.postal_code">
-                  <span v-if="selectedAddress.city">{{ selectedAddress.city }}</span>
-                  <span v-if="selectedAddress.postal_code">{{ selectedAddress.postal_code }}</span>
+                <div class="city-postal">
+                  <span>{{ selectedAddress.city }}</span>
+                  <span>{{ selectedAddress.postcode }}</span>
                 </div>
+                <div class="detail">{{ selectedAddress.address }}</div>
               </div>
               <el-tag v-if="selectedAddress.is_default" size="small" type="success" class="mt-2">Default</el-tag>
             </div>
@@ -114,16 +114,16 @@
             >
               <div class="address-info">
                 <div class="name-row">
-                  <span class="name">{{ addr.name }}</span>
+                  <span class="name">{{ addr.first_name }} {{ addr.last_name }}</span>
                   <span class="phone">{{ addr.phone }}</span>
                   <el-tag v-if="addr.is_default" size="small" type="success" style="margin-left: 10px;">Default</el-tag>
                 </div>
                 <div class="email" v-if="addr.email">{{ addr.email }}</div>
-                <div class="address-text">{{ addr.address }}</div>
-                <div class="city-postal" v-if="addr.city || addr.postal_code">
-                  <span v-if="addr.city">{{ addr.city }}</span>
-                  <span v-if="addr.postal_code" style="margin-left: 10px;">{{ addr.postal_code }}</span>
+                <div class="city-postal">
+                  <span>{{ addr.city }}</span>
+                  <span style="margin-left: 10px;">{{ addr.postcode }}</span>
                 </div>
+                <div class="address-text">{{ addr.address }}</div>
               </div>
               <div class="address-actions">
                 <el-button link type="primary" size="small" @click.stop="editAddress(addr)">
@@ -179,54 +179,61 @@
     <!-- Add/Edit Address Dialog -->
     <el-dialog 
       v-model="addressFormDialogVisible" 
-      :title="editingAddress ? '编辑地址' : '添加地址'"
-      width="500px"
+      :title="editingAddress ? 'Edit Address' : 'Add New Address'"
+      width="600px"
       :close-on-click-modal="false"
+      class="address-form-dialog"
     >
       <el-form 
         ref="addressFormRef" 
         :model="addressForm" 
         :rules="addressRules"
-        label-width="120px"
+        label-position="top"
+        class="custom-form"
       >
-        <el-form-item label="Full Name" prop="name">
-          <el-input v-model="addressForm.name" placeholder="Full Name" />
+        <!-- First Name / Last Name -->
+        <div class="form-row">
+          <el-form-item label="First name" prop="first_name">
+            <el-input v-model="addressForm.first_name" placeholder="First name" />
+          </el-form-item>
+          <el-form-item label="Last name" prop="last_name">
+            <el-input v-model="addressForm.last_name" placeholder="Last name" />
+          </el-form-item>
+        </div>
+
+        <!-- Email & Phone -->
+        <div class="form-row">
+          <el-form-item label="Email" prop="email">
+            <el-input v-model="addressForm.email" placeholder="Email" />
+          </el-form-item>
+          <el-form-item label="Phone (optional)" prop="phone">
+            <el-input v-model="addressForm.phone" placeholder="Phone (optional)" />
+          </el-form-item>
+        </div>
+
+        <!-- City / Postcode (移到上方) -->
+        <div class="form-row">
+          <el-form-item label="City" prop="city">
+            <el-input v-model="addressForm.city" placeholder="City" />
+          </el-form-item>
+          <el-form-item label="Postcode" prop="postcode">
+            <el-input v-model="addressForm.postcode" placeholder="Postcode" />
+          </el-form-item>
+        </div>
+
+        <!-- Address (移到下方) -->
+        <el-form-item label="Address" prop="address">
+          <el-input v-model="addressForm.address" placeholder="Address" />
         </el-form-item>
-        
-        <el-form-item label="Email" prop="email">
-          <el-input v-model="addressForm.email" placeholder="Email" />
-        </el-form-item>
-        
-        <el-form-item label="Phone" prop="phone">
-          <el-input v-model="addressForm.phone" placeholder="Phone" />
-        </el-form-item>
-        
-        <el-form-item label="Shipping Address" prop="address">
-          <el-input 
-            v-model="addressForm.address" 
-            type="textarea" 
-            :rows="3"
-            placeholder="Shipping Address"
-          />
-        </el-form-item>
-        
-        <el-form-item label="City" prop="city">
-          <el-input v-model="addressForm.city" placeholder="City" />
-        </el-form-item>
-        
-        <el-form-item label="Postal Code" prop="postal_code">
-          <el-input v-model="addressForm.postal_code" placeholder="Postal Code" />
-        </el-form-item>
-        
-        <el-form-item label="设为默认">
-          <el-switch v-model="addressForm.is_default" />
+
+        <el-form-item>
+          <el-checkbox v-model="addressForm.is_default" label="Set as default address" />
         </el-form-item>
       </el-form>
-      
       <template #footer>
-        <el-button @click="addressFormDialogVisible = false">取消</el-button>
+        <el-button @click="addressFormDialogVisible = false">Cancel</el-button>
         <el-button type="primary" @click="saveAddress" :loading="saving">
-          保存
+          {{ editingAddress ? 'Update' : 'Add' }} Address
         </el-button>
       </template>
     </el-dialog>
@@ -327,24 +334,25 @@ const totalPrice = computed(() => {
 // Address Form
 const addressFormRef = ref(null)
 const addressForm = reactive({
-  name: '',
+  first_name: '',
+  last_name: '',
   email: '',
   phone: '',
-  address: '',
   city: '',
-  postal_code: '',
+  postcode: '',
+  address: '',
   is_default: false
 })
 const addressRules = {
-  name: [{ required: true, message: 'Full Name is required', trigger: 'blur' }],
+  first_name: [{ required: true, message: 'First Name is required', trigger: 'blur' }],
+  last_name: [{ required: true, message: 'Last Name is required', trigger: 'blur' }],
   email: [
     { required: true, message: 'Email is required', trigger: 'blur' },
     { type: 'email', message: 'Invalid email format', trigger: 'blur' }
   ],
-  phone: [{ required: true, message: 'Phone is required', trigger: 'blur' }],
-  address: [{ required: true, message: 'Shipping Address is required', trigger: 'blur' }],
   city: [{ required: true, message: 'City is required', trigger: 'blur' }],
-  postal_code: [{ required: true, message: 'Postal Code is required', trigger: 'blur' }]
+  postcode: [{ required: true, message: 'Postcode is required', trigger: 'blur' }],
+  address: [{ required: true, message: 'Address is required', trigger: 'blur' }]
 }
 
 onMounted(async () => {
@@ -457,12 +465,13 @@ const confirmAddress = () => {
 const showAddAddressForm = () => {
   editingAddress.value = null
   Object.assign(addressForm, {
-    name: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
-    address: '',
     city: '',
-    postal_code: '',
+    postcode: '',
+    address: '',
     is_default: false
   })
   addressFormDialogVisible.value = true
@@ -472,12 +481,13 @@ const showAddAddressForm = () => {
 const editAddress = (addr) => {
   editingAddress.value = addr
   Object.assign(addressForm, {
-    name: addr.name || '',
+    first_name: addr.first_name || '',
+    last_name: addr.last_name || '',
     email: addr.email || '',
     phone: addr.phone || '',
-    address: addr.address || '',
     city: addr.city || '',
-    postal_code: addr.postal_code || '',
+    postcode: addr.postcode || '',
+    address: addr.address || '',
     is_default: addr.is_default || false
   })
   addressFormDialogVisible.value = true
@@ -562,12 +572,13 @@ const handleSubmitOrder = async () => {
 
     const res = await createOrder({
       items: orderItemsData,
-      ship_name: selectedAddress.name,
+      ship_first_name: selectedAddress.first_name,
+      ship_last_name: selectedAddress.last_name,
       ship_email: selectedAddress.email,
       ship_phone: selectedAddress.phone,
-      ship_address: selectedAddress.address,
       ship_city: selectedAddress.city,
-      ship_postal_code: selectedAddress.postal_code,
+      ship_postcode: selectedAddress.postcode,
+      ship_address: selectedAddress.address,
       remark: '',
       clear_cart: !isBuyNow.value // Buy Now模式不清空购物车，购物车结算才清空
     })
