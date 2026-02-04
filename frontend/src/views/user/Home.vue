@@ -105,7 +105,7 @@
               <img src="@/assets/images/sub-3.png" alt="Savour the Flavour" />
             </div>
             <h3 class="step-title">SAVOUR THE FLAVOUR</h3>
-            <p class="step-desc">Dip, drizzle and dunk like never before. Don't forget to <a href="https://www.instagram.com/mamasfire_">tag@MAMAS FIRE</a> when youpop the lid.</p>
+            <p class="step-desc">Dip, drizzle and dunk like never before. Don't forget to <a href="https://www.instagram.com/mamasfire_">tag @MAMAS FIRE</a> when you pop the lid.</p>
           </div>
         </div>
 

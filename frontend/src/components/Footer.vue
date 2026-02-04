@@ -3,7 +3,7 @@
     <div class="footer-content">
       <div class="footer-left">
         <p class="copyright">
-          © {{ currentYear }} The Chilli Trail, Powered by Shopify
+          © {{ currentYear }}  Mama's Fire · Love In Every Drop!
         </p>
 <!--        <div class="terms-dropdown">-->
 <!--          <span class="terms-link">Terms and Policies</span>-->
