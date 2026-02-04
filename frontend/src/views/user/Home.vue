@@ -75,7 +75,7 @@
     <!-- Join The Club Section -->
     <section class="join-club-section">
       <div class="club-container">
-        <h2 class="club-title">HOW THE SAUCE CLUB SUBSCRIPTION WORKS</h2>
+        <h2 class="club-title">HOW MAMA'S FIRE SUBSCRIPTION WORKS</h2>
         
         <div class="club-steps">
           <!-- Step 1 -->
@@ -85,7 +85,7 @@
               <img src="@/assets/images/sub-1.png" alt="Join the Club" />
             </div>
             <h3 class="step-title">JOIN THE CLUB</h3>
-            <p class="step-desc">Sign up to join the sauciest club in the UK. Pause, skip or cancel anytime.</p>
+            <p class="step-desc">Sign up to join MAMA'S FIRE club in the UK. <br/>Pause, skip or cancel anytime.</p>
           </div>
 
           <!-- Step 2 -->
@@ -95,7 +95,7 @@
               <img src="@/assets/images/sub-2.png" alt="Unbox Your Sauce" />
             </div>
             <h3 class="step-title">UNBOX YOUR SAUCE</h3>
-            <p class="step-desc">Every other month you'll receive a flavour packed delivery.</p>
+            <p class="step-desc">Every 3 month you'll receive a flavour packed delivery.</p>
           </div>
 
           <!-- Step 3 -->
@@ -105,7 +105,7 @@
               <img src="@/assets/images/sub-3.png" alt="Savour the Flavour" />
             </div>
             <h3 class="step-title">SAVOUR THE FLAVOUR</h3>
-            <p class="step-desc">Dip, drizzle and dunk like never before. Be sure to tag @thechillitrail when you've cracked open your new sauce.</p>
+            <p class="step-desc">Dip, drizzle and dunk like never before. Don't forget to <a href="https://www.instagram.com/mamasfire_">tag@MAMAS FIRE</a> when youpop the lid.</p>
           </div>
         </div>
 

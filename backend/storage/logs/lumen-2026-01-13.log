@@ -1,0 +1,5 @@
+[2026-01-13 09:54:39] production.ERROR: Address create failed {"error":"SQLSTATE[HY000]: General error: 1364 Field 'name' doesn't have a default value (SQL: insert into `addresses` (`first_name`, `last_name`, `email`, `phone`, `address`, `city`, `postcode`, `user_id`, `is_default`, `updated_at`, `created_at`) values (sun, zhong, sunzhong@163.com, 1894445555, adddresafoss jie, zae, 98048803, 1, 0, 2026-01-13 09:54:39, 2026-01-13 09:54:39))"} 
+[2026-01-13 09:59:07] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-13 09:59:08] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2026-01-13 09:59:33] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-13 09:59:33] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 

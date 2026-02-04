@@ -30,6 +30,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="subject" label="邮件标题" min-width="200" show-overflow-tooltip />
+      <el-table-column prop="template_id" label="模板ID" width="120" />
       <el-table-column label="状态" width="100">
         <template #default="{ row }">
           <el-tag :type="row.status === 1 ? 'success' : 'info'">{{ row.status === 1 ? '启用' : '禁用' }}</el-tag>
@@ -76,19 +77,10 @@
             </span>
           </div>
         </el-form-item>
-        <el-form-item label="邮件内容" prop="content">
-          <el-input
-            v-model="form.content"
-            type="textarea"
-            :rows="10"
-            placeholder="请输入邮件内容（支持HTML）"
-            id="content-input"
-          />
+        <el-form-item label="Postmark模板ID" prop="template_id">
+          <el-input v-model="form.template_id" placeholder="请输入Postmark模板ID（如：43078204）" />
           <div class="form-tip">
-            可用变量：
-            <span v-for="(desc, key) in currentVariables" :key="key" class="variable-tag" @click="insertVariable('content', key)">
-              {{ key }} ({{ desc }})
-            </span>
+            请在 <a href="https://account.postmarkapp.com/servers" target="_blank" rel="noopener">Postmark后台</a> 创建邮件模板并复制模板ID
           </div>
         </el-form-item>
         <el-form-item label="状态" prop="status">
@@ -144,7 +136,7 @@ const form = reactive({
   name: '',
   type: 'register',
   subject: '',
-  content: '',
+  template_id: '',
   status: 1,
   schedule_time: ''
 })
@@ -153,7 +145,7 @@ const rules = {
   name: [{ required: true, message: '请输入任务名称', trigger: 'blur' }],
   type: [{ required: true, message: '请选择任务类型', trigger: 'change' }],
   subject: [{ required: true, message: '请输入邮件标题', trigger: 'blur' }],
-  content: [{ required: true, message: '请输入邮件内容', trigger: 'blur' }]
+  template_id: [{ required: true, message: '请输入Postmark模板ID', trigger: 'blur' }]
 }
 
 const variablesMap = {
@@ -267,7 +259,7 @@ const resetForm = () => {
   form.name = ''
   form.type = 'register'
   form.subject = ''
-  form.content = ''
+  form.template_id = ''
   form.status = 1
   form.schedule_time = ''
   formRef.value?.clearValidate()

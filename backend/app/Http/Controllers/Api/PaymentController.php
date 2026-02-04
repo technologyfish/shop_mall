@@ -689,18 +689,24 @@ class PaymentController extends Controller
 
             if ($task) {
                 $variables = [
-                    '{username}' => $user->username,
-                    '{order_no}' => $order->order_no,
-                    '{total_amount}' => number_format($order->total_amount, 2),
-                    '{pay_amount}' => number_format($order->pay_amount, 2),
-                    '{shipping_name}' => $order->shipping_name,
-                    '{shipping_address}' => $order->shipping_address,
-                    '{order_link}' => env('APP_FRONTEND_URL', 'http://localhost:5173') . '/user-center/orders/' . $order->id,
+                    'username' => $user->username,
+                    'order_no' => $order->order_no,
+                    'total_amount' => number_format($order->total_amount, 2),
+                    'pay_amount' => number_format($order->pay_amount, 2),
+                    'shipping_name' => $order->shipping_name,
+                    'shipping_address' => $order->shipping_address,
+                    'order_link' => env('APP_FRONTEND_URL', 'http://localhost:5173') . '/user-center/orders/' . $order->id,
                 ];
-                $subject = str_replace(array_keys($variables), array_values($variables), $task->subject);
-                $body = str_replace(array_keys($variables), array_values($variables), $task->content);
 
-                MailService::sendHtmlMail($user->email, $subject, $body);
+                if (env('MAIL_MODE') === 'postmark' && !empty($task->template_id)) {
+                    MailService::sendPostmarkTemplateMail($user->email, $task->template_id, $variables);
+                } else {
+                    // 兼容旧的 {variable} 替换逻辑
+                    $search = array_map(function($k) { return '{' . $k . '}'; }, array_keys($variables));
+                    $subject = str_replace($search, array_values($variables), $task->subject);
+                    $body = str_replace($search, array_values($variables), $task->content);
+                    MailService::sendHtmlMail($user->email, $subject, $body);
+                }
             }
         } catch (\Exception $e) {
             \Log::error('Failed to send order confirmation email', ['error' => $e->getMessage()]);

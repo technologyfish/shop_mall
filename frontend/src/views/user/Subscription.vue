@@ -15,7 +15,7 @@
             <img src="@/assets/images/sub-1.png" alt="Join the Club" />
           </div>
           <h2 class="step-title">JOIN THE CLUB</h2>
-          <p class="step-desc">Sign up to join the sauciest club in the UK. Pause, skip or cancel anytime.</p>
+          <p class="step-desc">Sign up to join MAMA'S FIRE club in the UK. <br/>Pause, skip or cancel anytime.</p>
         </div>
 
         <!-- Step 2: UNBOX YOUR SAUCE -->
@@ -25,7 +25,7 @@
             <img src="@/assets/images/sub-2.png" alt="Unbox Your Sauce" />
           </div>
           <h2 class="step-title">UNBOX YOUR SAUCE</h2>
-          <p class="step-desc">Every other month you'll receive a flavour packed delivery.</p>
+          <p class="step-desc">Every 3 month you'll receive a flavour packed delivery.</p>
         </div>
 
         <!-- Step 3: SAVOUR THE FLAVOUR -->
@@ -35,7 +35,7 @@
             <img src="@/assets/images/sub-3.png" alt="Savour the Flavour" />
           </div>
           <h2 class="step-title">SAVOUR THE FLAVOUR</h2>
-          <p class="step-desc">Dip, drizzle and dunk like never before. Be sure to tag @thesauceclubco when you've cracked open your new sauce.</p>
+          <p class="step-desc">Dip, drizzle and dunk like never before. Don't forget to <a href="https://www.instagram.com/mamasfire_">tag@MAMAS FIRE</a> when youpop the lid.</p>
         </div>
       </div>
 

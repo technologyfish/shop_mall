@@ -1,0 +1,11 @@
+[2026-01-16 18:49:45] production.INFO: Attempting to send welcome email {"user_id":13,"email":"765233482@qq.com"} 
+[2026-01-16 18:49:45] production.ERROR: Postmark configuration missing  
+[2026-01-16 18:49:45] production.INFO: Welcome email sent via HTML {"user_id":13,"email":"765233482@qq.com","subject":"Welcome to The Chilli Trail!","result":false} 
+[2026-01-16 18:56:25] production.INFO: Attempting to send welcome email {"user_id":14,"email":"765233482@qq.com"} 
+[2026-01-16 18:56:26] production.ERROR: Postmark Template API error {"code":422,"response":"{\"ErrorCode\":300,\"Message\":\"Invalid 'From' value.\"}"} 
+[2026-01-16 18:56:26] production.INFO: Welcome email sent via Postmark template {"user_id":14,"email":"765233482@qq.com","template_id":"43078204","result":false} 
+[2026-01-16 19:00:46] production.INFO: Attempting to send welcome email {"user_id":15,"email":"765233482@qq.com"} 
+[2026-01-16 19:00:47] production.ERROR: Postmark Template API error {"code":422,"response":"{\"ErrorCode\":412,\"Message\":\"While your account is pending approval, all recipient addresses must share the same domain as the 'From' address. The domain of the 'From' address is 'onaco.ltd', but you are attempting to send email to the following domain(s): 'qq.com'.\"}"} 
+[2026-01-16 19:00:47] production.INFO: Welcome email sent via Postmark template {"user_id":15,"email":"765233482@qq.com","template_id":"43078204","result":false} 
+[2026-01-16 19:03:35] production.INFO: Attempting to send welcome email {"user_id":16,"email":"test@onaco.ltd"} 
+[2026-01-16 19:03:36] production.INFO: Welcome email sent via Postmark template {"user_id":16,"email":"test@onaco.ltd","template_id":"43078204","result":true} 

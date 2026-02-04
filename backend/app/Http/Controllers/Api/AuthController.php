@@ -323,15 +323,50 @@ class AuthController extends Controller
             return $this->error('Validation failed', 422, $validator->errors());
         }
 
-        // 生成重置令牌
-        $token = bin2hex(random_bytes(32));
+        $user = User::where('email', $request->email)->first();
+        
+        // 生成验证码
+        $code = str_pad(mt_rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
-        // 这里应该发送邮件，暂时返回token
-        // TODO: 实现邮件发送功能
+        // 保存验证码到数据库或缓存 (此处假设有 MailService::sendVerificationCode 处理逻辑)
+        // 实际上我们可以使用 EmailTask
+        try {
+            $task = EmailTask::where('type', EmailTask::TYPE_PASSWORD_RESET)
+                ->where('status', EmailTask::STATUS_ENABLED)
+                ->first();
 
-        return $this->success([
-            'reset_token' => $token
-        ], 'Password reset email sent');
+            if ($task) {
+                $variables = [
+                    'username' => $user->username,
+                    'code' => $code,
+                    'email' => $user->email,
+                ];
+
+                // 如果配置了 template_id (存放在 variables 字段中或者作为内容的一部分)
+                // 这里我们假设如果 content 是纯数字或特定格式，就认为是 Postmark 模板 ID
+                if (env('MAIL_MODE') === 'postmark' && !empty($task->template_id)) {
+                    MailService::sendPostmarkTemplateMail($user->email, $task->template_id, $variables);
+                } else {
+                    $subject = str_replace(['{username}', '{code}', '{email}'], array_values($variables), $task->subject);
+                    $body = str_replace(['{username}', '{code}', '{email}'], array_values($variables), $task->content);
+                    MailService::sendHtmlMail($user->email, $subject, $body);
+                }
+            } else {
+                // 如果没有配置模板，回退到旧的 PHPMailer 模板逻辑
+                MailService::sendVerificationCode($user->email, $code);
+            }
+
+            // 这里可以把 $code 存入 password_resets 表
+            PasswordReset::updateOrCreate(
+                ['email' => $user->email],
+                ['token' => $code, 'created_at' => now()]
+            );
+
+            return $this->success(null, 'Password reset code sent');
+        } catch (\Exception $e) {
+            \Log::error('Failed to send forgot password email', ['error' => $e->getMessage()]);
+            return $this->error('Failed to send email', 500);
+        }
     }
 
     /**
@@ -376,7 +411,7 @@ class AuthController extends Controller
                 ->first();
 
             if (!$task) {
-                \Log::warning('Welcome email task not found or disabled. Please create a welcome email task (type=1) in admin panel.');
+                \Log::warning('Welcome email task not found or disabled. Please create a welcome email task (type=register) in admin panel.');
                 return;
             }
             
@@ -385,23 +420,43 @@ class AuthController extends Controller
                 return;
             }
 
-            $variables = [
-                '{username}' => $user->username,
-                '{nickname}' => $user->nickname ?? $user->username,
-                '{email}' => $user->email,
-                '{login_link}' => env('APP_FRONTEND_URL', 'http://localhost:5173') . '/login',
-            ];
-            $subject = str_replace(array_keys($variables), array_values($variables), $task->subject);
-            $body = str_replace(array_keys($variables), array_values($variables), $task->content);
+            // 使用 Postmark 模板发送邮件
+            if (!empty($task->template_id)) {
+                $templateModel = [
+                    'username' => $user->username,
+                    'nickname' => $user->nickname ?? $user->username,
+                    'email' => $user->email,
+                    'login_link' => env('APP_FRONTEND_URL', 'http://localhost:5173') . '/login',
+                ];
+                
+                $result = MailService::sendPostmarkTemplateMail($user->email, $task->template_id, $templateModel);
+                
+                \Log::info('Welcome email sent via Postmark template', [
+                    'user_id' => $user->id,
+                    'email' => $user->email,
+                    'template_id' => $task->template_id,
+                    'result' => $result
+                ]);
+            } else {
+                // 如果没有设置模板ID，回退到HTML方式（兼容旧数据）
+                $variables = [
+                    '{username}' => $user->username,
+                    '{nickname}' => $user->nickname ?? $user->username,
+                    '{email}' => $user->email,
+                    '{login_link}' => env('APP_FRONTEND_URL', 'http://localhost:5173') . '/login',
+                ];
+                $subject = str_replace(array_keys($variables), array_values($variables), $task->subject);
+                $body = str_replace(array_keys($variables), array_values($variables), $task->content ?? '');
 
-            $result = MailService::sendHtmlMail($user->email, $subject, $body);
-            
-            \Log::info('Welcome email sent', [
-                'user_id' => $user->id,
-                'email' => $user->email,
-                'subject' => $subject,
-                'result' => $result
-            ]);
+                $result = MailService::sendHtmlMail($user->email, $subject, $body);
+                
+                \Log::info('Welcome email sent via HTML', [
+                    'user_id' => $user->id,
+                    'email' => $user->email,
+                    'subject' => $subject,
+                    'result' => $result
+                ]);
+            }
         } catch (\Exception $e) {
             \Log::error('Failed to send welcome email', [
                 'error' => $e->getMessage(),

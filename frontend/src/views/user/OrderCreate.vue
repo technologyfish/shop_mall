@@ -189,39 +189,39 @@
         :model="addressForm" 
         :rules="addressRules"
         label-position="top"
-        class="custom-form"
+        class="custom-form stacked-form"
       >
-        <!-- First Name / Last Name -->
-        <div class="form-row">
-          <el-form-item label="First name" prop="first_name">
-            <el-input v-model="addressForm.first_name" placeholder="First name" />
-          </el-form-item>
-          <el-form-item label="Last name" prop="last_name">
-            <el-input v-model="addressForm.last_name" placeholder="Last name" />
-          </el-form-item>
-        </div>
+        <!-- First Name -->
+        <el-form-item label="First name" prop="first_name">
+          <el-input v-model="addressForm.first_name" placeholder="First name" />
+        </el-form-item>
 
-        <!-- Email & Phone -->
-        <div class="form-row">
-          <el-form-item label="Email" prop="email">
-            <el-input v-model="addressForm.email" placeholder="Email" />
-          </el-form-item>
-          <el-form-item label="Phone (optional)" prop="phone">
-            <el-input v-model="addressForm.phone" placeholder="Phone (optional)" />
-          </el-form-item>
-        </div>
+        <!-- Last name -->
+        <el-form-item label="Last name" prop="last_name">
+          <el-input v-model="addressForm.last_name" placeholder="Last name" />
+        </el-form-item>
 
-        <!-- City / Postcode (移到上方) -->
-        <div class="form-row">
-          <el-form-item label="City" prop="city">
-            <el-input v-model="addressForm.city" placeholder="City" />
-          </el-form-item>
-          <el-form-item label="Postcode" prop="postcode">
-            <el-input v-model="addressForm.postcode" placeholder="Postcode" />
-          </el-form-item>
-        </div>
+        <!-- Email -->
+        <el-form-item label="Email" prop="email">
+          <el-input v-model="addressForm.email" placeholder="Email" />
+        </el-form-item>
 
-        <!-- Address (移到下方) -->
+        <!-- Phone -->
+        <el-form-item label="Phone (optional)" prop="phone">
+          <el-input v-model="addressForm.phone" placeholder="Phone (optional)" />
+        </el-form-item>
+
+        <!-- City -->
+        <el-form-item label="City" prop="city">
+          <el-input v-model="addressForm.city" placeholder="City" />
+        </el-form-item>
+
+        <!-- Postcode -->
+        <el-form-item label="Postcode" prop="postcode">
+          <el-input v-model="addressForm.postcode" placeholder="Postcode" />
+        </el-form-item>
+
+        <!-- Address -->
         <el-form-item label="Address" prop="address">
           <el-input v-model="addressForm.address" placeholder="Address" />
         </el-form-item>
@@ -813,6 +813,50 @@ const handleSubmitOrder = async () => {
   }
 }
 
+.address-form-dialog {
+  :deep(.el-dialog__body) {
+    padding-top: 10px;
+  }
+  
+  .stacked-form {
+    :deep(.el-form-item) {
+      margin-bottom: 20px;
+      
+      .el-form-item__label {
+        font-family: 'NotoSerif-Regular', serif;
+        font-weight: normal;
+        color: #333;
+        margin-bottom: 8px;
+        padding: 0;
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: '*' !important;
+          color: #c00 !important;
+          margin-right: 4px;
+        }
+      }
+
+      // Hide default asterisk if any
+      &.is-required :deep(.el-form-item__label::before) {
+        content: '*' !important;
+      }
+      
+      .el-input__inner {
+        height: 45px;
+        border-radius: 8px;
+      }
+    }
+
+    // Special case for optional phone
+    .el-form-item[prop="phone"] :deep(.el-form-item__label::before) {
+      display: none;
+    }
+  }
+}
+
 // Address Dialog
 .address-dialog-content {
   .address-list {
@@ -925,5 +969,6 @@ const handleSubmitOrder = async () => {
   }
 }
 </style>
+
 
 

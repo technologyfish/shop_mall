@@ -1,0 +1,6 @@
+[2026-01-20 00:03:32] production.INFO: Attempting to send welcome email {"user_id":19,"email":"765233482@qq.com"} 
+[2026-01-20 00:03:32] production.INFO: Welcome email sent via Postmark template {"user_id":19,"email":"765233482@qq.com","template_id":"43078204","result":true} 
+[2026-01-20 00:12:39] production.INFO: Attempting to send welcome email {"user_id":20,"email":"765233482@qq.com"} 
+[2026-01-20 00:12:40] production.INFO: Welcome email sent via Postmark template {"user_id":20,"email":"765233482@qq.com","template_id":"43078204","result":true} 
+[2026-01-20 00:14:12] production.ERROR: PHPMailer Exception {"email":"765233482@qq.com","error":"SMTP Error: Could not authenticate.","error_info":"<strong>SMTP Error: Could not authenticate.</strong><br />
+"} 

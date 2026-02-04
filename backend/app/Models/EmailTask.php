@@ -8,6 +8,8 @@ class EmailTask extends Model
 {
     const TYPE_WELCOME = 'register'; // 注册欢迎邮件
     const TYPE_ORDER_CONFIRMATION = 'order'; // 订单确认邮件
+    const TYPE_SHIPPING_NOTIFICATION = 'shipping'; // 发货通知邮件
+    const TYPE_PASSWORD_RESET = 'password_reset'; // 密码重置邮件
     const TYPE_CAMPAIGN = 'holiday'; // 营销活动邮件/节假日邮件
 
     const STATUS_DISABLED = 0;
@@ -15,7 +17,7 @@ class EmailTask extends Model
 
     protected $fillable = [
         'name', 'type', 'subject', 'content', 'status', 
-        'variables', 'schedule_time'
+        'variables', 'schedule_time', 'template_id'
     ];
 
     protected $casts = [

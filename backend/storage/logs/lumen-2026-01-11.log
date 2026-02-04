@@ -1,0 +1,53 @@
+[2026-01-11 10:00:59] production.INFO: Customer Portal session created {"user_id":1,"customer_id":"cus_TahALKYaU7hkcl","portal_url":"https://billing.stripe.com/p/session/test_YWNjdF8xTml3UjhBeUthZnRJcGVVLF9UbHRFODIzUEN0T04zSkxlN0hxNVI4TmNzakw2dFp001002mreXMXQ"} 
+[2026-01-11 10:03:36] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-11 10:03:37] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2026-01-11 10:04:14] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-11 10:04:14] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2026-01-11 10:04:38] production.INFO: Payment create request {"data":{"order_no":"20260111100414512293","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 10:04:38] production.INFO: Stripe payment amount {"order_no":"20260111100414512293","pay_amount":"15.49","total_amount_cents":1549,"discount_amount":"0.00"} 
+[2026-01-11 10:04:39] production.INFO: Stripe session created {"session_id":"cs_test_a1V60rg9ReiJcDuwVGpXISw1yO3kA8DsPi2r85WpjwLdTUFk0bQb6GRrua","order_no":"20260111100414512293","amount":"15.49"} 
+[2026-01-11 10:10:06] production.INFO: Customer Portal session created {"user_id":1,"customer_id":"cus_TahALKYaU7hkcl","portal_url":"https://billing.stripe.com/p/session/test_YWNjdF8xTml3UjhBeUthZnRJcGVVLF9UbHROUTJoQ1ZubEJaMUpNbUFSdTZ5ZWo2Y2s1a01W0100Bpxxhryq"} 
+[2026-01-11 10:10:29] production.INFO: Customer Portal session created {"user_id":1,"customer_id":"cus_TahALKYaU7hkcl","portal_url":"https://billing.stripe.com/p/session/test_YWNjdF8xTml3UjhBeUthZnRJcGVVLF9UbHRPT1MxSUFnMTc3czVtUHJZUXFmb2dIamtIM2dv0100Vf3m6TAr"} 
+[2026-01-11 16:30:55] production.INFO: Payment create request {"data":{"order_no":"20260111100414512293","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 16:30:56] production.INFO: Stripe payment amount {"order_no":"20260111100414512293","pay_amount":"15.49","total_amount_cents":1549,"discount_amount":"0.00"} 
+[2026-01-11 16:30:57] production.INFO: Stripe session created {"session_id":"cs_test_a1UCGlwqvJHJm3Ixq72Lf840LBJI7BYknCZyIJkKngS6W8madalkgGVCqw","order_no":"20260111100414512293","amount":"15.49"} 
+[2026-01-11 16:31:47] production.INFO: Attempting to verify payment via session_id {"order_no":"20260111100414512293","session_id":"cs_test_a1UCGlwqvJHJm3Ixq72Lf840LBJI7BYknCZyIJkKngS6W8madalkgGVCqw"} 
+[2026-01-11 16:31:48] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_a1UCGlwqvJHJm3Ixq72Lf840LBJI7BYknCZyIJkKngS6W8madalkgGVCqw"} 
+[2026-01-11 16:31:48] production.INFO: Order updated {"order_no":"20260111100414512293"} 
+[2026-01-11 16:31:48] production.INFO: Payment updated {"order_no":"20260111100414512293"} 
+[2026-01-11 16:31:48] production.INFO: Product sales updated {"order_no":"20260111100414512293"} 
+[2026-01-11 16:31:49] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20260111100414512293","session_id":"cs_test_a1UCGlwqvJHJm3Ixq72Lf840LBJI7BYknCZyIJkKngS6W8madalkgGVCqw"} 
+[2026-01-11 16:35:49] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-11 16:35:49] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2026-01-11 16:35:55] production.INFO: Payment create request {"data":{"order_no":"20260111163549440352","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 16:35:55] production.INFO: Stripe payment amount {"order_no":"20260111163549440352","pay_amount":"15.49","total_amount_cents":1549,"discount_amount":"0.00"} 
+[2026-01-11 16:35:56] production.INFO: Stripe session created {"session_id":"cs_test_a1XhPQtKIlKmuRfwKxqMBqIgJdXvczbY8AkrzKUpqlzenXG51BnZkgHneu","order_no":"20260111163549440352","amount":"15.49"} 
+[2026-01-11 16:41:05] production.INFO: Payment create request {"data":{"order_no":"20260111163549440352","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 16:41:05] production.INFO: Stripe payment amount {"order_no":"20260111163549440352","pay_amount":"15.49","total_amount_cents":1549,"discount_amount":"0.00"} 
+[2026-01-11 16:41:06] production.INFO: Stripe session created {"session_id":"cs_test_a1HaPqtcF9yW1VJUTrDqQhkLYjdlQyxu1i1wRbQfVZ8OTwKyJfh31hNoBN","order_no":"20260111163549440352","amount":"15.49"} 
+[2026-01-11 16:41:31] production.INFO: Payment create request {"data":{"order_no":"20260111163549440352","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 16:41:32] production.INFO: Stripe payment amount {"order_no":"20260111163549440352","pay_amount":"15.49","total_amount_cents":1549,"discount_amount":"0.00"} 
+[2026-01-11 16:41:33] production.INFO: Stripe session created {"session_id":"cs_test_a18CyTnQUhr9c0SeFy0pnHsmToCqR4oOWra6mYmszUomVYIbRExKwzhXKf","order_no":"20260111163549440352","amount":"15.49"} 
+[2026-01-11 16:49:33] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-11 16:49:33] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2026-01-11 16:49:38] production.INFO: Payment create request {"data":{"order_no":"20260111164933899922","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 16:49:39] production.INFO: Stripe payment amount {"order_no":"20260111164933899922","pay_amount":"15.99","total_amount_cents":1599,"discount_amount":"0.00"} 
+[2026-01-11 16:49:40] production.INFO: Stripe session created {"session_id":"cs_test_a1AZvHeWEXkkE4tiqT1vqovT37Ma9huNb4h6AXHmwRw9JB70fQY6wqJZEA","order_no":"20260111164933899922","amount":"15.99"} 
+[2026-01-11 16:49:52] production.INFO: Payment create request {"data":{"order_no":"20260111164933899922","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 16:49:53] production.INFO: Stripe payment amount {"order_no":"20260111164933899922","pay_amount":"15.99","total_amount_cents":1599,"discount_amount":"0.00"} 
+[2026-01-11 16:49:54] production.INFO: Stripe session created {"session_id":"cs_test_a1FUikJKKHnC4ctq10VjUUvyGDwdPub53DhLvle8wcvx3itNfgTDbGRDht","order_no":"20260111164933899922","amount":"15.99"} 
+[2026-01-11 16:50:20] production.INFO: Attempting to verify payment via session_id {"order_no":"20260111164933899922","session_id":"cs_test_a1FUikJKKHnC4ctq10VjUUvyGDwdPub53DhLvle8wcvx3itNfgTDbGRDht"} 
+[2026-01-11 16:50:20] production.INFO: Stripe session retrieved {"payment_status":"paid","session_id":"cs_test_a1FUikJKKHnC4ctq10VjUUvyGDwdPub53DhLvle8wcvx3itNfgTDbGRDht"} 
+[2026-01-11 16:50:20] production.INFO: Order updated {"order_no":"20260111164933899922"} 
+[2026-01-11 16:50:20] production.INFO: Payment updated {"order_no":"20260111164933899922"} 
+[2026-01-11 16:50:21] production.INFO: Product sales updated {"order_no":"20260111164933899922"} 
+[2026-01-11 16:50:21] production.INFO: ✅ Payment verified and order updated successfully {"order_no":"20260111164933899922","session_id":"cs_test_a1FUikJKKHnC4ctq10VjUUvyGDwdPub53DhLvle8wcvx3itNfgTDbGRDht"} 
+[2026-01-11 16:50:39] production.INFO: Payment create request {"data":{"order_no":"20260111163549440352","payment_method":"bank_card","return_url":"http://localhost:5173/payment/result","callback_url":"http://localhost:8000/api/payments/callback"},"user_id":1} 
+[2026-01-11 16:50:39] production.INFO: Stripe payment amount {"order_no":"20260111163549440352","pay_amount":"15.49","total_amount_cents":1549,"discount_amount":"0.00"} 
+[2026-01-11 16:50:40] production.INFO: Stripe session created {"session_id":"cs_test_a1h9WwA7nGpEzCmmUDH9fzGjeOGLjrDTBU8qd7aYbUZlgQX2guSlbYrDIc","order_no":"20260111163549440352","amount":"15.49"} 
+[2026-01-11 16:55:47] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-11 16:55:47] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2026-01-11 16:57:11] production.INFO: First order check {"user_id":1,"is_first_order":false,"first_order_discount":0} 
+[2026-01-11 16:57:11] production.INFO: Checking user discount {"user_id":1,"has_discount":false,"discount_value":null} 
+[2026-01-11 17:02:49] production.INFO: Stripe subscription cancelled immediately {"subscription_id":"25","stripe_subscription_id":"sub_1SoRy0AyKaftIpeUAGYqOBBI","stripe_status":"canceled"} 
+[2026-01-11 17:02:50] production.INFO: Subscription orders cancelled {"subscription_id":25} 

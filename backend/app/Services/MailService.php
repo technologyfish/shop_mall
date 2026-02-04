@@ -45,6 +45,10 @@ class MailService
             return true;
         }
 
+        if ($mode === 'postmark') {
+            return self::sendPostmarkMail($email, $subject, $content);
+        }
+
         try {
             $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
 
@@ -78,6 +82,118 @@ class MailService
 
         } catch (\Exception $e) {
             \Log::error('Email sending failed', ['error' => $e->getMessage()]);
+            return false;
+        }
+    }
+
+    /**
+     * 通过 Postmark 模板发送邮件
+     * 
+     * @param string $email 收件人
+     * @param string|int $templateId 模板 ID 或 Alias
+     * @param array $templateModel 模板变量 (Key-Value)
+     * @return bool
+     */
+    public static function sendPostmarkTemplateMail($email, $templateId, $templateModel = [])
+    {
+        $mode = env('MAIL_MODE', 'log');
+        if ($mode === 'log') {
+            \Log::info('Postmark Template Email (TEST MODE)', [
+                'to' => $email,
+                'template_id' => $templateId,
+                'model' => $templateModel
+            ]);
+            return true;
+        }
+
+        $token = env('POSTMARK_TOKEN');
+        $from = env('POSTMARK_FROM_ADDRESS');
+
+        $payload = [
+            'From' => $from,
+            'To' => $email,
+            'TemplateId' => is_numeric($templateId) ? (int)$templateId : null,
+            'TemplateAlias' => is_numeric($templateId) ? null : $templateId,
+            'TemplateModel' => $templateModel,
+            'MessageStream' => 'outbound'
+        ];
+
+        try {
+            $ch = curl_init('https://api.postmarkapp.com/email/withTemplate');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Accept: application/json',
+                'Content-Type: application/json',
+                'X-Postmark-Server-Token: ' . $token
+            ]);
+
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+
+            if ($httpCode >= 200 && $httpCode < 300) {
+                return true;
+            } else {
+                \Log::error('Postmark Template API error', ['code' => $httpCode, 'response' => $response]);
+                return false;
+            }
+        } catch (\Exception $e) {
+            \Log::error('Postmark template exception', ['error' => $e->getMessage()]);
+            return false;
+        }
+    }
+
+    /**
+     * 通过 Postmark API 发送邮件
+     */
+    private static function sendPostmarkMail($email, $subject, $content)
+    {
+        $token = env('POSTMARK_TOKEN');
+        $from = env('POSTMARK_FROM_ADDRESS');
+
+        if (!$token || !$from) {
+            \Log::error('Postmark configuration missing');
+            return false;
+        }
+
+        $payload = [
+            'From' => $from,
+            'To' => $email,
+            'Subject' => $subject,
+            'HtmlBody' => $content,
+            'MessageStream' => 'outbound'
+        ];
+
+        try {
+            $ch = curl_init('https://api.postmarkapp.com/email');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Accept: application/json',
+                'Content-Type: application/json',
+                'X-Postmark-Server-Token: ' . $token
+            ]);
+
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+
+            if ($httpCode >= 200 && $httpCode < 300) {
+                \Log::info('Email sent via Postmark', ['email' => $email]);
+                return true;
+            } else {
+                \Log::error('Postmark API error', [
+                    'code' => $httpCode,
+                    'response' => $response,
+                    'email' => $email
+                ]);
+                return false;
+            }
+        } catch (\Exception $e) {
+            \Log::error('Postmark exception', ['error' => $e->getMessage()]);
             return false;
         }
     }

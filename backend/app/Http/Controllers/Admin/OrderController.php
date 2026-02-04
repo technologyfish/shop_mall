@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\EmailTask;
+use App\Services\MailService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
@@ -104,6 +106,9 @@ class OrderController extends Controller
             $order->shipping_no = $request->shipping_no;
             $order->save();
 
+            // 发送发货通知邮件
+            $this->sendShippingNotificationEmail($order);
+
             return $this->success($order, 'Order shipping info updated successfully');
         } catch (\Exception $e) {
             \Log::error('Order ship failed', ['error' => $e->getMessage(), 'order_id' => $id]);
@@ -130,6 +135,40 @@ class OrderController extends Controller
         ];
 
         return $this->success($data);
+    /**
+     * 发送发货通知邮件
+     */
+    private function sendShippingNotificationEmail($order)
+    {
+        try {
+            $user = $order->user;
+            if (!$user || !$user->email) return;
+
+            $task = EmailTask::where('type', EmailTask::TYPE_SHIPPING_NOTIFICATION)
+                ->where('status', EmailTask::STATUS_ENABLED)
+                ->first();
+
+            if ($task) {
+                $variables = [
+                    'username' => $user->username,
+                    'order_no' => $order->order_no,
+                    'shipping_company' => $order->shipping_company,
+                    'shipping_no' => $order->shipping_no,
+                    'order_link' => env('APP_FRONTEND_URL', 'http://localhost:5173') . '/user-center/orders/' . $order->id,
+                ];
+
+                if (env('MAIL_MODE') === 'postmark' && !empty($task->template_id)) {
+                    MailService::sendPostmarkTemplateMail($user->email, $task->template_id, $variables);
+                } else {
+                    $search = array_map(function($k) { return '{' . $k . '}'; }, array_keys($variables));
+                    $subject = str_replace($search, array_values($variables), $task->subject);
+                    $body = str_replace($search, array_values($variables), $task->content);
+                    MailService::sendHtmlMail($user->email, $subject, $body);
+                }
+            }
+        } catch (\Exception $e) {
+            \Log::error('Failed to send shipping notification email', ['error' => $e->getMessage()]);
+        }
     }
 }
 

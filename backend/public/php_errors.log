@@ -1,0 +1,16 @@
+[28-Jan-2026 11:02:15 Asia/Shanghai] PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.3.0". You are running 7.3.4. in D:\my-code\kehu-web\shop_mall\backend\vendor\composer\platform_check.php:22
+Stack trace:
+#0 D:\my-code\kehu-web\shop_mall\backend\vendor\composer\autoload_real.php(25): require()
+#1 D:\my-code\kehu-web\shop_mall\backend\vendor\autoload.php(22): ComposerAutoloaderInit1d79513a263f3136e742ae1c6af32a66::getLoader()
+#2 D:\my-code\kehu-web\shop_mall\backend\bootstrap\app.php(3): require_once('D:\\my-code\\kehu...')
+#3 D:\my-code\kehu-web\shop_mall\backend\public\index.php(9): require('D:\\my-code\\kehu...')
+#4 {main}
+  thrown in D:\my-code\kehu-web\shop_mall\backend\vendor\composer\platform_check.php on line 22
+[28-Jan-2026 11:02:16 Asia/Shanghai] PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.3.0". You are running 7.3.4. in D:\my-code\kehu-web\shop_mall\backend\vendor\composer\platform_check.php:22
+Stack trace:
+#0 D:\my-code\kehu-web\shop_mall\backend\vendor\composer\autoload_real.php(25): require()
+#1 D:\my-code\kehu-web\shop_mall\backend\vendor\autoload.php(22): ComposerAutoloaderInit1d79513a263f3136e742ae1c6af32a66::getLoader()
+#2 D:\my-code\kehu-web\shop_mall\backend\bootstrap\app.php(3): require_once('D:\\my-code\\kehu...')
+#3 D:\my-code\kehu-web\shop_mall\backend\public\index.php(9): require('D:\\my-code\\kehu...')
+#4 {main}
+  thrown in D:\my-code\kehu-web\shop_mall\backend\vendor\composer\platform_check.php on line 22

@@ -50,7 +50,7 @@ class EmailTaskController extends Controller
             'name' => 'required|string|max:100',
             'type' => 'required|string|in:register,order,holiday',
             'subject' => 'required|string|max:200',
-            'content' => 'required|string',
+            'template_id' => 'required|string|max:50',
             'status' => 'required|integer|in:0,1',
             'schedule_time' => 'nullable|date',
         ]);
@@ -91,7 +91,7 @@ class EmailTaskController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'string|max:100',
             'subject' => 'string|max:200',
-            'content' => 'string',
+            'template_id' => 'string|max:50',
             'status' => 'integer|in:0,1',
             'schedule_time' => 'nullable|date',
         ]);
